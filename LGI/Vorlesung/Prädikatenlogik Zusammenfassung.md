@@ -1,0 +1,4 @@
+
+- Objektkonstanten
+- Funktionskonstanten
+- 

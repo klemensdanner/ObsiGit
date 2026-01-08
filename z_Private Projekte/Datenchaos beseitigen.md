@@ -1,0 +1,1 @@
+1. alle Fotos (wirklich alle) in einen Ordner kopieren

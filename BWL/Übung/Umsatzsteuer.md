@@ -1,0 +1,1 @@
+Kleinunternehmer sofern <55000€ müssen keine Umsatzsteuer abführen
