@@ -7,7 +7,7 @@ program Sortierverfahren;
     end;
   
   const
-    n = 100;
+    n = 10;
 
   type
     TypeArray = array [1..n] of ElementType;
@@ -92,8 +92,8 @@ begin
   FillArray(a, first, last);
 
   //Write('Random > ');
-  // WriteArrayKeys(a, first, last);
-  // WriteLn;
+  WriteArrayKeys(a, first, last);
+  WriteLn;
 
   InsertionSort(a, first, last);
   Write('Sorted > ');
