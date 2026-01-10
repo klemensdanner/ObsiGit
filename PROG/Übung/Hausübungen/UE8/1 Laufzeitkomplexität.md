@@ -381,8 +381,8 @@ tags:
 				"typeName": "shape"
 			},
 			{
-				"x": 1290,
-				"y": 730,
+				"x": 1280,
+				"y": 860,
 				"rotation": 0,
 				"isLocked": false,
 				"opacity": 1,
@@ -411,7 +411,7 @@ tags:
 								},
 								{
 									"x": 0,
-									"y": -566.36,
+									"y": -716.36,
 									"z": 1
 								}
 							]
@@ -825,7 +825,7 @@ tags:
 				"props": {
 					"color": "black",
 					"size": "m",
-					"w": 649,
+					"w": 649.0078125,
 					"font": "mono",
 					"textAlign": "start",
 					"autoSize": true,
@@ -907,7 +907,25 @@ tags:
 								"content": [
 									{
 										"type": "text",
-										"text": "  FOR i := a TO b DO BEGIN"
+										"text": "  i := a;"
+									}
+								]
+							},
+							{
+								"type": "paragraph",
+								"attrs": {
+									"dir": "auto"
+								}
+							},
+							{
+								"type": "paragraph",
+								"attrs": {
+									"dir": "auto"
+								},
+								"content": [
+									{
+										"type": "text",
+										"text": "  while i <= b do begin"
 									}
 								]
 							},
@@ -943,7 +961,19 @@ tags:
 								"content": [
 									{
 										"type": "text",
-										"text": "  END;"
+										"text": "    i := i + 1;"
+									}
+								]
+							},
+							{
+								"type": "paragraph",
+								"attrs": {
+									"dir": "auto"
+								},
+								"content": [
+									{
+										"type": "text",
+										"text": "  end;"
 									}
 								]
 							},
@@ -1280,7 +1310,7 @@ tags:
 			},
 			{
 				"x": 1160.4872664281736,
-				"y": 730,
+				"y": 860,
 				"rotation": 0,
 				"isLocked": false,
 				"opacity": 1,
@@ -1299,37 +1329,37 @@ tags:
 								},
 								{
 									"x": 0,
-									"y": -1.32,
+									"y": -1.62,
 									"z": 0.5
 								},
 								{
 									"x": 0,
-									"y": -2.63,
+									"y": -3.22,
 									"z": 0.5
 								},
 								{
 									"x": 0,
-									"y": -3.95,
+									"y": -4.83,
 									"z": 0.5
 								},
 								{
 									"x": 0,
-									"y": -5.26,
+									"y": -6.44,
 									"z": 0.5
 								},
 								{
 									"x": 0,
-									"y": -6.59,
+									"y": -8.06,
 									"z": 0.5
 								},
 								{
 									"x": 0,
-									"y": -7.9,
+									"y": -9.67,
 									"z": 0.5
 								},
 								{
 									"x": 0,
-									"y": -9.22,
+									"y": -11.28,
 									"z": 0.5
 								}
 							]
@@ -1344,7 +1374,7 @@ tags:
 								},
 								{
 									"x": 0,
-									"y": -581.23,
+									"y": -711.23,
 									"z": 1
 								}
 							]
@@ -1365,7 +1395,7 @@ tags:
 			},
 			{
 				"x": 1015.3056612956517,
-				"y": 730,
+				"y": 860,
 				"rotation": 0,
 				"isLocked": false,
 				"opacity": 1,
@@ -1384,57 +1414,57 @@ tags:
 								},
 								{
 									"x": 0,
-									"y": -1.32,
+									"y": -1.62,
 									"z": 0.5
 								},
 								{
 									"x": 0,
-									"y": -1.32,
+									"y": -1.62,
 									"z": 0.5
 								},
 								{
 									"x": 0,
-									"y": -2.63,
+									"y": -3.22,
 									"z": 0.5
 								},
 								{
 									"x": 0,
-									"y": -3.95,
+									"y": -4.84,
 									"z": 0.5
 								},
 								{
 									"x": 0,
-									"y": -7.89,
+									"y": -9.66,
 									"z": 0.5
 								},
 								{
 									"x": 0,
-									"y": -9.21,
+									"y": -11.28,
 									"z": 0.5
 								},
 								{
 									"x": 0,
-									"y": -13.14,
+									"y": -16.09,
 									"z": 0.5
 								},
 								{
 									"x": 0,
-									"y": -14.46,
+									"y": -17.7,
 									"z": 0.5
 								},
 								{
 									"x": 0,
-									"y": -15.77,
+									"y": -19.31,
 									"z": 0.5
 								},
 								{
 									"x": 0,
-									"y": -17.09,
+									"y": -20.92,
 									"z": 0.5
 								},
 								{
 									"x": 0,
-									"y": -18.4,
+									"y": -22.53,
 									"z": 0.5
 								}
 							]
@@ -1444,12 +1474,12 @@ tags:
 							"points": [
 								{
 									"x": 0,
-									"y": -18.4,
+									"y": -22.53,
 									"z": 0.5
 								},
 								{
 									"x": 0,
-									"y": -579.35,
+									"y": -709.35,
 									"z": 1
 								}
 							]
@@ -2835,7 +2865,7 @@ tags:
 				"isChatting": false,
 				"highlightedUserIds": [],
 				"isFocused": false,
-				"devicePixelRatio": 1.5,
+				"devicePixelRatio": 2,
 				"isCoarsePointer": false,
 				"isHoveringCanvas": null,
 				"openMenus": [],
