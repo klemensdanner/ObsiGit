@@ -1,7 +1,7 @@
 
 ```dataviewjs
 // 1. Konfiguration: Ordner anpassen!
-const folder = '"_DailyNotes"'; 
+const folder = '"ObsiGit/_DailyNotes"'; 
 
 // --- HILFSFUNKTIONEN & INITIALISIERUNG ---
 
@@ -128,7 +128,7 @@ dv.table(["Projekt / Fach", "Seit Montag", "Gesamt"], displayData);
 ```tracker
 searchType: frontmatter
 searchTarget: Arbeitszeit
-folder: _DailyNotes
+folder: ObsiGit/_DailyNotes
 startDate: -7d
 endDate: 0d
 line:
@@ -144,7 +144,7 @@ line:
 ```tracker
 searchType: frontmatter
 searchTarget: Rückentraining
-folder: _DailyNotes
+folder: ObsiGit/_DailyNotes
 startDate: -7d
 endDate: 0d
 bar:
@@ -161,7 +161,7 @@ bar:
 ```tracker
 searchType: frontmatter
 searchTarget: Schlafzeit
-folder: _DailyNotes
+folder: ObsiGit/_DailyNotes
 startDate: -7d
 endDate: 0d
 line:
@@ -177,7 +177,7 @@ line:
 ```tracker
 searchType: frontmatter
 searchTarget: HandyScreenOn
-folder: _DailyNotes
+folder: ObsiGit/_DailyNotes
 startDate: -7d
 endDate: 0d
 line:
