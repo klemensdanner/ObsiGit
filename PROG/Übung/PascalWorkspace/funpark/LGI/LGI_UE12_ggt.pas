@@ -19,6 +19,26 @@ program ggtCalc;
       Add := a;
   end;
 
+
+  function Multi(a, b: integer): integer; //multiplies 2 numbers using only inc, dec and Add
+  begin
+    if b > 1 then begin
+      dec(b);
+      Multi := Add(Multi(a, b), a)
+    end else if b = 1 then
+      Multi := a
+    else
+      Multi := 0;
+  end;
+
+  function Power(a, b: integer): integer; //calc a^b
+  begin
+    if b > 0 then
+      Power := Multi(Power(a, b-1), a)
+    else
+      Power := 1;
+  end;
+
   var
     a, b: integer;
 
@@ -30,7 +50,9 @@ begin
   ReadLn(b);
   WriteLn;
 
-  WriteLn('ggt of ', a, ' and ', b, ' is ', ggt(a, b));
-
+ // WriteLn('ggt of ', a, ' and ', b, ' is ', ggt(a, b));
   WriteLn('Add only using inc and dec > ', Add(a, b));
+  WriteLn('Multi > ', Multi(a, b));
+  WriteLn('Power (a^b) > ', Power(a, b));
+
 end.
