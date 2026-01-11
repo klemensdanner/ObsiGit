@@ -77,14 +77,6 @@ program SelSort;
     SmallestNodePt := minParent;
   end;
 
-  {procedure SwapData(a, b: ListNodePtr);
-    var
-      tmp: integer;
-  begin
-    tmp := a^.data;
-    a^.data := b^.data;
-    b^.data := tmp;
-  end;}
 
 
   procedure SwapChildNodes(ptA, ptB: ListNodePtr); //swaps Nodes using their parents
