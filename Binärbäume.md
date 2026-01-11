@@ -12,7 +12,6 @@ Fälle:
 - Allgemein:
 
 
-
+ 
 Binärbäume mit suchen
-- 
 evtl. asympthotische Laufzeitkomplexität, so bissl
