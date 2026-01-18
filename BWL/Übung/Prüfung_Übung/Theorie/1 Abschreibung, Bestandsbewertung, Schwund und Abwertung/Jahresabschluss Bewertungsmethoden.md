@@ -17,7 +17,9 @@ Wenn der Wertverlust von Dauer ist, muss man immer abschreiben.
 Damit man Werte überhaupt vergleichen kann, verwendet man unterschiedliche Bewertungsverfahren zur Einsatzermittelung.
 - Identitätspreisverfahren
 - LIFO
+	- ![[Pasted image 20260118135432.png|300]]
 - FIFO
+	- ![[Pasted image 20260118135458.png|300]]
 - gleitendes Durchschnittspreisverfahren
 
 ### indirekte Einsatzermittelung
