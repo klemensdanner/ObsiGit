@@ -35,7 +35,7 @@ begin
   begin
     if value < node^.data then
       Insert(node^.left, value)
-    else if value > node^.data then
+    else
       Insert(node^.right, value);
   end;
 end;
@@ -57,6 +57,7 @@ begin
   Insert(root, 18);
   Insert(root, 30);
   Insert(root, 43);
+    Insert(root, 3);
   
   { Rechter Hauptast }
   Insert(root, 75);
@@ -66,6 +67,7 @@ begin
   Insert(root, 68);
   Insert(root, 81);
   Insert(root, 95);
+    Insert(root, 18);
   
   WriteLn('Baum wurde generiert.');
 end;
@@ -134,10 +136,125 @@ end;
   end;
 
 
+  function Count(tree: TreeNodePtr; x: integer): integer;
+  begin
+    if tree <> nil then begin
+      if tree^.data = x then begin
+        Count := 1 + Count(tree^.left, x) + Count(tree^.right, x);
+      end else begin
+        Count := Count(tree^.left, x) + Count(tree^.right, x);
+      end;
+    end else begin
+      Count := 0;
+    end;
+  end;
+
+  function CountBinTree(t: TreeNodePtr; x: integer): integer;
+    var
+      st: TreeNodePtr;
+      counter: integer;
+  begin
+    if t = nil then begin
+      Exit;
+    end;
+
+    st := t;
+    counter := 0;
+    while st <> nil do begin
+      if st^.data < x then begin
+        st := st^.right;
+      end else if st^.data = x then begin
+        inc(counter);
+        st := st^.right;
+      end else begin
+        st := st^.left;
+      end;
+    end;
+
+    CountBinTree := counter;
+  end;
 
 
+  function CountBinTreeRec(t: TreeNodePtr; x: integer): integer;
+  begin
+    if t <> nil then begin
+      if x > t^.data then begin
+        CountBinTreeRec := CountBinTreeRec(t^.right, x);
+      end else if x = t^.data then begin
+        CountBinTreeRec := 1 + CountBinTreeRec(t^.right, x);
+      end else begin
+        CountBinTreeRec := CountBinTreeRec(t^.left, x);
+      end;
+    end else begin
+      CountBinTreeRec := 0;
+    end;
+  end;
+
+  function NumberOfLeaves(t: TreePtr): integer;
+  begin
+    if t = nil then begin
+      NumberOfLeaves := 0;
+      Exit;
+    end;
+
+    if (t^.right = nil) and (t^.left = nil) then begin
+      NumberOfLeaves := 1;
+    end else begin
+      NumberOfLeaves := NumberOfLeaves(t^.left) + NumberOfLeaves(t^.right);
+    end;
+  end;
 
 
+  // returns the node with the greatest value <= x
+  function Floor(t: TreePtr; x: integer): TreeNodePtr;
+    var
+      res: TreeNodePtr;
+  begin
+    if t = nil then begin
+      Floor := nil;
+      Exit;
+    end;
+
+    if t^.data = x then begin
+      Floor := t;
+    end else if t^.data > x then begin
+      Floor := Floor(t^.left, x);
+    end else begin // t^.data < x - möglich, vll aber rechts noch was größeres
+      res := Floor(t^.right, x);
+      if res <> nil then begin
+        Floor := res;
+      end else begin
+        Floor := t;
+      end;
+    end;
+  end;
+
+
+  function MinVal(t: TreePtr): integer;
+    var
+      min, minCurr, minL, minR: integer;
+  begin
+    if t = nil then begin
+      MinVal := high(integer);
+      Exit;
+    end;
+
+    minCurr := t^.data;
+    minL := MinVal(t^.left);
+    minR := MinVal(t^.right);
+
+    if minL < minR then begin
+      min := minL;
+    end else begin
+      min := minR;
+    end;
+
+    if min < minCurr then begin
+      minCurr := min;
+    end;
+
+    MinVal := minCurr;
+  end;
 
 
 
@@ -150,8 +267,14 @@ begin
   WriteTree(tree);
   WriteLn;
 
-  WriteLn(BinSearchWay(tree, 68));
   WriteLn(BinSearchWayIter(tree, 68));
+
+  WriteLn('count: ', Count(tree, 18));
+  WriteLn('count: ', CountBinTree(tree, 18));
+  WriteLn('count: ', CountBinTreeRec(tree, 18));
+
+  WriteLn('NumberOfLeaves: ', NumberOfLeaves(tree));
+  WriteLn('MinVal > ', MinVal(tree));
 
 
 
