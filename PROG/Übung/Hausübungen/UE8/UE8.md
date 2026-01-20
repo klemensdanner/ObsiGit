@@ -60,3 +60,4 @@ In Abhängigkeit von Problemgröße n:
 | &nbsp;&nbsp;END;                              |      |         |     |
 | &nbsp;&nbsp;SumSquares1 := sum                |      |         |     |
 | END;                                          |      |         |     |
+

@@ -1081,8 +1081,8 @@ tags:
 				"typeName": "shape"
 			},
 			{
-				"x": 1442.0742497185545,
-				"y": 1236.4414283789326,
+				"x": 1199.856168749202,
+				"y": 1237.0865338156614,
 				"rotation": 0,
 				"isLocked": false,
 				"opacity": 1,
@@ -2541,8 +2541,8 @@ tags:
 				"typeName": "shape"
 			},
 			{
-				"x": 1164.246425073504,
-				"y": 1249.4937551776625,
+				"x": 1518.9015208166438,
+				"y": 1254.1954004100182,
 				"rotation": 0,
 				"isLocked": false,
 				"opacity": 1,
@@ -7633,8 +7633,8 @@ tags:
 				"typeName": "camera"
 			},
 			{
-				"x": 1125.08948735499,
-				"y": 1233.6445042561818,
+				"x": 1479.7445830981299,
+				"y": 1238.3461494885375,
 				"rotation": 0,
 				"isLocked": false,
 				"opacity": 1,
@@ -8513,8 +8513,8 @@ tags:
 				"typeName": "shape"
 			},
 			{
-				"x": 1424.360368489348,
-				"y": 1233.6445042561818,
+				"x": 1182.1422875199955,
+				"y": 1234.2896096929105,
 				"rotation": 0,
 				"isLocked": false,
 				"opacity": 1,
@@ -8558,8 +8558,8 @@ tags:
 				"typeName": "shape"
 			},
 			{
-				"x": 1358.1665260360242,
-				"y": 1255.0876034231644,
+				"x": 1115.9484450666716,
+				"y": 1255.7327088598931,
 				"rotation": 0,
 				"isLocked": false,
 				"opacity": 1,
@@ -11093,8 +11093,8 @@ tags:
 				"typeName": "shape"
 			},
 			{
-				"x": 1157.7203256906519,
-				"y": 1236.4414283789326,
+				"x": 1512.3754214337916,
+				"y": 1241.1430736112884,
 				"rotation": 0,
 				"isLocked": false,
 				"opacity": 1,
@@ -12978,8 +12978,8 @@ tags:
 				"typeName": "shape"
 			},
 			{
-				"x": 1374.0157342798298,
-				"y": 1243.8999069321603,
+				"x": 1131.7976533104772,
+				"y": 1244.545012368889,
 				"rotation": 0,
 				"isLocked": false,
 				"opacity": 1,
@@ -14100,8 +14100,8 @@ tags:
 				"typeName": "shape"
 			},
 			{
-				"x": 1361.8957866514756,
-				"y": 1252.2906793004136,
+				"x": 1119.6777056821231,
+				"y": 1252.9357847371423,
 				"rotation": 0,
 				"isLocked": false,
 				"opacity": 1,
@@ -18667,8 +18667,8 @@ tags:
 				"typeName": "shape"
 			},
 			{
-				"x": 1084.0679620064252,
-				"y": 1259.749115175966,
+				"x": 1438.723057749565,
+				"y": 1264.4507604083217,
 				"rotation": 0,
 				"isLocked": false,
 				"opacity": 1,
@@ -26650,8 +26650,8 @@ tags:
 				"typeName": "shape"
 			},
 			{
-				"x": 1484.9604480525202,
-				"y": 1221.5245139501524,
+				"x": 1242.7423670831677,
+				"y": 1222.169619386881,
 				"rotation": 0,
 				"isLocked": false,
 				"opacity": 1,
@@ -28510,8 +28510,8 @@ tags:
 				"typeName": "shape"
 			},
 			{
-				"x": 1349.7757536677711,
-				"y": 1228.982949825705,
+				"x": 1107.5576726984186,
+				"y": 1229.6280552624337,
 				"rotation": 0,
 				"isLocked": false,
 				"opacity": 1,
@@ -31450,8 +31450,8 @@ tags:
 				"typeName": "shape"
 			},
 			{
-				"x": 1422.4957808592974,
-				"y": 1242.96757043946,
+				"x": 1180.2776998899449,
+				"y": 1243.6126758761886,
 				"rotation": 0,
 				"isLocked": false,
 				"opacity": 1,
@@ -31575,8 +31575,47 @@ tags:
 				"typeName": "shape"
 			},
 			{
-				"x": 1195.9449269164656,
-				"y": 1256.0198972381897,
+				"x": 220,
+				"y": -270,
+				"rotation": 0,
+				"isLocked": false,
+				"opacity": 1,
+				"meta": {},
+				"id": "shape:RqJpXUpoTysHwI-9KWz2L",
+				"type": "text",
+				"props": {
+					"color": "black",
+					"size": "m",
+					"w": 121.17597995279775,
+					"font": "mono",
+					"textAlign": "start",
+					"autoSize": true,
+					"scale": 4.067718495341377,
+					"richText": {
+						"type": "doc",
+						"content": [
+							{
+								"type": "paragraph",
+								"attrs": {
+									"dir": "auto"
+								},
+								"content": [
+									{
+										"type": "text",
+										"text": "a)"
+									}
+								]
+							}
+						]
+					}
+				},
+				"parentId": "page:page",
+				"index": "b6D0jG",
+				"typeName": "shape"
+			},
+			{
+				"x": 1550.6000226596054,
+				"y": 1260.7215424705455,
 				"rotation": 0,
 				"isLocked": false,
 				"opacity": 1,
@@ -36731,7 +36770,7 @@ tags:
 				"isChatting": false,
 				"highlightedUserIds": [],
 				"isFocused": false,
-				"devicePixelRatio": 2,
+				"devicePixelRatio": 1.8257418870925903,
 				"isCoarsePointer": false,
 				"isHoveringCanvas": null,
 				"openMenus": [],
@@ -42298,6 +42337,93 @@ tags:
 				"typeName": "shape"
 			},
 			{
+				"x": 100,
+				"y": 2170,
+				"rotation": 0,
+				"isLocked": false,
+				"opacity": 1,
+				"meta": {},
+				"id": "shape:YVeOOG7_1bx9a3G6GgdwD",
+				"type": "text",
+				"props": {
+					"color": "black",
+					"size": "m",
+					"w": 2442.1708382696174,
+					"font": "mono",
+					"textAlign": "start",
+					"autoSize": true,
+					"scale": 2.7784076857672444,
+					"richText": {
+						"type": "doc",
+						"content": [
+							{
+								"type": "paragraph",
+								"attrs": {
+									"dir": "auto"
+								},
+								"content": [
+									{
+										"type": "text",
+										"text": "b)"
+									}
+								]
+							},
+							{
+								"type": "paragraph",
+								"attrs": {
+									"dir": "auto"
+								},
+								"content": [
+									{
+										"type": "text",
+										"text": "Die asympthotische Laufzeitkomplexität lässt sich einfach"
+									}
+								]
+							},
+							{
+								"type": "paragraph",
+								"attrs": {
+									"dir": "auto"
+								},
+								"content": [
+									{
+										"type": "text",
+										"text": "aus den Laufzeitfunktionen ablesen. Da die höchste Potenz"
+									}
+								]
+							},
+							{
+								"type": "paragraph",
+								"attrs": {
+									"dir": "auto"
+								},
+								"content": [
+									{
+										"type": "text",
+										"text": "jeweils 1 beträgt, ist die asympthotische Laufzeitkomplexität"
+									}
+								]
+							},
+							{
+								"type": "paragraph",
+								"attrs": {
+									"dir": "auto"
+								},
+								"content": [
+									{
+										"type": "text",
+										"text": "jeweils O(n)."
+									}
+								]
+							}
+						]
+					}
+				},
+				"parentId": "page:page",
+				"index": "b6E0ce",
+				"typeName": "shape"
+			},
+			{
 				"x": 1467.213151552989,
 				"y": -58.65688950132798,
 				"rotation": 0,
@@ -44522,8 +44648,8 @@ tags:
 				"typeName": "shape"
 			},
 			{
-				"x": 1085.0002984991256,
-				"y": 1236.4414283789326,
+				"x": 1439.6553942422654,
+				"y": 1241.1430736112884,
 				"rotation": 0,
 				"isLocked": false,
 				"opacity": 1,
