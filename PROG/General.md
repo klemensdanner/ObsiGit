@@ -5,6 +5,14 @@ Allgemeine Umwandlung von rekursivem in Iterativen Algo kommt nicht zur Prüfung
 
 
 
+- SerienTest für einfach verkettete Liste schreiben
+
+
+
+
+#progprüfung 
+wsl keine Laufzeitkomplexität von rekursiven Algorithmen
+
 Prüfung PROG
 90 min
 1. durchlesen
