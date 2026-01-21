@@ -20,6 +20,19 @@ program SortMatrix;
     end;
   end;
 
+  procedure FillMatrix(var m: Matrix);
+    var
+      i, j: integer;
+  begin
+    Randomize;
+    for i := 1 to rows do begin
+      for j := 1 to columns do begin
+        m[i][j] := Random(10);
+      end;
+    end;
+  end;
+
+
   procedure WriteMatrix(m: Matrix);
     var
       i, j: integer;
@@ -49,6 +62,8 @@ program SortMatrix;
     RowGreaterThan := (i <= len) and (a[i] > b[i]);
   end;
 
+
+
   procedure SortLinesByColumns(var m: Matrix);
     var
       first, last: integer;
@@ -70,10 +85,12 @@ program SortMatrix;
     end;
   end;
 
+
   var
     m: Matrix;
 
 begin
+  //FillMatrix(m);
   ReadMatrix(m);
   WriteLn;
   WriteMatrix(m);

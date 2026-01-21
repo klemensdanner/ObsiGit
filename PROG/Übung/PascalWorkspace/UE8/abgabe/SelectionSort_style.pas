@@ -1,4 +1,4 @@
-program SelSort;
+PROGRAM SelSort;
 
   TYPE
     ListNodePtr = ^ListNode;
@@ -8,105 +8,105 @@ program SelSort;
     END;
     ListPtr = ListNodePtr;
 
-  procedure AddNode(var list: ListPtr; val: integer);
-    var
+  PROCEDURE AddNode(VAR list: ListPtr; val: INTEGER);
+    VAR
       newNode: ListNodePtr;
       last: ListNodePtr;
-  begin
+  BEGIN
       New(newNode);
       newNode^.data := val;
       newNode^.next := NIL;
 
-      if (list = nil) then
+      IF (list = NIL) THEN
         list := newNode
-      else begin
+      ELSE BEGIN
         last := list;
 
-        while (last^.next <> nil) do begin
+        WHILE (last^.next <> NIL) DO BEGIN
           last := last^.next;
-        end;
+        END;
 
         last^.next := newNode;
-      end;
-  end;
+      END;
+  END;
 
-  procedure ReadList(var l: ListPtr);
-    var
-      val: integer;
-  begin
+  PROCEDURE ReadList(VAR l: ListPtr);
+    VAR
+      val: INTEGER;
+  BEGIN
     WriteLn('Enter some int values for your list (end with 0): ');
     Write('> '); ReadLn(val);
-    while (val <> 0) do begin
+    WHILE (val <> 0) DO BEGIN
       AddNode(l, val);
       Write('> '); ReadLn(val);
-    end;
+    END;
 
-  end;
+  END;
 
-  procedure DisposeList(var l: ListPtr);
-    var
+  PROCEDURE DisposeList(VAR l: ListPtr);
+    VAR
       curr, pt: ListNodePtr;
-  begin
+  BEGIN
     curr := l;
-    while curr <> nil do begin
+    WHILE curr <> NIL DO BEGIN
       pt := curr;
       curr := curr^.next;
       Dispose(pt);
-      pt := nil;
-    end;
-  end;
+      pt := NIL;
+    END;
+  END;
 
-  procedure WriteList(l: ListPtr);
-    var
+  PROCEDURE WriteList(l: ListPtr);
+    VAR
       curr: ListNodePtr;
-  begin
+  BEGIN
     curr := l;
-    while curr <> nil do begin
+    WHILE curr <> NIL DO BEGIN
       Write(curr^.data:3);
       curr := curr^.next;
-    end;
-  end;
+    END;
+  END;
 
-  function SmallestNodePt(l: ListPtr): ListNodePtr; //returns parent of the smallest node
-    var
+  FUNCTION SmallestNodePt(l: ListPtr): ListNodePtr; (*returns parent of the smallest node*)
+    VAR
       minPtr, curr, minParent, pt: ListNodePtr;
-  begin
+  BEGIN
     minPtr := l;
-    minParent := nil;
+    minParent := NIL;
     curr := l;
-    pt := nil;
-    while curr <> nil do begin
-      if curr^.data < minPtr^.data then begin
+    pt := NIL;
+    WHILE curr <> NIL DO BEGIN
+      IF curr^.data < minPtr^.data THEN BEGIN
         minParent := pt;
         minPtr := curr;
-      end;
+      END;
       pt := curr;
       curr := curr^.next;
-    end;
+    END;
     SmallestNodePt := minParent;
-  end;
+  END;
 
-  procedure SwapChildNodes(ptA, ptB: ListNodePtr); //swaps Nodes using their parents
-    var
+  PROCEDURE SwapChildNodes(ptA, ptB: ListNodePtr); (*swaps Nodes using their parents*)
+    VAR
       a, b, childOfA: ListNodePtr;
-  begin
-    if (ptA = nil) or (ptB = nil) or (ptA^.next = nil) or (ptB^.next = nil) then begin
+  BEGIN
+    IF (ptA = NIL) OR (ptB = NIL) OR (ptA^.next = NIL) OR (ptB^.next = NIL) THEN BEGIN
       WriteLn('Error: you cannot swap these nodes');
       Exit;
-    end;
+    END;
     a := ptA^.next;
     b := ptB^.next;
 
-    //Swapping Case 1: nodes to be swapped are neighbours
-    if (ptB = a) then begin
+    (*Swapping Case 1: nodes to be swapped are neighbours*)
+    IF (ptB = a) THEN BEGIN
       a^.next := b^.next;
       b^.next := a;
       ptA^.next := b;      
-    end else if (ptA = b) then begin
+    END ELSE IF (ptA = b) THEN BEGIN
       b^.next := a^.next;
       a^.next := b;
       ptB^.next := a;
-    end else begin //general case
+    END ELSE BEGIN (*general case*)
       childOfA := a^.next;
 
       ptB^.next := a;
@@ -114,59 +114,58 @@ program SelSort;
 
       ptA^.next := b;
       b^.next := childOfA;
-    end;
-  end;
+    END;
+  END;
 
-  procedure SelectionSort(VAR list: ListPtr);
-    var
+  PROCEDURE SelectionSort(VAR list: ListPtr);
+    VAR
       pt: ListNodePtr;
       ptB, dummy: ListNodePtr;
-  begin
-    if (list = nil) or (list^.next = nil) then begin
+  BEGIN
+    IF (list = NIL) OR (list^.next = NIL) THEN BEGIN
       WriteLn('List is empty or has only one node');
       Exit;
-    end;
+    END;
 
 
-    // creating a parent dummy node
+    (* creating a parent dummy node*)
     New(dummy);
     dummy^.next := list;
     dummy^.data := -1;
 
     pt := dummy;
 
-    while (pt^.next <> nil) do begin
+    WHILE (pt^.next <> NIL) DO BEGIN
       ptB := SmallestNodePt(pt^.next);
-      if ptB <> nil then begin // smaller node found - swap
+      IF ptB <> NIL THEN BEGIN (* smaller node found - swap*)
         SwapChildNodes(pt, ptB);
-      end;
+      END;
       pt := pt^.next;
-    end;
+    END;
     
     list := dummy^.next;
     Dispose(dummy);
-    dummy := nil;
+    dummy := NIL;
 
-  end;
+  END;
 
-  var
+  VAR
     l: ListPtr;
 
-begin
-  l := nil;
-  //InitList(l, 10);
+BEGIN
+  l := NIL;
   ReadList(l);
-  if l <> nil then begin
+  IF l <> NIL THEN BEGIN
     Write('unsorted >');
     WriteList(l);
     WriteLn;
-  end;
+  END;
 
   SelectionSort(l);
-  if l <> nil then begin
+  IF l <> NIL THEN BEGIN
     Write('sorted   >');
     WriteList(l);
     WriteLn;
-  end;
+  END;
   DisposeList(l);
-end.
+END.

@@ -36770,7 +36770,7 @@ tags:
 				"isChatting": false,
 				"highlightedUserIds": [],
 				"isFocused": false,
-				"devicePixelRatio": 1.8257418870925903,
+				"devicePixelRatio": 2,
 				"isCoarsePointer": false,
 				"isHoveringCanvas": null,
 				"openMenus": [],
@@ -42337,8 +42337,8 @@ tags:
 				"typeName": "shape"
 			},
 			{
-				"x": 100,
-				"y": 2170,
+				"x": 400,
+				"y": 2160,
 				"rotation": 0,
 				"isLocked": false,
 				"opacity": 1,
@@ -42352,7 +42352,7 @@ tags:
 					"font": "mono",
 					"textAlign": "start",
 					"autoSize": true,
-					"scale": 2.7784076857672444,
+					"scale": 1.6829536974521158,
 					"richText": {
 						"type": "doc",
 						"content": [
@@ -42413,6 +42413,24 @@ tags:
 									{
 										"type": "text",
 										"text": "jeweils O(n)."
+									}
+								]
+							},
+							{
+								"type": "paragraph",
+								"attrs": {
+									"dir": "auto"
+								}
+							},
+							{
+								"type": "paragraph",
+								"attrs": {
+									"dir": "auto"
+								},
+								"content": [
+									{
+										"type": "text",
+										"text": "Trotzdem ist der iterative Algorithmus natürlich schneller."
 									}
 								]
 							}

@@ -76,13 +76,13 @@ type
       prev: ListNodePtr;
       prevMaxNodePtr: ListNodePtr;
   begin
-    //emty list
+    //empty list
     if (list = NIL) then begin
       maxNode := NIL;
       Exit;
     end;
 
-    //not emty list
+    //not empty list
     prev := NIL;
     curr := list;
     maxNodePtr := curr; // init für den Fall, dass die while Schleife übersprungen wird weil nur ein Element drin ist
