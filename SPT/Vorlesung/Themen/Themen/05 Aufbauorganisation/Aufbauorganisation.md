@@ -29,3 +29,66 @@ Mitarbeiter werden neu eingestellt oder aus der Organisation aus anderen Abteilu
 
 
 
+## Einfluss-Projektorganisation
+
+> geeignet für gut strukturierte Aufgaben, die den Mitarbeitern bekannt sind, also eher nicht für SE geeignet.
+
+- Mitarbeiter bleiben in den Abteilungen
+- Mitarbeiter sind nicht "unter" dem Projektleiter, sondern unter ihrem normalen Chef
+
+**Vorteile**:
+- Abteilungsorganisation unverändert
+- Sicherheitsgefühl für Mitarbeiter
+**Nachteile**:
+- mangelnde Autorität des Projektleiters
+- Arbeiten am Projekt nur, “wenn Zeit ist”
+- Konflikte werden verzögert (weil sie nicht immer direkt mit dem Projektleiter gelöst werden können)
+
+## Matrix-Projektorganisation 
+
+> geeignet für zeitunkritische Projekte, aber aufgrund längerer Entscheidungsphasen eher ungeeignet für Softwareprojekte
+
+Es gibt einen Personal- und einen Fachvorsitzenden. --> also doppelter Vorgesetzter.
+
+**Vorteile**:
+- selbstständiger Projektleiter
+- Mitarbeiter bleiben in Abteilung
+- Expertenwissen leicht einbaubar
+- gezielter Einsatz von Spezialwissen und besonderen Erfahrungen
+**Nachteile**:
+- Verunsicherung bei Vorgesetzten
+- Verunsicherung bei Mitarbeitern
+- man „sitzt zwischen zwei Stühlen“
+- Kompetenzkonflikte
+- Möglichkeit, Vorgesetzte auszuspielen
+
+
+## Probleme dieser allgemeinen Organisationsformen
+- hierarchische (langsame) Kommunikationswege beeintrachtigen Qualität, Quantität und Schnelligkeit des Informationsflusses.
+- Problemstau bei Führungskräften
+- gegenseitige Abhängigkeit von Stellen
+- schlechte Koordination einzelner Bereiche
+- unrealistische Planung (man kann Bugs nicht fixen bevor man sie findet)
+
+
+# Softwareentwicklungsspezifische Organisationsformen
+... ergeben sich durch die besonderen Anforderungen in der SE.
+
+- zeitliche Begrenztheit
+- hohe Flexibilität
+- projektübergreifende Planung![[SPE 105 AUO v.25.1.pdf#page=12&rect=31,104,907,518|SPE 105 AUO v.25.1, p.12]]
+> [!note]
+Gruppe führt (bei kleinen/mittleren Projekten) zu bester Leistung!
+
+
+### Hierarchische Teamorganisation
+> eher früher, heute eher ungeeignet
+
+- lange Hierarchie
+Für alle Phasen gab es verantwortliche Leiter, die Projektleitern überlegen sind, die je nach Unternehmensgröße nochmal Gruppenleitern überlegen sind.
+- entspricht anderen Industriezweigen
+- Aber: dadurch ist der Hauptleiter weit weg von der eigentlichen Programmierung und kann deshalb seine Planungsarbeiten nur schwer umsetzen
+- langsame, indirekte Kommunikation
+
+
+### Chefprogrammierer-Team
