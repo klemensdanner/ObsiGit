@@ -92,3 +92,35 @@ Für alle Phasen gab es verantwortliche Leiter, die Projektleitern überlegen si
 
 
 ### Chefprogrammierer-Team
+
+> Man versucht, die Nachteile hierarchischer Organisationsmodelle zu vermeiden.
+
+Das erreicht man, in dem man durch
+- Verzicht auf einen Projektleiter, der nicht an der Systementwicklung selbst beteiligt ist
+- den Einsatz von sehr guten Spezialisten
+- die Beschrankung der Teamgröße.
+
+> Dabei arbeitet der Projektleiter also aktiv mit.
+
+Das Team besteht aus:
+- Chefprogrammierer
+- Projektassistent
+	- engster technische Mitarbeiter des Chefprogrammierers
+- Projektsekretär
+	- Aufgabe, den Chefprogrammierer und auch alle anderen Programmierer von Verwaltungsaufgaben zu entlasten. 
+- mehrere Spezialisten (2-6)
+	- Anzahl wird vom Chefprogrammierer festgelegt
+
+**Vorteile**:
+- Chefprogrammierer direkt eingebunden
+- gute Kommunikation
+- Berichtswesen institutionalisiert
+- kleine Teams sind produktiver als große Teams
+**Nachteile**:
+- nur kleine Teams möglich
+- Personalanforderungen kaum erfüllbar
+- undankbare Aufgabe des Projektsekretärs und kein Ersatz eingeplant
+
+> Trotz der Nachteile ist eine kleinere Gruppe produktiver als ein "Programmierheer"
+
+
