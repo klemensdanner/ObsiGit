@@ -8,9 +8,9 @@ tags:
 - [x] #bwl UE08b Quizz HÜ 📅 2025-11-23 ✅ 2025-11-23
 - [x] #bwl Hauptbuch und GuV Aufteilung 📅 2025-11-30 ✅ 2025-11-30
 - [x] #bwl Quizzes 📅 2025-11-30 ✅ 2025-11-30
-- [ ] #bwl UE11c) Bewertung mit gleitendem Durchschnitt bei 11b) ist Beispiel📅 2025-12-14
+- [x] #bwl UE11c) Bewertung mit gleitendem Durchschnitt bei 11b) ist Beispiel 📅 2025-12-14 ✅ 2026-01-25
 - [x] #bwl Kurztest: Hauptbuch mit Vorsteuer und Zahllast und staffelförmige GuV ✅ 2025-12-10
-- [ ] #bwl UE12 Kennzahlen 📅 2025-12-16 
+- [x] #bwl UE12 Kennzahlen 📅 2025-12-16 ✅ 2026-01-25
 
 
 - Hauptbuch mit Vorsteuer und Zahllast

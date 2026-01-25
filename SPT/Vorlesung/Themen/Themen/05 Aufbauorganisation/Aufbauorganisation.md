@@ -124,3 +124,84 @@ Das Team besteht aus:
 > Trotz der Nachteile ist eine kleinere Gruppe produktiver als ein "Programmierheer"
 
 
+## Moderne Projektgruppe
+
+Folgende **Anforderungen** führen jedoch vom Chef-Programmierer Team weg:
+- Ein Softwareingenieur muss alle Schritte des Entwicklungsprozesses beherrschen.
+- Mitarbeiter müssen Kollegen vertreten können.
+- Ein Projektleiter, der gleichzeitig ein guter Implementierer ist, existiert kaum (bzw. ist für die Implementierung zu teuer).
+- Die Rolle des Projektsekretärs („Chefdokumentierers“) ist undankbar und risikoreich.
+
+> -> Entwicklung hin zur Modernen Projektgruppe
+
+In einer Projektgruppe gibt es einen Projektleiter und mehrere Gruppenmitglieder, welche eine Rolle zugewiesen bekommen. Sie haben auch ein Grundverständnis der anderen Rollen.
+
+### Einbindung in die Organisation
+- als projektorientierte Teilorganisation („agile Teams“)
+	- d.h. Eine Abteilung übernimmt das Projekt
+	- der Abteilungsleiter bestimmt einen Projektleiter, der ihm unterstellt ist, und das Projekt mit seinen Kollegen leitet
+	- Wenn mehrere Abteilungen einbezogen werden, kann z.B. die Abteilung mit dem größten Anteil die Leitung übernehmen
+
+### Rollen in modernen Projektgruppen (agilen Teams)
+
+![[SPE 105 AUO v.25.1.pdf#page=19&rect=29,141,844,537|SPE 105 AUO v.25.1, p.19]]
+
+**Projektleiter**: „organisatorische Projektleiterin“, prozessbezogene Projektleiterin
+**Produktverantwortlicher**: "inhaltliche Projektleiterin", produktbezogene Projektleiterin, Pilotanwenderin
+
+RM: Ressourcenmanagment
+PR: Projektrealisierung
+
+![[SPE 105 AUO v.25.1.pdf#page=20&rect=24,52,866,530|SPE 105 AUO v.25.1, p.20]]
+
+### Aufgabenverteilung Agile Teams
+- **ProjektleiterIn**: überwacht Ablauf versteht, steuert und dokumentiert Prozess teilt Aufgaben zu bewahrt Produktsicht (≠ Entwickler !) 
+- **Produktverantwortlicher**: treibt dadurch Entwicklung voran (Anforderungsauswahl!) erstellt Testfälle
+- **Entwickler** (2 - 7): schätzen und wählen Aufgaben,
+  entwickeln (primär Designen-Implementieren-Testen), übernehmen andere Aufgaben (z.B. Systemadministratorin, Weiterbildungskoordinatorin)
+  teilzeitlich (Gruppenorganisation ist vorgehensspezifisch, es kommt also aufs Team an.)
+
+### Gruppendynamische Prozesse, Kommunikation
+![[SPE 105 AUO v.25.1.pdf#page=22&rect=21,163,918,511|SPE 105 AUO v.25.1, p.22]]
+- funktioniert also nur gut, wenn sich jeder einbringt
+
+### Mitarbeitermotivation
+![[SPE 105 AUO v.25.1.pdf#page=23&rect=26,52,941,518|SPE 105 AUO v.25.1, p.23]]
+
+### Produktivität
+> Leistungen sind sehr verschieden und Personenabhängig - Mittelwerte sind also nicht besonders aussagekräftig
+> Entwicklungsdauer ist also schlecht planbar
+
+Die Bearbeitungszeit eines Projekts lässt sich aufteilen in:
+- produktive Arbeit (Nutzleistung)
+- Kommunikation (Bindleistung)
+
+Wenn mehr Arbeiter an einem Projekt teilnehmen sollen, dann wird sich die Bindleistung erhöhen - es wird also mehr Zeit für Kommunikation aufgewendet.
+![[SPE 105 AUO v.25.1.pdf#page=26&rect=30,124,904,518|SPE 105 AUO v.25.1, p.26]]
+
+![[SPE 105 AUO v.25.1.pdf#page=27&rect=30,31,934,512|SPE 105 AUO v.25.1, p.27]]
+
+### Interdisziplinäre Zusammenarbeit
+
+Moderne Projektentwicklungsgruppen bestehen oft aus Personen mit verschiedensten Fertigkeiten (heterogene Projektgruppen).
+**Probleme**:
+- fehlende gegenseitige Ein- und Wertschätzung der Arbeit
+- bei Überlappungen Konflikte
+- viele verschiedene Methoden und Werkzeuge
+**Wichtig**:
+- Konflikte rasch lösen!
+- Schulung, Weiterbildung anbieten!
+- Geordnete Änderungspolitik der Entwicklungsumgebung(en) beachten!
+
+
+### Hauptorganisationsmängel bei Softwareprojekten
+**Hauptmängel**:
+- Fehlen von Planung, Organisation, Standards
+- Inkompetenz der Projektführung
+- Fehlen aktueller Dokumentation
+- Mangel an Fortschritts- und Qualitätskontrolle
+- Mangel an Kostenkontrolle
+**Verbesserung**:
+- Verbesserung der Abläufe (Prozesse) -> Kapitel Ablauforganisation
+- Verbesserung von Information und Kommunikation im Team -> Kapitel Informationsaustausch
+- Verbesserung der Qualität -> Kapitel Qualitätssicherung

@@ -18,5 +18,5 @@ Aufgabe: R1 + [2] --> R2
 ```
 
 
-- [ ] #eir UE9.4, evtl Ablaufdiagramm zeichnen
+- [x] #eir UE9.4, evtl Ablaufdiagramm zeichnen ✅ 2026-01-25
 
