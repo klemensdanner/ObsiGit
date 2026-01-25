@@ -34,12 +34,25 @@ z.B. **nach der Art der Interaktion**
 - strukturiert (Fragen und Antworten vorgegeben)
 
 **Einteilung nach dem Objekt der Erhebung**:
-- Primärerhebung
-- Sekundärerhebung (Dokumentenauswertung)
+- Primärerhebung (direkt beim Kunden)
+- Sekundärerhebung (Dokumentenauswertung, z.B. alte Dokumente, oder Konkurrenzprodukte analysieren)
 **Einteilung der Anzahl der Erhebungsobjekte**:
 - Einzelerhebung
 - Fallstudie
 - repräsentative Erhebung
 - Totalerhebung
 
+> Auf Interview und Fragebogen wird hier genauer eingegangen.
 
+### Techniken - Interview
+In Gruppen oder zwischen einzelnen Personen verwendet.
+- **Nicht strukturiertes Interview**: offenes Gespräch zwischen Interviewer und Interviewtem (trotzdem Interviewleitfaden erstellen)
+- **Halb strukturiertes Interview**: Fragen vorgegeben
+- **Strukturiertes Interview**: Fragen und Antwortmöglichkeiten vorgegeben
+
+**Fragetypen benutzen**
+- aufschließende (Thema öffnen) / abschließende Fragen (Thema schließen)
+- offene (vor allem Wie / Warum etc. Fragen) / geschlossene Fragen (nur mit Ja / Nein beantwortbar)
+- direkte (gerade Fragen, evtl. unsensibel) / indirekte Fragen (um die Ecke, mit Gefühl)
+
+### Techniken - Fragebogen
