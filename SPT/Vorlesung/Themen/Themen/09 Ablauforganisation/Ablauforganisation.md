@@ -149,16 +149,56 @@ Prozessmodell unterteilt Vorgehen in überschaubare Abschnitte:
 
 ### Sequenzielles Vorgehen
 ![[ObsiGit/SPT/Vorlesung/Themen/Themen/09 Ablauforganisation/SPE 109 ABO v.25.2.pdf#page=22&rect=24,54,949,461|SPE 109 ABO v.25.2, p.22]]
+Eins nach dem anderen, starr
+
+
+### Inkrementelles Vorgehen - Wasserfallmodell
+> inkrementell: funktionale Teilerweiterung, step by step
+
+> kaum Flexibilität, Änderungswünsche teuer
+
+![[ObsiGit/SPT/Vorlesung/Themen/Themen/09 Ablauforganisation/SPE 109 ABO v.25.2.pdf#page=23&rect=26,44,945,528|SPE 109 ABO v.25.2, p.23]]
+
+
+### Inkrementelles Vorgehen - Objektorientiertes Modell
+
+> Es sollen, wenn möglich Liberies verwendet werden - diese werden selbst erstellt oder auch zugekauft und ermöglichen die Wiederverwendung von Code für verschiedene Projekte
+
+
+![[ObsiGit/SPT/Vorlesung/Themen/Themen/09 Ablauforganisation/SPE 109 ABO v.25.2.pdf#page=24&rect=30,51,953,528|SPE 109 ABO v.25.2, p.24]]
+
+
+### Iteratives Vorgehen - kontinuierliche Verbesserung
+> iterativ = wiederholte, schrittweise Verbesserung bereits vorhandener Funktionen
+
+![[ObsiGit/SPT/Vorlesung/Themen/Themen/09 Ablauforganisation/SPE 109 ABO v.25.2.pdf#page=26&rect=25,53,863,519|SPE 109 ABO v.25.2, p.26]]
+Praxis: z.B. Suchfunktion
+1. sie funktioniert
+2. sie funktioniert auch bei Tippfehlern
+3. sie funktioniert auch bei Tippfehlern schneller als je zuvor
+4. usw.
+
+Man versucht dabei also so schnell wie möglich ein Produkt zum Kunden zu bringen, um schnell herauszufinden, wo nachgebessert werden muss, bzw. ob der Kunde das so richtig gemeint hat.
+
+> Motivation: Fehlerbehebungskosten steigen im Laufe der Projektentwicklung überproportional an.
+
+D.h. je später man einen Fehler findet, desto teurer wird die Behebung.
+
+![[ObsiGit/SPT/Vorlesung/Themen/Themen/09 Ablauforganisation/SPE 109 ABO v.25.2.pdf#page=28&rect=26,46,893,518|SPE 109 ABO v.25.2, p.28]]
+
+> [!info]
+> Daher macht man bei dieser Methode Prototyping. Im Speziellen: **Exploratives Prototyping**, um so schnell wie möglich Feedback zu erhalten, danach kommt eine neue Iteration.
+
+![[ObsiGit/SPT/Vorlesung/Themen/Themen/09 Ablauforganisation/SPE 109 ABO v.25.2.pdf#page=29&rect=30,83,738,518|SPE 109 ABO v.25.2, p.29]]
+
+- Exploratives **revelationäres Prototyoing** (kommt von revail, aufdecken):
+	- hierbei geht es vor allem um die Anforderungsklärung -- ein Prototyp, um herauszufinden, was der Kunde will
+- Exploratives **experimentelles Prototyping**
+	- technische Machbarkeit wird getestet
 
 
 
-
-
-
-
-
-
-
+weiter bei Folie 30
 
 
 
