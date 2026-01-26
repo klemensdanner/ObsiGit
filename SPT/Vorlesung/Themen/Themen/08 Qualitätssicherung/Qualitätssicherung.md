@@ -97,6 +97,113 @@ Qualitätsmerkmale sind Anforderungen, welche die Qualität betreffen - also z.B
 - Qualität bleibt im Lauf eines Projekt bei akzeptablen Kosten maximal gleich --> möglichst früh beginnen mit Qualitätssicherung
 - wenn man das nicht macht, dann kann das danach nur mehr teuer durch Umschreiben, Umgestaltung gemacht werden
 
+### Qualitätssicherung Aufgaben
+
+- **Qualitätsplanung**
+	- Festlegen der Qualitätsmerkmale
+	- laufendes Adaptieren
+- **Qualitätsprüfung**
+	- Prüfen der Projektgrundlagen (Bausteine, zugekaufte Komponenten)
+	- laufendes Prüfen der Zwischenergebnisse
+- **Qualitätslenkung** (= Anwendung von Maßnahmen zur Qualitätssicherung)
+	- Organisatorische Maßnahmen zur Qualitätssicherung (während des gesamten Entwicklungsprozesses)
+		- Verwenden von Normen
+		- Erstellen von Richtlinien
+		- Institutionalisieren der Qualitätssicherung (wirklich einbringen, als Einrichtung)
+		- Weiterbilden der Entwickler
+		- Verwenden von Vorgehensmodellen
+	- Konstruktive Maßnahmen zur Qualitätssicherung (während der Erstellung von (Zwischen-)Produkten)
+		- konsequent Doku schreiben
+		- Einsetzen von Werkzeugen (z.B. Doxygen?)
+		- Verwenden qualitätsgeprüfter Bausteine und Halbfabrikate
+		- Methoden anwenden
+	- Analytische Maßnahmen zur Qualitätssicherung (Verwendung zur Analyse erstellter (Zwischen-)Produkte)
+		- Durchführen statischer und dynamischer Programmanalyse
+		- Erstellen/Auswählen geeigneter Testfälle
+		- laufendes Testen
+		- Protokollieren der Ergebnisse
+		- Dokumentieren der Fehlerbehebung
+
+
+![[SPE 108 QUA v.25.1 Stud.pdf#page=29&rect=22,38,937,522|SPE 108 QUA v.25.1 Stud, p.29]]
+
+
+### Qualitätssicherung – Techniken
+
+> [!note]
+> Techniken der Qualitätssicherung beziehen sich nicht auf das Produkt, sondern (vorrangig) auf den Prozess.
+> Einhalten einer Norm oder Verwendung eines Modells/Verfahrens zur Qualitätssicherung heißt nicht automatisch hohe Qualität, sondern nur Offenlegung der Qualität des (Produktions-)Prozesses.
+
+ - Dabei geht es um Vorgehensweisen in der Qualitätssicherung und nicht um die Qualität des Produktes selbst.
+ - Wenn also die Anforderungen für die Arbeitsweisen erüllt sind, heißt das noch nicht, dass das Produkt gut ist
+
+### Qualitätssicherung Ergebnisse
+
+***Qualitätshandbuch***:
+- Pflicht in gewissen, v.a. sicherheitskritischen Branchen
+- ansonsten sehr wichtig für die Transparenz
+
+**schriftliche Dokumentation:**
+- des Anwendungsbereichs der Qualitätssicherung (Ausschlüsse begründen)
+- der Verfahren zur Qualitätssicherung (Planung, Prüfung und Lenkung)
+- des Zusammenspiels der Qualitätssicherungsprozesse in Europa vielfach nach ISO 9000 ff. strukturiert (seit Okt. 2015 auch rein elektronisch erlaubt – ISO 9001:2015)
 
 
 
+# Ausblick: Qualitätsmanagement, Qualitätsentwicklung
+
+![[SPE 108 QUA v.25.1 Stud.pdf#page=43&rect=30,31,889,513|SPE 108 QUA v.25.1 Stud, p.43]]Wenn man die Anforderungen also über das Maß hinaus erfüllt, dann ist die Kundenzufriedenheit hoch.
+Die Bedeutung von Anforderungen ändern sich aber. - Eine Pferdekutsche erfüllt das gleiche Grobziel wie ein PKW - und beides soll auch schnell sein. Trotzdem muss ein PKW aktuell schneller sein als eine Pferdekutsche
+
+![[SPE 108 QUA v.25.1 Stud.pdf#page=45&rect=28,35,893,518|SPE 108 QUA v.25.1 Stud, p.45]]
+
+
+# Normen und Richtlinien
+
+### Norm
+- durch (über-)staatliche bzw. davon beauftragte Einrichtung erstellt
+- in bestimmten Fällen Gesetzescharakter (verpflichtend!)
+- Verbindlichkeit oft auch ohne explizite Erwähnung im Projektvertrag
+
+> [!quote]
+> „Normen [sind] per se keine rechtsverbindlichen Vorschriften, sondern nur rein technische Empfehlungen. … Sobald sie in Verträgen, Gesetzen oder Verordnungen zitiert werden, gelten sie als verbindlich.“ (help.gv.at)
+
+Beispiel: Eine EU-Norm beendete das Kabelchaos unter den Smartphones.
+
+
+### Richtlinie
+- auch durch Unternehmen(sverbände), Interessensgruppen etc. erstellt
+- darf verpflichtenden Normen nicht widersprechen
+- Verbindlichkeit nur bei expliziter Erwähnung im Projektvertrag
+
+![[SPE 108 QUA v.25.1 Stud.pdf#page=62&rect=27,49,859,514|SPE 108 QUA v.25.1 Stud, p.62]]![[SPE 108 QUA v.25.1 Stud.pdf#page=63&rect=33,210,853,518|SPE 108 QUA v.25.1 Stud, p.63]]
+
+### Normen und Richtlinien in der Softwareentwicklung
+Schwerpunkte sind:
+- Benutzerschnittstellen
+- Datenbanken
+- Schnittstellentechnik
+- Anwendungsprogrammierung (APIs)
+- Dokumentation
+- Services
+- System- und Betriebssicherheit (Security, Safety)
+- Usability
+
+### Normenauswahl
+
+**Offizielle Vorgehensweise:**
+1. internationale Normen
+2. Normen von Staatenverbänden (z.B. EU)
+3. länderspezifische Normen
+4. Richtlinien von internationalen Vereinigungen und Verbänden
+5. Kundenrichtlinien
+6. unternehmensinterne Richtlinien
+
+Das ist eine Hierarchie von Grob nach fein.
+- internationale Norm gefunden - take it - wenn nicht, dann EU-Norm, dann AT-Norm usw.
+- eine Norm ist nicht umbedingt Gesetz. Manchmal ist die Einhaltung von Normen aber gesetzlich verpflichtend, dann gilt die
+- stärker geht immer - d.h. wenn ich unternehmensintern strengere Richtlinien als Qualitätsmerkmal habe, dann gilt die auch
+
+**"Vorgehensweise“ in der Praxis**
+1. unternehmensinterne Richtlinien und Vorschriften
+2. Management und Mitarbeitern „verkaufbare“ Vorschriften
