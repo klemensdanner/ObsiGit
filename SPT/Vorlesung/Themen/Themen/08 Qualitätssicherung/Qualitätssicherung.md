@@ -74,6 +74,8 @@ Qualitätsmerkmale sind Anforderungen, welche die Qualität betreffen - also z.B
 	- Risikofreiheit (Minderung von Qualitäts und Sicherheitsrisiken)
 	- ![[SPE 108 QUA v.25.1 Stud.pdf#page=21&rect=27,57,678,520|SPE 108 QUA v.25.1 Stud, p.21|450]]
 
+
+
 - Merkmale schließen sich teilweise einander aus - Priorisierung der Qualitätsmerkmale
 	- Bsp: Ein besonders sicheres Softwaresysem kann evtl. langsamer oder weniger einfach zu bedienen sein
 	- siehe S.22 Folien
