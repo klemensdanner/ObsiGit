@@ -11,12 +11,12 @@ Zweck:
 # Prozess
 
 Definitionen
-![[ObsiGit/SPT/Vorlesung/Themen/Themen/09 Ablauforganisation/SPE 109 ABO v.25.2.pdf#page=4&rect=47,119,766,445|SPE 109 ABO v.25.2, p.4]]
+![[ObsiGit/z_old_subjects/SPT/Vorlesung/Themen/Themen/09 Ablauforganisation/SPE 109 ABO v.25.2.pdf#page=4&rect=47,119,766,445|SPE 109 ABO v.25.2, p.4]]
 
-![[ObsiGit/SPT/Vorlesung/Themen/Themen/09 Ablauforganisation/SPE 109 ABO v.25.2.pdf#page=4&rect=607,327,959,532|SPE 109 ABO v.25.2, p.4|300]]
+![[ObsiGit/z_old_subjects/SPT/Vorlesung/Themen/Themen/09 Ablauforganisation/SPE 109 ABO v.25.2.pdf#page=4&rect=607,327,959,532|SPE 109 ABO v.25.2, p.4|300]]
 
 ## Gesteuerter Prozess vs. geregelter Prozess
-![[ObsiGit/SPT/Vorlesung/Themen/Themen/09 Ablauforganisation/SPE 109 ABO v.25.2.pdf#page=5&rect=29,43,821,514|SPE 109 ABO v.25.2, p.5]]
+![[ObsiGit/z_old_subjects/SPT/Vorlesung/Themen/Themen/09 Ablauforganisation/SPE 109 ABO v.25.2.pdf#page=5&rect=29,43,821,514|SPE 109 ABO v.25.2, p.5]]
 
 Beispiel:
 - Stromheizer auf Stufe 2 ohne Termostat
@@ -81,7 +81,7 @@ Def.:
 
 ### Entwicklung der Prozessbedeutung
 
-![[ObsiGit/SPT/Vorlesung/Themen/Themen/09 Ablauforganisation/SPE 109 ABO v.25.2.pdf#page=11&rect=48,119,908,447|SPE 109 ABO v.25.2, p.11]]
+![[ObsiGit/z_old_subjects/SPT/Vorlesung/Themen/Themen/09 Ablauforganisation/SPE 109 ABO v.25.2.pdf#page=11&rect=48,119,908,447|SPE 109 ABO v.25.2, p.11]]
 
 - wertgenerierende Bedeutung
 	- der agile Wendepunkt
@@ -114,7 +114,7 @@ Es gibt unterschiedliche Sichtweisen darauf, wann ein Prozess beendet ist.
 	- ständige Verbesserung gemeinsam mit dem Kunden
 	- Analogie Haus: Das Haus wird ständig ausgebaut, ständiger Verbesserungsprozess
 
-![[ObsiGit/SPT/Vorlesung/Themen/Themen/09 Ablauforganisation/SPE 109 ABO v.25.2.pdf#page=14&rect=3,69,953,528|SPE 109 ABO v.25.2, p.14]]
+![[ObsiGit/z_old_subjects/SPT/Vorlesung/Themen/Themen/09 Ablauforganisation/SPE 109 ABO v.25.2.pdf#page=14&rect=3,69,953,528|SPE 109 ABO v.25.2, p.14]]
 
 > heutzutage verschwimmt der Bereich zwischen Produkt entwickeln und Produkt verwenden; es wird eher die Software immer weiter entwickelt
 
@@ -134,11 +134,11 @@ d.h.
 
 
 
-![[ObsiGit/SPT/Vorlesung/Themen/Themen/09 Ablauforganisation/SPE 109 ABO v.25.2.pdf#page=18&rect=24,36,827,528|SPE 109 ABO v.25.2, p.18]]
+![[ObsiGit/z_old_subjects/SPT/Vorlesung/Themen/Themen/09 Ablauforganisation/SPE 109 ABO v.25.2.pdf#page=18&rect=24,36,827,528|SPE 109 ABO v.25.2, p.18]]
 
 ### Prozessorientiertes Vorgehen
 Prozessmodell unterteilt Vorgehen in überschaubare Abschnitte:
-![[ObsiGit/SPT/Vorlesung/Themen/Themen/09 Ablauforganisation/SPE 109 ABO v.25.2.pdf#page=19&rect=45,58,831,445|SPE 109 ABO v.25.2, p.19]]
+![[ObsiGit/z_old_subjects/SPT/Vorlesung/Themen/Themen/09 Ablauforganisation/SPE 109 ABO v.25.2.pdf#page=19&rect=45,58,831,445|SPE 109 ABO v.25.2, p.19]]
 
 
 ## Vorgehensmethoden
@@ -148,7 +148,7 @@ Prozessmodell unterteilt Vorgehen in überschaubare Abschnitte:
 
 
 ### Sequenzielles Vorgehen
-![[ObsiGit/SPT/Vorlesung/Themen/Themen/09 Ablauforganisation/SPE 109 ABO v.25.2.pdf#page=22&rect=24,54,949,461|SPE 109 ABO v.25.2, p.22]]
+![[ObsiGit/z_old_subjects/SPT/Vorlesung/Themen/Themen/09 Ablauforganisation/SPE 109 ABO v.25.2.pdf#page=22&rect=24,54,949,461|SPE 109 ABO v.25.2, p.22]]
 Eins nach dem anderen, starr
 
 
@@ -157,7 +157,7 @@ Eins nach dem anderen, starr
 
 > kaum Flexibilität, Änderungswünsche teuer
 
-![[ObsiGit/SPT/Vorlesung/Themen/Themen/09 Ablauforganisation/SPE 109 ABO v.25.2.pdf#page=23&rect=26,44,945,528|SPE 109 ABO v.25.2, p.23]]
+![[ObsiGit/z_old_subjects/SPT/Vorlesung/Themen/Themen/09 Ablauforganisation/SPE 109 ABO v.25.2.pdf#page=23&rect=26,44,945,528|SPE 109 ABO v.25.2, p.23]]
 
 
 ### Inkrementelles Vorgehen - Objektorientiertes Modell
@@ -165,13 +165,13 @@ Eins nach dem anderen, starr
 > Es sollen, wenn möglich Liberies verwendet werden - diese werden selbst erstellt oder auch zugekauft und ermöglichen die Wiederverwendung von Code für verschiedene Projekte
 
 
-![[ObsiGit/SPT/Vorlesung/Themen/Themen/09 Ablauforganisation/SPE 109 ABO v.25.2.pdf#page=24&rect=30,51,953,528|SPE 109 ABO v.25.2, p.24]]
+![[ObsiGit/z_old_subjects/SPT/Vorlesung/Themen/Themen/09 Ablauforganisation/SPE 109 ABO v.25.2.pdf#page=24&rect=30,51,953,528|SPE 109 ABO v.25.2, p.24]]
 
 
 ### Iteratives Vorgehen - kontinuierliche Verbesserung
 > iterativ = wiederholte, schrittweise Verbesserung bereits vorhandener Funktionen
 
-![[ObsiGit/SPT/Vorlesung/Themen/Themen/09 Ablauforganisation/SPE 109 ABO v.25.2.pdf#page=26&rect=25,53,863,519|SPE 109 ABO v.25.2, p.26]]
+![[ObsiGit/z_old_subjects/SPT/Vorlesung/Themen/Themen/09 Ablauforganisation/SPE 109 ABO v.25.2.pdf#page=26&rect=25,53,863,519|SPE 109 ABO v.25.2, p.26]]
 Praxis: z.B. Suchfunktion
 1. sie funktioniert
 2. sie funktioniert auch bei Tippfehlern
@@ -184,12 +184,12 @@ Man versucht dabei also so schnell wie möglich ein Produkt zum Kunden zu bringe
 
 D.h. je später man einen Fehler findet, desto teurer wird die Behebung.
 
-![[ObsiGit/SPT/Vorlesung/Themen/Themen/09 Ablauforganisation/SPE 109 ABO v.25.2.pdf#page=28&rect=26,46,893,518|SPE 109 ABO v.25.2, p.28]]
+![[ObsiGit/z_old_subjects/SPT/Vorlesung/Themen/Themen/09 Ablauforganisation/SPE 109 ABO v.25.2.pdf#page=28&rect=26,46,893,518|SPE 109 ABO v.25.2, p.28]]
 
 > [!info]
 > Daher macht man bei dieser Methode Prototyping. Im Speziellen: **Exploratives Prototyping**, um so schnell wie möglich Feedback zu erhalten, danach kommt eine neue Iteration.
 
-![[ObsiGit/SPT/Vorlesung/Themen/Themen/09 Ablauforganisation/SPE 109 ABO v.25.2.pdf#page=29&rect=30,83,738,518|SPE 109 ABO v.25.2, p.29]]
+![[ObsiGit/z_old_subjects/SPT/Vorlesung/Themen/Themen/09 Ablauforganisation/SPE 109 ABO v.25.2.pdf#page=29&rect=30,83,738,518|SPE 109 ABO v.25.2, p.29]]
 
 - Exploratives **revelationäres Prototyoing** (kommt von revail, aufdecken):
 	- hierbei geht es vor allem um die Anforderungsklärung -- ein Prototyp, um herauszufinden, was der Kunde will
