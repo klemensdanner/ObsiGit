@@ -21,8 +21,3 @@ a: array\[ordinaler Datentyp] of integer;
 ordinaler Datentyp ist z.b. \[1..10] aber auch char, integer etc.
 
 
-#prüfung #prog
-Suche in Zeichenketten:
-- Knuth moris bratt kommt nicht
-- gundsätzlcihe Idee von Rabin Kab (Hashing) und Boyamour mit Skip Tabelle verstehen
-	- nicht hintschreiben müssen, aber schon verstehen

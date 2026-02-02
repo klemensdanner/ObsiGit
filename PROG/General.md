@@ -71,3 +71,30 @@ Allgemein:
 - Struktur: nicht erwartet: alles perfekt machen, aber wenn ganz schiach, dann gibts Abzug
 - genau lesen: Binärbaum vs. binärer Suchbaum
 - Übungsmaterial: im Lehrbuch sind Klausuraufgaben
+
+
+
+#prüfung #prog
+Suche in Zeichenketten:
+- Knuth moris bratt kommt nicht
+- gundsätzlcihe Idee von Rabin Kab (Hashing) und Boyamour mit Skip Tabelle verstehen
+	- nicht hintschreiben müssen, aber schon verstehen
+
+
+## Prüfung
+
+Praxisteil, je ein Beispiel zu:
+- Felder
+- Listen
+- Bäume
+
+Theorie: kurze Fragen zu:
+- Rekursion (z.B. Was ist das / welche sind einfach in einen iterativen Algorithmus umzuwandeln)
+- Laufzeit-/Strukurkomplexität
+	- z.B. asympthotische LK oder Strukturkompl. bestimmen
+- Sortierverfahren
+	- eher nicht selbst schreiben, sondern wissen wie sie funktionieren, Vor- und Nachteile, konzeptionell erklären können
+
+Wissen was das ist für evtl. Theorie:
+- schrittweise Verfeinerung
+- Algorithmen mit Gedächtnis
