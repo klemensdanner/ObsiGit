@@ -147,6 +147,57 @@ program BinTree;
     end;
   end;
 
+
+  procedure InsertRec1(var t: TreePtr; n: TreePtr);
+  begin
+    if t = nil then begin
+      t := n;
+    end else begin
+      if n^.value >= t^.value then begin
+        InsertRec1(t^.right, n);
+      end else begin
+        InsertRec1(t^.left, n);
+      end;
+    end;
+  end;
+
+
+  procedure WriteTree(t: TreePtr);
+  begin
+    if t <> nil then begin
+      WriteTree(t^.left);
+      Write(t^.value:3);
+      WriteTree(t^.right);
+    end;
+  end;
+
+  function SumOfNodeValues(tree: TreePtr): integer;
+  begin
+    if t = nil then begin
+      SumOfNodeValues := 0;
+    end else begin
+      SumOfNodeValues := tree^.value + SumOfNodeValues(tree^.left) + SumOfNodeValues(tree^.right);
+    end;
+  end;
+
+
+  function NrOfX(tree: TreePtr; x: integer): integer;
+  begin
+    if tree = nil then begin
+      NrOfX := 0;
+    end else begin
+      if tree^.value = x then begin
+        NrOfX := 1 + NrOfX(tree^.left, x) + NrOfX(tree^.right, x);
+      end else begin
+        NrOfX := NrOfX(tree^.left, x) + NrOfX(tree^.right, x);
+      end;
+    end;
+  end;
+
+
+
+
+
   procedure Remove(var t: TreePtr; value: integer; var n: TreeNodePtr);
     var
       par: TreeNodePtr;
@@ -172,7 +223,7 @@ program BinTree;
     end else begin //right child has no left child
       if (n^.right^.left = nil) then begin
         st := n^.right;
-        st^.left
+        st^.left; end;
       
 
 

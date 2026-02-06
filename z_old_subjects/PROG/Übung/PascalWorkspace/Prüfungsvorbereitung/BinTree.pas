@@ -32,6 +32,44 @@ program Trees;
     end;
   end;
 
+  procedure Mirror(var t: TreePtr);
+    var
+      tmp: TreePtr;
+  begin
+    if t <> nil then begin
+      tmp := t^.left;
+      t^.left := t^.right;
+      t^.right := tmp;
+      Mirror(t^.left);
+      Mirror(t^.right);
+    end;
+  end;
+
+
+
+  function FirstInOrderNodeWith(var tree: TreePtr; x: integer): TreeNodePtr;
+    var
+      n: TreePtr;
+  begin
+    if tree = nil then begin
+      FirstInOrderNodeWith := nil;
+    end else begin
+      //unterteilen: zerst left subtree
+      n := FirstInOrderNodeWith(tree^.left, x);
+      if n <> nil then begin //gefunden
+        FirstInOrderNodeWith := n;
+        Exit;
+      end;
+      
+
+
+
+
+
+
+
+
+
 
   function MaxLeafValue(tree: TreePtr): integer;
     var
@@ -137,8 +175,11 @@ begin
   // Start mit Ebene 0
   ZeigeBaum(t, 0);
 
+  Mirror(t);
 
-  WriteLn('MaxLeafValue > ', MaxLeafValue(t));
+  Writeln('--------------------------------------------');
+  ZeigeBaum(t, 0);
+  //WriteLn('MaxLeafValue > ', MaxLeafValue(t));
   
   Readln; // Warten auf Enter
 end.

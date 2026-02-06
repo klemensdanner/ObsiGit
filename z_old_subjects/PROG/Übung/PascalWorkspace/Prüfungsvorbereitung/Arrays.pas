@@ -1,11 +1,28 @@
 program Arrays;
 
   const
-    n = 5;
+    n = 10;
 
   type
     CharArray = array[1..n] of char;
     IntArray = array[1..n] of integer;
+
+  procedure Shift(var a: IntArray; s: integer);
+    var
+      newIndex, i: integer;
+      tmp: IntArray;
+  begin
+    i := 1;
+    while i <= n do begin
+      newIndex := i + s;
+      if newIndex > n then begin
+        newIndex := newIndex - n;
+      end;
+      tmp[newIndex] := a[i];
+      inc(i);
+    end;
+    a := tmp;
+  end;
 
   procedure Trim(var a: CharArray; var len: integer);
     var
@@ -148,18 +165,57 @@ end;
     WriteLn('len > ', len);
   end;
 
+  procedure CountLauf(a: IntArray; n: integer; var l: integer);
+    var
+      counter, i, max: integer;
+  begin
+    if n = 0 then begin // leeres array
+      l := 0;
+      Exit;
+    end;
+
+    counter := 1; 
+    max := 1;
+    for i := 1 to n - 1 do begin
+      if a[i] < a[i + 1] then begin
+        inc(counter);
+      end else begin
+        if counter > max then begin
+          max := counter;
+        end;
+        counter := 1;
+      end;
+
+    end;
+
+    if counter > max then begin
+      max := counter;
+    end;
+    l := max;
+  end;
+
 
   var
     //TestArray: CharArray;
     //len: integer;
     a: IntArray;
+    l: integer;
 
 
 begin
   ReadIntArray(a);
   WriteIntArray(a); WriteLn;
-  Unique(a);
-  WriteIntArray(a);
+
+
+  l := -1;
+  CountLauf(a, n, l);
+  WriteLn('laengster Lauf > ', l);
+
+  Shift(a, 3);
+  WriteIntArray(a); WriteLn;
+
+  //Unique(a);
+  //WriteIntArray(a);
 
   //WriteLn('len > ', Unique(a));
   //WriteIntArray(a);

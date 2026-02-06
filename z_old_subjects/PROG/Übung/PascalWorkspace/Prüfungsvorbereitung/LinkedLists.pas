@@ -39,6 +39,20 @@ program LinkedLists;
     end;
   end;
 
+  procedure ReadList(var l: ListPtr);
+    var
+      val: integer;
+  begin
+    val := -1;
+    while val <> 0 do begin
+      Write(' > ');
+      ReadLn(val);
+      if val <> 0 then begin
+        Append(l, val);
+      end;
+    end;
+  end;
+
   procedure DisposeList(var l: ListPtr);
     var
       tmp, curr: ListNodePtr;
@@ -132,13 +146,59 @@ program LinkedLists;
       list := curr;
   end;
 
+  procedure Merge(var a, b, c: ListPtr);
+    var
+      aCurr, bCurr: ListPtr;
+      aPrev, bCurrNext: ListPtr;
+  begin
+    aCurr := a;
+    bCurr := b;
+    aPrev := nil;
+    bCurrNext := nil;
+    while bCurr <> nil do begin
+      aCurr := a;
+      aPrev := nil;
+      while (aCurr <> nil) and (bCurr^.data > aCurr^.data) do begin
+        aPrev := aCurr;
+        aCurr := aCurr^.next;
+      end;
+      bCurrNext := bCurr^.next;
+      if aPrev <> nil then begin
+        aPrev^.next := bCurr;
+      end else begin
+        a := bCurr;
+      end;
+      bCurr^.next := aCurr;
+      bCurr := bCurrNext; //schleife weitergehen
+    end;
+    c := a;
+    a := nil;
+    b := nil;
+  end;
+
 
 
   var
-    list: ListPtr;
+    a, b, c, list: ListPtr;
     i: integer;
 
 begin
+  a := nil;
+  b := nil;
+  c := nil;
+
+  WriteLn('a > '); ReadList(a);
+  WriteLn('b > '); ReadList(b);
+
+
+  WriteLn;WriteLn;WriteLn;
+  Write('List a > '); WriteList(a);
+  Write('List b > '); WriteList(b);
+  Merge(a, b, c);
+  Write('List c, merged > '); WriteList(c);
+
+
+{
   list := nil;
   FillList(list);
   WriteList(list);
@@ -146,6 +206,6 @@ begin
   //InvertSLL(list);
   MoveLastNodeToFront(list);
 
-  WriteList(list);
-  DisposeList(list);
+  WriteList(list);}
+  DisposeList(c);
 end.
