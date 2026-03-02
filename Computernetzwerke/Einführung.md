@@ -76,3 +76,4 @@ Anforderungen an ein Computernetz
 - Effizienz: Übertragen von Daten soll die Ressourcen gut nutzen
 - Performanz: Latenzen so kurz und konstant wie möglich
 - Sicherheit: Datenübertragung soll nicht abgehört oder manipuliert werden
+
