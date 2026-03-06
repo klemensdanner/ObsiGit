@@ -1,3 +1,5 @@
+### Anforderungsanalyse - Aufgaben
+
 - Prinzip der hierarchischen Strukturierung
 
 Anforderungen unterscheiden sich in
@@ -15,3 +17,26 @@ Anforderungen unterscheiden sich in
 > Anforderungsanalyse: Studieren eines Problems, noch bevor Aktionen getätigt werden.
 
 Trennung zwischen WAS und WIE. (WIE ist noch nicht relevant)
+
+**Funktionale Anforderungen** werden vor allem vom Auftraggeber gestellt.
+**Nichtfunktionale Anforderungen** eher vom Auftragnehmer (aber evtl. auch vom AG gestellt)
+
+
+#### Tätigkeiten
+
+
+![[SPE 201 ANA v.26.1.pdf#page=9&rect=48,44,785,449|SPE 201 ANA v.26.1, p.9]]
+
+**Eigenschaften** einer guten Anforderungsanalyse
+- Abgrenzen des Projektumfanges
+- Achten auf Modularität
+- Achten auf Änderbarkeit
+- Festlegen der Schnittstellen
+- Festlegen von Rahmenbedingungen („constraints“)
+- Prüfen der Realisierbarkeit (= Testen)
+
+**Schwierigkeiten**
+- Verständnis für Anwendungsgebiet
+- zwischenmenschliche Kommunikation
+- Anforderungen ändern sich
+- Wiederverwendbarkeit der Ergebnisse
