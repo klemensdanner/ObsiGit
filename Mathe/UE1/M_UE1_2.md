@@ -8,7 +8,7 @@ tags:
 ```json !!!_START_OF_TLDRAW_DATA__DO_NOT_CHANGE_THIS_PHRASE_!!!
 {
 	"meta": {
-		"uuid": "a43f0da8-2c39-4037-b71a-430e7dfc230b",
+		"uuid": "a0e9f5c0-62c5-4cda-b187-bf5f3966eacc",
 		"plugin-version": "1.26.2",
 		"tldraw-version": "3.15.3"
 	},
