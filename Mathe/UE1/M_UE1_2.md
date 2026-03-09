@@ -86823,7 +86823,7 @@ tags:
 				"isChatting": false,
 				"highlightedUserIds": [],
 				"isFocused": false,
-				"devicePixelRatio": 1.5,
+				"devicePixelRatio": 2,
 				"isCoarsePointer": false,
 				"isHoveringCanvas": null,
 				"openMenus": [],
