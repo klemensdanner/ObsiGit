@@ -1,4 +1,4 @@
-Integrität der Daten sicherstellen![[M2_Datenbankentwurf_V2.9.pdf#page=3&rect=390,215,700,359|M2_Datenbankentwurf_V2.9, p.3]]
+![01 Einführung in Java (V 11.1).pdf#page=56&annotation=6133R]]![01 Einführung in Java (V 11.1).pdf#page=35&annotation=6136R]]Integrität der Daten sicherstellen![[M2_Datenbankentwurf_V2.9.pdf#page=3&rect=390,215,700,359|M2_Datenbankentwurf_V2.9, p.3]]
 
 ### Datenbankschema
 - wird formal beschrieben und stellt die Integrität der Daten sicher
@@ -73,9 +73,15 @@ aber auch Abfrage: Welcher Professor lest eine bestimmte Vorlesung
 
 
 
+![[M2_Datenbankentwurf_V2.9.pdf#page=57&rect=34,124,688,516|M2_Datenbankentwurf_V2.9, p.57]]
+> [!note]
+> d.h. es gibt zusätzliche Integritätskriterien: Wird ein Gebäude gelöscht, verschwinden auch die Räume.
 
 
 
+## Architekturmodelle
+![[CNW-2026S-Kapitel1.pdf#page=21&rect=44,130,780,503|CNW-2026S-Kapitel1, p.21]]
+![[CNW-2026S-Kapitel1.pdf#page=20&rect=49,128,755,503|CNW-2026S-Kapitel1, p.20]]
 
 
 
