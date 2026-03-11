@@ -51,3 +51,6 @@ Vidoestreaming soll schnell sein, aber wenn ein Frame verloren geht wird es nich
 
 
 **Verbindungsabbau**: möglich ist es, ohne confirmation, ein time-out würde die Verbindung sowieso schließen. Allerdings nicht so gut, weil halboffene Verbindungen 
+
+
+
