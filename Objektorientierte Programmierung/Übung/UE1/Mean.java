@@ -18,10 +18,9 @@ void main() {
         value = readInt();
     }
 
-    int i = value > 0 ? 17 : 18;
+    double result = count > 0 ? (double)sum / count : 0;
     
     if (count > 0) {
-        double result = (double)sum / count;
         IO.println("mean = " + result);
     } else {
         IO.println("ERRPOR: No values entered.");
