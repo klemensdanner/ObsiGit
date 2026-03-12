@@ -40,3 +40,23 @@ Trennung zwischen WAS und WIE. (WIE ist noch nicht relevant)
 - zwischenmenschliche Kommunikation
 - Anforderungen ändern sich
 - Wiederverwendbarkeit der Ergebnisse
+
+
+
+
+### Komplexitätstechniken am Lego Projekt
+**Abstraktion**:
+**Kapselung**:
+**Vererbung**: 
+...
+**Verhaltenskategorien**: Wie wird korrektes Verhalten umgesetzt? z.B. Fahrzeug soll innerhalb der Strecke bleiben - was heißt das in der Umsetzung?
+
+---
+hier fehlt einiges
+
+
+### Zerlegungstechniken
+- Zerlegen in Schritte und Unterschritte (Funktionen, Unterfunktionen)
+- Flussdiagramme und Struktogramme können helfen
+
+#### Datenflussanalyse

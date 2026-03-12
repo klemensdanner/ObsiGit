@@ -20,7 +20,7 @@ Daten die diesen Regeln nicht entsprechen, können nicht eingefügt werden
 - zu berücksichtigende Aspekte
 	- welche Datne sind relevant
 	- Eigenschaften
-	- Beziehungen
+	- BeziehungenKardinali
 
 > Diese muss man planen, weil man oft nicht alle Aspekte gleichzeitig direkt in formaler Sprache zu definieren
 
