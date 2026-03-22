@@ -4,7 +4,9 @@
 /* ========================================================================= */
 
 void fillRandom(double[] a) {
-    for (int i = 0; i < a.length; i++) {
+    for (int i = 0; i < a.length; i++) { // Schleifenbedingung i < a.length 
+    // wird immer neu geprüft. Komplizierte Schleifenbedingungen werden immer neu
+    // berechnet
         a[i] = Math.random();
     }
 }
@@ -45,6 +47,13 @@ double dotProduct(double[] a, double[] b) {
     return sum;
 }
 
+double[][] createTriangularMatrix(int rows) {
+    double[][] m = new double[rows][]; // double[][rows] wär logischer
+    for (int i = 0; i < rows; i++) {
+        m[i] = new double[i+1];
+    }
+    return m;
+}
 
 
 void main() {
