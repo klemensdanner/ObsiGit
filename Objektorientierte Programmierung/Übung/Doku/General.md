@@ -1,0 +1,1 @@
+1. Kurztest: arrays in java
