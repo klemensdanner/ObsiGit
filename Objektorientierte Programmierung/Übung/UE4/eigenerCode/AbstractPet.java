@@ -1,16 +1,17 @@
+package eigenerCode;
 /* Pet:                                                       DA, 2026-04-08 */
 /* ------                                                                    */
 /* basic class to represent pets                                             */
 /* ========================================================================= */
 
-public abstract class Pet implements Nameable { // jedes pet "is-a" namable
+public abstract class AbstractPet implements Nameable { // jedes pet "is-a" namable
                                                 // man kann z.B. über Namable Objekte (oder alle Klassen darunter) 
                                                 // iterieren und jeweils getName
                                                 // und setName aufrufen
     private String name;
     private int age;
 
-    public Pet(String name, int age) {
+    public AbstractPet(String name, int age) {
         setName(name);
         setAge(age);
     }

@@ -1,7 +1,8 @@
-//interface to represent objects with names
-
-
+/* Nameable:                                                 SWa, 2026-04-08 */
+/* ---------                                                                 */
+/* A simple interface to represent objects with names.                       */
+/* ========================================================================= */
 public interface Nameable {
     String getName();
-    int setName(String name);
-} 
+    void setName(String name);
+}

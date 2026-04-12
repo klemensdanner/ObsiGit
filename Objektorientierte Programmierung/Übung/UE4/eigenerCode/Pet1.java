@@ -1,3 +1,4 @@
+package eigenerCode;
 /* Pet:                                                       DA, 2026-04-08 */
 /* ------                                                                    */
 /* basic class to represent pets                                             */
