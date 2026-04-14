@@ -1,0 +1,1 @@
+#prüfung  Warum kann bei keiner Abstraktion vom Speicher nur ein Prozess laufen.
