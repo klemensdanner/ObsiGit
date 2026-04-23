@@ -1,0 +1,9 @@
+LogId,GeraeteId,GeraeteBezeichnung,EinbauDatum,Messwert,Einheit,Messdatum,Status,Aktiv,LaufendeKosten,UntererGrenzwert,ObererGrenzwert
+1,101,AI-X-Alpha,2025-01-01,42.5,C-Celsius,2025-05-01 10:00:00,0-Normal,True,150.00,10.0,60.0
+2,101,AI-X-Alpha,2025-01-01,65.2,C-Celsius,2025-05-01 11:00:00,3-Kritisch,True,150.00,10.0,60.0
+3,102,BATT-Delta,2024-11-15,12.8,V-Volt,2025-05-02 08:30:00,0-Normal,True,89.50,11.0,14.5
+4,102,BATT-Delta,2024-11-15,,V-Volt,2025-05-02 09:00:00,2-Fehler,False,89.50,11.0,14.5
+5,103,AI-X-Beta,2026-02-20,38.7,C-Celsius,2026-04-02 12:45:00,0-Normal,True,210.00,15.0,55.0
+6,104,BATT-Zeta,2026-04-10,9.5,V-Volt,2026-04-18 14:20:00,1-Warnung,True,50.00,11.0,14.5
+
+
