@@ -1,3 +1,7 @@
+--DROP TABLE Materialzutat;
+--DROP TABLE Rezept;
+--DROP TABLE Zutat;
+
 CREATE TABLE Zutat (
     ZutatID NUMBER(9), --primary key
     Name VARCHAR(50) NOT NULL,
