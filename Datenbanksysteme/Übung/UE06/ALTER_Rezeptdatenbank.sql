@@ -3,11 +3,6 @@ ALTER TABLE Zutat ADD (
         REFERENCES Einheit(EinheitID)
 );
 
---ALTER TABLE Zutat
- -- RENAME CONSTRAINT ZEinheitID_FK TO Zutat_ZEinheitID_FK
-
-
-
 ALTER TABLE Rezept ADD (
     CONSTRAINT Rezept_VerfasserID_FK FOREIGN KEY (VerfasserID)
         REFERENCES Person(PersonID),
@@ -22,8 +17,6 @@ ALTER TABLE Materialzutat ADD (
 
 -- Person passt bereits
 -- Label passt bereits
-
-
 
 ALTER TABLE Bewertung ADD (
     CONSTRAINT Bewertung_BRezeptID_FK FOREIGN KEY (BRezeptID)
@@ -55,15 +48,12 @@ ALTER TABLE verwendet ADD (
         REFERENCES Rezept(RezeptID)
 );
 
-
 ALTER TABLE entspricht ADD (
     CONSTRAINT entspricht_EinheitID1_FK FOREIGN KEY (EinheitID1)
         REFERENCES Einheit(EinheitID),
     CONSTRAINT entspricht_EinheitID2_FK FOREIGN KEY (EinheitID2)
         REFERENCES Einheit(EinheitID)
 );
-
-
 
 ALTER TABLE Rezept_zeigt ADD (
     CONSTRAINT Rezept_zeigt_RezeptID_FK FOREIGN KEY (RezeptID)
@@ -89,33 +79,13 @@ ALTER TABLE anweisung_zeigt ADD (
         REFERENCES Kochanweisung(AnweisungsID)
 );
 
-
-
--------------------------------------------------------------------
-
-
-
 ALTER TABLE Bewertung DROP COLUMN Geschmack;
 
 ALTER TABLE Rezept ADD CONSTRAINT Rezept_Anzahl_range_check CHECK (Anzahl >= 1 AND Anzahl <= 12);
 
-/*
 
-DESCRIBE Zutat;
-DESCRIBE Rezept;
-DESCRIBE Materialzutat;
-DESCRIBE Person;
-DESCRIBE Label;
-DESCRIBE Bewertung;
-DESCRIBE Einheit;
-DESCRIBE Bild;
-DESCRIBE Kochanweisung;
 
-DESCRIBE vergibt;
-DESCRIBE verwendet;
-DESCRIBE entspricht;
-DESCRIBE Rezept_zeigt;
-DESCRIBE besteht_aus;
-DESCRIBE anweisung_zeigt;
 
-*/
+
+
+
