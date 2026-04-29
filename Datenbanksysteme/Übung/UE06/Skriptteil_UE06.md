@@ -144,6 +144,7 @@ Table BESTEHT_AUS created.
 Table ANWEISUNG_ZEIGT created.
 ```
 
+<div class="page-break" style="page-break-before: always;"></div>
 
 # 3. Rezeptdatenbank – Schemaevolution
 
@@ -248,14 +249,22 @@ Table BEWERTUNG altered.
 Table REZEPT altered.
 ```
 
+### Tests
 
-Der Befehl (von Prof. Niklas im Moodle-Forum zum Testen zur Verfügung gestellt, noch nicht wirklich gelernt)
-```
-SELECT * FROM TAB;
-```
-gibt folgendes aus.
-![[Pasted image 20260428201759.png|350]]
+vor dem Aufruf von 3):
+- Tabellen existieren
+- Keine Fremdschlüssel
+- Einschränkung der Personenanzahl ist nicht vorhanden
+![[Pasted image 20260429182501.png|500]]
+![[Pasted image 20260429182143.png|200]]
+nach dem Aufruf:
+- Geschmack ist weg
+- Anzahl ist zwischen 1 und 12
+- Fremdschlüssel sind da
+![[Pasted image 20260429182214.png|200]]
+![[Pasted image 20260429182548.png|500]]
 
+<div class="page-break" style="page-break-before: always;"></div>
 
 ## 4. Rezeptdatenbank – Löschen von Tabellen
 
@@ -278,7 +287,6 @@ DROP TABLE Einheit;
 DROP TABLE Bild;
 DROP TABLE Kochanweisung;
 ```
-
 
 ### 4.1 Ausgabe / Ausführung auf der Datenbank
 
@@ -305,9 +313,9 @@ Table KOCHANWEISUNG dropped.
 --> kein Output, weil gelöscht
 
 
+<div class="page-break" style="page-break-before: always;"></div>
 
 ## 5. Erstellung DDL für gegebene Daten
-
 
 ```sql
 CREATE TABLE Einheit (
@@ -333,7 +341,7 @@ CREATE TABLE Gerät (
 
 CREATE TABLE Messungen (
     LogID NUMBER(9),
-    GeräteID NUMBER(9), -- PK und FK
+    GeräteID NUMBER(9), -- FK
     Messwert NUMBER(5,2),
     Messzeit DATE NOT NULL, -- date speichert auch Uhrzeit
     StatusID NUMBER(1) NOT NULL, -- es gibt nur 3 Status
