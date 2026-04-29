@@ -352,7 +352,6 @@ CREATE TABLE Messungen (
 ### 4.1 Ausgabe / Ausführung auf der Datenbank
 
 ```
-
 Table EINHEIT created.
 Table GERÄT created.
 Table MESSUNGEN created.
