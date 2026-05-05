@@ -125,3 +125,34 @@ Strategie:
 - geringe Margen, schaffen durch Skalierung aber ähnliche Rentabilität
 
 Beides geht schwer - nur wenige haben das geschafft - evtl. z.B. Apple durch Automatisierung und günstige Produktion aber td high end segment
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
