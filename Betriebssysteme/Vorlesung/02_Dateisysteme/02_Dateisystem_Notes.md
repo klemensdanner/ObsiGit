@@ -99,22 +99,48 @@ Vorteil: kein Wissen erforderlich, wie die Festplatte technisch funktioniert: Ü
 LBA-Adressen haben 48 Bit.
 
 VFS-Layer stellt Abstraktionsebene für die logische Sicht von Files und Verzeichnissen dar und exportiert über die Systemschnittstelle die Funktionen open, close, read, write.
+Die Aufträge werden an die jeweilige Paritionsverwaltung mit dem FS weitergegeben, welche die Aufgabe auf der Platte ausführen. Beim Lesen und Schreiben können files im RAM gecached werden.
+
+![[Pasted image 20260508183658.png|350]]
 
 
 
+## Grundsätzliche Funktionsweise
+
+Für jedes Dateisystem muss man speichern:
+- Allgemeine Infos zum Dateisystem
+	- welches FS
+	- Wo beginnt das Inhaltsverzeichnis
+	- freie Positionen im Inhaltsverzeichnis
+- Inhaltsverzeichnis
+- Freispeicherverwaltung, Bad Block list
+- Datenbereich
 
 
+#### Freispeicherverwaltung
+- Bitmaps (Array mit 0 oder 1, für jeden block)
+	- 0 ist frei
+	- 1 ist belegt
+- verkettete Liste - zeigt auf einen freien Speicherblock, darin werden wieder freie Speicheradressen gespeichert. Wenn Der Block benötigt wird, müssen die Adressen wegkopiert werden.
 
 
-
-
-
-
-
-
-
-
-
-
-
-
+#### Inhaltsverzeichnis für Dateien/Verzeichnisse
+- Dateien können aus mehreren Blöcken bestehen
+- irgendwie muss das verwaltet werden
+- Ideen:
+	- Kontinuierliche Speicherung: nur sequentiell speichern
+		- NACHTEIL: Was wenn die Datei wächst? Umkopieren?
+	- Kontinuierliche Speicherung mit Extents
+		- Daten werden grundsätzlich sequenziell gespeichert
+		- Wenn das nicht möglich ist (z.B. wegen Fragmentierung), wird im Inhaltsverzeichnis ein zweiter Eintrag zur selben Datei erstellt (Extent)
+		- gespeichert wird Filename, Startblock, Länge
+	- Verkettete Speicherung
+		- In jedem Block wird die Referenz auf den nächsten Block mitgespeichert
+		- z.b. bei 512 Bytes Blockgröße könnten 4Bytes für die Adresse des nächsten Nodes draufgehen
+		- somit muss im Inhaltsverzeichnis immer nur Name und Startblock gespeichert werden
+		- +Einfach zu implementieren - schlechter random access - Minute 40 in nem Video muss die ganze Liste iterieren
+		- ![[Dateisysteme_VL2.pdf#page=40&rect=105,32,457,219|Dateisysteme_VL2, p.40|300]]
+		- Kann in eine File Allocation Table ausgelagert werden (FAT) -- schneller, Minute 40 direkt gefunden, weil die Tabelle im Ram liegt
+	- indizierte Speicherung
+		- gespeichert wird zu einer Datei immer ein Block mit allen Blöcken der Datei
+		- So einen Referenzspeicherblock nennt man Inode bzw. Indexblock
