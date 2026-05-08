@@ -69,21 +69,36 @@ Sektor 1 bis x ist GPT. ein UEFI weiß das und sucht ab Sektor 1.
 Auf Sektor 1 ist ein UEFI Header, der auf die Partitionenstabelle zeigt und weitere Informationen hat. (z.B. über Backuppartitionstabellen oder Ähnlichem)
 
 
-1. UEFI lokalisiert Boot Gerät, liest die GPT und bestimmt die EFI Partition (ESP)
+1. UEFI lokalisiert Boot Gerät, liest die GPT und bestimmt die EFI Partition (ESP) wo der Bootloader liegt
+2. Bootloader startet - und lädt entweder gleich das Sytem oder einen anderen Bootloader (z.B. kann der Win bootloader gestartet werden)
+3. Das OS fragt beim UEFI nach Informationen über die Hardware, Treiber werden geladen, evtl. wird GUI gestartet
 
 
+# Dateisysteme aus OS-Sicht
 
-lsdkajflkasjdflkasjdfkljsdflakjsdflk
-
-
-
-
-
+Die Partition ist so zu verwalten, dass die Positionierungszeit der Leseköpfe minimal ist - also muss eine Datei auf einer Festplatte möglichst an einer Stelle durchgehend gespeichert sein.
+Eine SSD / HDD hat einen Controller mit einer Zuordnungsadresse, wo virtuelle Adressen an logische Adressen (welche fürs OS bereitgestellt werden) gemappt sind.
+Im OS kann durch das FS eine Block size gewählt werden - es werden also die Adressen nochmal zu Blöcken zusammengefasst.
 
 
+Ein OS stellt Systemcalls zum Handieren mit Dateien bereit. (z.B. create, delete, read, write für files und so ähnlich auch für directories etc.)
+
+Auch Verwaltungsaufgaben können getriggert werden (nicht umbedingt durch Systemcalls, eher durch Flags (bei komprimierung), oder durch eigene userspace programme zum Formatieren von Partitionen (verwenden dann wirte() befehle zum draufschreiben auf die Platte)):
+- Formatieren: Erzeugen eines leeren Dateisystems
+- Backup-Funktionen
+- Komprimierung / verschlüsselung
 
 
+Eine Partition ist aus OS Sicht ein Array von fortlaufenden Logical Block Adresses (LBA).
+Das FS muss seine eigenen verwaltungsinfos speichern (z.B. ganz am Anfang).
+Eine Datei ist eine Folge von Blöcken, die nicht umbedingt nacheinander kommen müssen.
 
+#### Adressierung
+LBA: heutzutage Standard, auch bei HDDs.
+Vorteil: kein Wissen erforderlich, wie die Festplatte technisch funktioniert: Übersetzung macht der Festplattencontroller.
+LBA-Adressen haben 48 Bit.
+
+VFS-Layer stellt Abstraktionsebene für die logische Sicht von Files und Verzeichnissen dar und exportiert über die Systemschnittstelle die Funktionen open, close, read, write.
 
 
 
