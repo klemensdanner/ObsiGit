@@ -73,7 +73,7 @@ Auf Sektor 1 ist ein UEFI Header, der auf die Partitionenstabelle zeigt und weit
 
 
 
-
+lsdkajflkasjdflkasjdfkljsdflakjsdflk
 
 
 
