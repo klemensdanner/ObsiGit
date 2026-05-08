@@ -74,7 +74,17 @@ public class Scanner {
             case ',':      sy = Symbol.COMMA; nextCh(); break;
             case ';':      sy = Symbol.SEMICOLON; nextCh(); break;
 
+
+
+            // String s = "hallo";
+
+            
             default:
+               // if (ch == '-' | ch == '')
+
+
+
+
                 if (Character.isLetter(ch)) {
                     StringBuilder sb = new StringBuilder();
                     do {
