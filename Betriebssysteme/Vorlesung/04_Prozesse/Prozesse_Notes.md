@@ -18,11 +18,45 @@ fork() hat einen Rückgabewert
 
 ### Prozessbeendigung
 Wie kann ein Prozess beendet werden?
-
-
+- hat die Aufgabe erledigt und beendet freilwillig (exit 0)
+- beendet freiwillig aufgrund eines Fehlers
+- schwerwiegender Fehler beendet das Programm unfreiwillig
+- anderer Prozess beendet den Prozess (kill())
 ### Prozesszustände
 Welche Prozesszustände gibt es?
-
-
+- rechnend
+- rechenbereit
+- blockiert (z.B. wartet auf userinput
 ### Prozesstabelle
 Was ist ein PCB und was wird darin gespeichert?
+Einträge der Prozesstabelle nennt man Process Control Blocks. Diese speichern den kompletten aktuellen Stand einer Prozessausführung - d.h.:
+- Register der CPU
+- CPU Flags
+- Stackpointer
+- instruction pointer
+- Prozesszustand
+- Programmstatuswort (Zustand Userspace oder Kernelspace?)
+- ProcessID
+
+Diese Tabelle ist wichtig für Context Switches, d.h. wenn zwischen den Prozessen gewechselt wird. Der Programmstand muss dabei zwischengespeichert werden, damit an genau dieser Stelle weitergerechnet werden kann.
+
+### Threads
+Was ist ein Thread und was sind die Unterschiede zu einem Prozess und wo liegen die Vor- und Nachteile?
+
+Ein Thread ist ein Ausführungspfad innerhalb eines Prozesses. Es können mehrere Prozesse 
+
+THREADS NOCH MAL ANSCHAUN
+
+
+### IPC - Inter Process Communication
+- Informationsweitergabe
+- Synchronisation (Warten auf anderen Prozess / Thread)
+- Abhängigkeiten: Gemeinsame Abarbeitung eines Programms von mehreren Prozessen - Reihenfolge muss stimmen
+
+
+
+### Scheduling
+
+Was ist das?
+Welche Ziele hat ein Scheduler?
+Was ist Preemtive Scheduling?
