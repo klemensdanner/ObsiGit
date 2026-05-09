@@ -12,11 +12,6 @@ Nach dem Beenden des Interrupt handlers, wird der vorherige Prozess fortgesetzt.
 ### Interrupt Handler
 Werden von OS/Treibern bereitgestellt.
 
-
-
-
-
-
 CPU verwendet eine interrupt descriptor table (IDT), die wird am Anfang in den RAM geladen.
 Sie macht das Mapping von Interrupt Code to Interrupt Handler.
 Während die wichtigsten Hardwaredaten ausgelesen wird, sind Interrupts blockiert. (zeitkritische Daten, sollen nicht unterbrochen werden) --> weitere Verarbeitung dieser Daten ist wieder weniger zeitkritisch --> z.B. Weiterleitung der Daten an obere Schichten (z.B. Dateisystem), da sind interrupts wieder aktiviert.
