@@ -9,6 +9,9 @@ Wenn das passiert, wird in den Kernel Mode gewechselt, die Aufgabe wird ausgefü
 Ein Programmable Interrupt Controller (PIC) fungiert als Multiplexer. Wenn ein Interrupt anliegt, setzt er ein Bit am Ausgang. Die CPU überprüft nach jeder Instruktion dieses Bit. Ist es gesetzt, sichert es den Zustand des aktuellen Prozesses (instruction pointer etc.) und gibt dem PIC ein acknolage, dass die CPU bereit ist. Der PIC sendet dann die Nummer des Interrupts. Diese ist einem interrupt handler zugeordnet, der dann aufgerufen wird.
 Nach dem Beenden des Interrupt handlers, wird der vorherige Prozess fortgesetzt.
 
+### Interrupt Handler
+Werden von OS/Treibern bereitgestellt.
+
 
 
 
