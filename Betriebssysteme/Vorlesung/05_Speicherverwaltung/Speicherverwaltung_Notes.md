@@ -6,9 +6,9 @@
 
 
 ### Lösungen dafür: Adressräume + dynamic Relocation
-Base Registier
-Limit Register
-
+Base Registier (Startadresse)
+Limit Register (Programmlänge)
+Viel Rechenaufwand, aufwendig
 
 ### Swapping
 Funktion:
@@ -90,3 +90,13 @@ Daher verwendet man ein Multilevel System. Dabei wird die adresse logisch untert
 ## Ersetzungsstrategien
 
 ### NRU - Not Recently Used
+Ein page frame heißt **referenziert**, wenn: in letzter Zeit auf das frame zugegriffen wird. periodisch wird das refereced bit wieder auf 0 gesetzt.
+Ein page frame heißt **modified**, wenn: das frame vor dem Austauschen mit einem anderen Frame auf die Festplatte gesichert werden muss. Es ist gesetzt, wenn das frame noch keine Kopie auf der Festplatte hat, oder wenn es im RAM verändert wurde.
+
+Auf der Suche nach einem austauschbaren frame wird das OS so vorgehen und frames in Klassen einteilen:
+- Klasse 0: nicht referenziert, nicht modifiziert
+- Klasse 1: nicht referenziert, modifiziert
+- Klasse 2: referenziert, nicht modifiziert
+- Klasse 3: referenziert, modifiziert
+
+Es wird die niedrigen Klassen zuerst wählen und austauschen.
