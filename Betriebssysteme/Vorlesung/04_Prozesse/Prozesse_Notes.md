@@ -48,6 +48,20 @@ Ein Thread ist ein Ausführungspfad innerhalb eines Prozesses. Es können mehrer
 THREADS NOCH MAL ANSCHAUN
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ### IPC - Inter Process Communication
 - Informationsweitergabe
 - Synchronisation (Warten auf anderen Prozess / Thread)
@@ -55,8 +69,66 @@ THREADS NOCH MAL ANSCHAUN
 
 
 
+### Context Switch - Beispiel eines Interrupts:
+- CPU sieht das gesetzte Bit am PIC
+- Aktueller PCB (process control block) wird gesichert, d.h.:
+	- instruction pointer sichern
+	- Register sichern
+	- Modus (rechnend, rechenbereit, blockiert)
+	- Stackpointer
+- CPU acknolaged an den PIC dass sie bereit ist, dieser schickt die Interrupt Nummer
+- CPU schaut in der Interrupt Descriptor Table nach der Adresse des richtigen Interrupt Handlers (z.B. ein Treiber für eine Maus), und führt diesen aus.
+- Dieser Interrupt Handler blockiert für einen Moment andere interrupts, damit die Aufgabe sicher ausgeführt wird.
+- Wenn die Aufgabe abgeschlossen ist, wird der Scheduler aufgerufen, der entscheidet, welcher Prozess als nächstes drankommt.
+- PCB des ausgewählten Prozesses wird in die CPU kopiert und der Prozess wird fortgeführt
+
 ### Scheduling
 
 Was ist das?
 Welche Ziele hat ein Scheduler?
-Was ist Preemtive Scheduling?
+
+Was ist Preemtive Scheduling vs. non-preemtive Scheduling?
+Auf welcher Basis kann man entscheiden, welcher Scheduling Algo für das eigene System gut ist?
+
+
+### Scheduling Algorithmen
+#### First come, first served (FIFO)
+- non preemptive (Programme müssen die CPU freigeben)
+
+Funktion:
+Nachteil:
+
+#### Round Robin
+Funktion:
+Vorteil:
+Nachteil:
+
+
+#### Prioritäts-Scheduling
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
