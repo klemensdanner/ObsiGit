@@ -1,4 +1,4 @@
-Ein Prozess ist eine Instanz eines Programms in einer gewissen vom Betriebssystem bereitgestellten Umgebung.
+	Ein Prozess ist eine Instanz eines Programms in einer gewissen vom Betriebssystem bereitgestellten Umgebung.
 Ein Prozess besteht aus
 - Process ID
 - instruction pointer
@@ -115,8 +115,11 @@ Beispiel für dynamisch:
 #### Multilevel Feedback Queues (MLFQ)
 Warum MLFQ?
 Unterschied zu Priority Scheduling?
+- es wird zusätzlich noch die zeit erhöht, die ein niedrig priorisierter prozess hat
+- d.h. er hat dann höhere zeit kommt aber seltener dran
 Vorteile zu Priority Scheduling
 
+Die Hoffnung ist, niedrigpriore Prozesse in einem Stück abzuarbeiten und die Response Time der hochprioren Prozesse zu erhalten, da sie weiterhin oft drankommen.
 
 
 ### Completely Fair Scheduler (CFS)
