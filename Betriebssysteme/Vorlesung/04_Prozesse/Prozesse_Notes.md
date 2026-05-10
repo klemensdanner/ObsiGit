@@ -113,12 +113,19 @@ Beispiel für dynamisch:
 
 
 #### Multilevel Feedback Queues (MLFQ)
+Warum MLFQ?
+Unterschied zu Priority Scheduling?
+Vorteile zu Priority Scheduling
 
 
 
+### Completely Fair Scheduler (CFS)
 
 
 
+	
+
+#### EEVDF
 
 
 
