@@ -105,7 +105,14 @@ Nachteil:
 
 
 #### Prioritäts-Scheduling
+Konzept:
+Statisch:
+Dynamisch:
+Beispiel für dynamisch:
 
+
+
+#### Multilevel Feedback Queues (MLFQ)
 
 
 
