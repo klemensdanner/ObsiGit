@@ -35,3 +35,23 @@ SELECT department_id,
 FROM employees JOIN departments USING(department_id)
 GROUP BY department_id, department_name
 ORDER BY AVG(salary) ASC;
+
+
+-- 6
+SELECT job_id, MAX(salary)
+FROM employees
+GROUP BY job_id
+HAVING MAX(salary) > 10000;
+
+
+-- 7: Angestellte, die manager von mehr als 1 Person sind
+-- davon ManagerID, Anzahl an Unterstellten,
+-- Durchschnittsgehalt
+ 
+SELECT manager_id AS Manager,
+        COUNT(*) AS Mitarbeiteranzahl,
+        ROUND(AVG(salary), 2) AS Durchschnittsgehalt
+FROM employees
+GROUP BY manager_id
+HAVING COUNT(*) > 0;
+
