@@ -52,6 +52,7 @@ SELECT manager_id AS Manager,
         COUNT(*) AS Mitarbeiteranzahl,
         ROUND(AVG(salary), 2) AS Durchschnittsgehalt
 FROM employees
+WHERE manager_id IS NOT NULL
 GROUP BY manager_id
-HAVING COUNT(*) > 0;
+HAVING COUNT(*) > 1;
 
