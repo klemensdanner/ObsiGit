@@ -23,3 +23,15 @@ FROM employees;
 
 
 --4
+SELECT country_id
+FROM locations
+GROUP BY country_id
+HAVING COUNT(location_id) > 1;
+
+--5
+SELECT department_id, 
+        department_name,
+        AVG(salary)
+FROM employees JOIN departments USING(department_id)
+GROUP BY department_id, department_name
+ORDER BY AVG(salary) ASC;
