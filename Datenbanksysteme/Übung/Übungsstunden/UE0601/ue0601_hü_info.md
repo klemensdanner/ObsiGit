@@ -1,0 +1,6 @@
+- von zwei werte den größten/kleinsten Wert: 
+	- Greatest(x, y)
+	- Least(x, y)
+- Groß und Kleinschreibung LOWER, UPPER
+- Substring Regex oder auch eigene Funktion
+- Korrelierte Abfrage anschauen und performance mit execution plan bewerten
