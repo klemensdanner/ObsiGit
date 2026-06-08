@@ -1,0 +1,159 @@
+/* ------------------------------------------------- */
+/* GraphAM: toString, toGraphviz                     */
+/* ------------------------------------------------- */
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        int vert = getNrOfVertices();
+        sb.append("Graph with " + vert + " vertices and " + getNrOfEdges() + " edges: \n\n");
+        sb.append("    | ");
+        for (int i = 0; i < vert; i++) {
+            sb.append(String.format("%3d", i));
+        }
+        sb.append("\n");
+        for (int i = 0; i < vert+3; i++) { sb.append(String.format("---")); }        
+        sb.append("\n");
+        for (int i = 0; i < adjacencyMatrix.length; i++) {
+            int[] row = adjacencyMatrix[i];
+            sb.append(String.format("%3d | ", i));            
+            for (int e : row) { // check for edges
+                String mark = e > 0 ? "  x" : "   ";
+                sb.append(mark);
+            }
+            sb.append("\n");
+        }
+        return sb.toString();
+    } // toString
+
+    // write graph in Graphviz format
+    public String toGraphviz() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("graph { \n  rankdir = LR; \n");
+        for (int v = 0; v < getNrOfVertices(); v++) {
+            for (int w = v; w < getNrOfVertices(); w++) {
+                if (adjacencyMatrix[v][w] > 0) {
+                    sb.append(String.format("  %d -- %d\n", v, w));
+                }
+            }    
+        }
+        sb.append("}\n");    
+        sb.append(super.toGraphviz());    
+        return sb.toString();
+    } // toGraphviz
+
+/* ------------------------------------------------- */
+/* GraphAL: toString, toGraphviz                     */
+/* ------------------------------------------------- */
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Graph with " + getNrOfVertices() + " vertices and " + getNrOfEdges() + " edges: \n");
+        for (int i = 0; i < adjLists.length; i++) {
+            sb.append(String.format("%3d: ", i));
+            sb.append(adjLists[i]);     
+            sb.append("\n");     
+        }
+        return sb.toString();
+    } // toString
+
+    // write graph in Graphviz format
+    public String toGraphviz() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("graph { \n  rankdir = LR; \n");
+        for (int v = 0; v < getNrOfVertices(); v++) {
+            for (int w : adjLists[v]) {
+                if (w >= v) {
+                    sb.append(String.format("  %d -- %d\n", v, w));
+                }
+            }
+        }
+        sb.append("}\n");    
+        sb.append(super.toGraphviz());    
+        return sb.toString();
+    } // toGraphviz
+
+
+/* ------------------------------------------------- */
+/* DigraphAM: toString, toGraphviz                   */
+/* ------------------------------------------------- */
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        int vert = getNrOfVertices();
+        sb.append("Graph with " + vert + " vertices and " + getNrOfEdges() + " edges: \n\n");
+        sb.append("    | ");
+        for (int i = 0; i < vert; i++) {
+            sb.append(String.format("%3d", i));
+        }
+        sb.append("\n");
+        for (int i = 0; i < vert+3; i++) { sb.append(String.format("---")); }        
+        sb.append("\n");
+        for (int i = 0; i < adjacencyMatrix.length; i++) {
+            int[] row = adjacencyMatrix[i];
+            sb.append(String.format("%3d | ", i));            
+            for (int e : row) { // check for edges
+                String mark = e > 0 ? "  x" : "   ";
+                sb.append(mark);
+            }
+            sb.append("\n");
+        }
+        return sb.toString();
+    } // toString
+
+    // helper method for toGraphviz()
+    protected String edgeToGraphviz(int v, int w) {
+        return String.format("  %d -> %d\n", v, w);
+    } // edgeToGraphviz
+
+    // write graph in Graphviz format
+    public String toGraphviz() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("digraph { \n  rankdir = LR; \n");
+        for (int v = 0; v < getNrOfVertices(); v++) {
+            for (int w = 0; w < getNrOfVertices(); w++) {
+                if (adjacencyMatrix[v][w] > 0) {
+                    sb.append(this.edgeToGraphviz(v, w)); // replacement for next line
+                    //sb.append(String.format("%d -> %d\n", v, w));  // replace when implementing subclass
+                }
+            }    
+        }
+        sb.append("}\n");   
+        sb.append(super.toGraphviz());         
+        return sb.toString();
+    } // toGraphviz   
+
+/* ------------------------------------------------- */
+/* DigraphAL: toString, toGraphviz                   */
+/* ------------------------------------------------- */
+    
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Graph with " + getNrOfVertices() + " vertices and " + getNrOfEdges() + " edges: \n");
+        for (int i = 0; i < adjLists.length; i++) {
+            sb.append(String.format("%3d: ", i));
+            sb.append(adjLists[i]);     
+            sb.append("\n");     
+        }
+        return sb.toString();
+    } // toString
+
+    // write graph in Graphviz format
+    public String toGraphviz() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("digraph { \n  rankdir = LR; \n");
+        for (int v = 0; v < getNrOfVertices(); v++) {
+            for (int w : adjLists[v]) {
+                if (w >= v) {
+                    sb.append(String.format("  %d -> %d\n", v, w));
+                }
+            }
+        }
+        sb.append("}\n");    
+        sb.append(super.toGraphviz());    
+        return sb.toString();
+    } // toGraphviz     
+
