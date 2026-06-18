@@ -1,6 +1,68 @@
 
+
+-- 1
+SELECT VID, VName, Beschreibung
+FROM Veranstaltung
+WHERE Dauer BETWEEN 60 AND 120;
+
+-- 2
+SELECT Vorname, Nachname, EMail
+FROM Premiumkunde
+    JOIN Kunde USING (KNr)
+    JOIN Account USING (KNr)
+WHERE Vorname LIKE 'M%' AND Nachname LIKE 'M%';
+
+
+-- 3
+SELECT VName AS VeranstaltungsName,
+        NVL2(MName, MName || ' (' || Preis || '€ )', '0€') AS MerchandiseInfo
+FROM Veranstaltung
+    LEFT JOIN MerchandiseArtikel USING (VID)
+ORDER BY VName ASC, Preis DESC;
+
+-- 4
+
+SELECT KNr, Geburtsdatum, EMail, Passwort
+FROM Kunde
+    JOIN Premiumkunde USING (KNr)
+    JOIN Account USING (KNr)
+WHERE Geburtsdatum > TO_DATE('01.01.1985', 'DD.MM.YYYY')
+    AND Passwort IS NULL;
+
+
+--5
+SELECT DISTINCT SName AS Saalname
+FROM Saal
+    JOIN Sitzplatz USING (SNr, VOName)
+    JOIN Ticket USING (PNr, SNr, VOName);
+
+
+-- 6
+SELECT MANr, Vorname, Nachname, COUNT(*) AS Anzahl_Veranstaltungsorte
+FROM Mitarbeiter
+    JOIN Anstellung USING (MANr)
+GROUP BY MANr, Vorname, Nachname
+HAVING COUNT(*) > 1
+ORDER BY Nachname;
+
+
+-- 7
+SELECT VOName
+FROM Veranstaltungsort
+    JOIN Anstellung USING (VOName)
+GROUP BY VOName
+HAVING COUNT(*) > 2;
+
+
+
+
+
+
+
+
+
 --16.
-SELECT DISTINCT VID, VNAME AS NAME 
+SELECT VID, VNAME AS NAME 
 FROM Veranstaltung JOIN Merchandiseartikel USING (VID)
 WHERE Hersteller = 'MyMark' AND VID NOT IN (SELECT VID 
                                               FROM Merchandiseartikel
@@ -8,12 +70,11 @@ WHERE Hersteller = 'MyMark' AND VID NOT IN (SELECT VID
 --15.
 SELECT MANR, VORNAME, NACHNAME 
 FROM Mitarbeiter 
-WHERE Gehalt <= 8000
-    AND MANr IN (SELECT MANr
-                FROM Mitarbeiter JOIN Anstellung USING (MANR) 
+WHERE MANr IN (SELECT MANr
+                 FROM Mitarbeiter JOIN Anstellung USING (MANR) 
                 GROUP BY MANR
-                HAVING COUNT(DISTINCT VONAME) = (SELECT COUNT(*)
-                                        FROM Veranstaltungsort));
+                HAVING COUNT(VONAME) = (SELECT COUNT(*)
+                                          FROM Veranstaltungsort));
                                           
 --14.
 SELECT VNAME AS "Bezeichnung",
@@ -32,14 +93,16 @@ SELECT VID, VNAME, DAUER, BEGINN
                                       FROM Veranstaltung JOIN Merchandiseartikel USING (VID));
                                       
 --12. not really error proof but idk how to make it better rn
-SELECT VORNAME, NACHNAME, TNR, TO_CHAR(ZEITPUNKT, 'DAY, DD.MM.YYYY')
+SELECT VORNAME, NACHNAME, TNR, TO_CHAR(ZEITPUNKT, 'DD.MM.YYYY')
   FROM (Premiumkunde JOIN KUNDE USING(KNR)) JOIN reserviert USING (KNr)
-  WHERE geburtsdatum IN ( 
-      SELECT MAX(GEBURTSDATUM) AS YOUNGEST
-      FROM Premiumkunde JOIN reserviert USING (KNR) JOIN Ticket USING (TNR)
-      GROUP BY VID);
+  WHERE geburtsdatum IN ( SELECT MAX(GEBURTSDATUM) AS YOUNGEST
+  FROM Premiumkunde JOIN reserviert USING (KNR) JOIN Ticket USING (TNR)
+  GROUP BY VID);
 
-
+  --jüngster Premiumkunde pro Aufführung
+  SELECT KNR, MAX(GEBURTSDATUM) AS YOUNGEST
+  FROM Premiumkunde JOIN reserviert USING (KNR) JOIN Ticket USING (TNR)
+  GROUP BY VID;
 
 --11. 
 SELECT VORNAME, GEBURTSDATUM, ANREDE, (SYSDATE-GEBURTSDATUM) AS tage
@@ -48,7 +111,7 @@ SELECT VORNAME, GEBURTSDATUM, ANREDE, (SYSDATE-GEBURTSDATUM) AS tage
                                     FROM premiumkunde);
 
 --10. 
-SELECT TO_CHAR(GEBURTSDATUM, 'DY, DD. MON YYYY') 
+SELECT TO_CHAR(GEBURTSDATUM, 'DY, DD. MONTH YYYY') 
 FROM Premiumkunde
 WHERE GEBURTSDATUM = (SELECT MAX(GEBURTSDATUM)
                         FROM Premiumkunde);
@@ -61,7 +124,7 @@ SELECT mit.MANR, mit.VORNAME, mit.NACHNAME, COALESCE(ans.VONAME, '0')
 --8. 
 SELECT DISTINCT MANR, VORNAME, NACHNAME 
   FROM MITARBEITER JOIN Anstellung USING (MANR) 
- WHERE MANR IN (SELECT MANR
+ WHERE MANR = (SELECT MANR
                  FROM Mitarbeiter JOIN Anstellung USING (MANR)
                  GROUP BY MANR
                  HAVING COUNT(VONAME) = (SELECT MAX(COUNT(*))
