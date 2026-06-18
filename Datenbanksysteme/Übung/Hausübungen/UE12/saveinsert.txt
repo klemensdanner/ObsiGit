@@ -1,0 +1,226 @@
+
+
+-- Ergänzungen für Tabelle: Anrede (vorher 0)
+
+INSERT INTO Anrede (AnredeID, Anrede) VALUES (1, 'Frau');
+INSERT INTO Anrede (AnredeID, Anrede) VALUES (2, 'Herr');
+INSERT INTO Anrede (AnredeID, Anrede) VALUES (3, 'Divers');
+INSERT INTO Anrede (AnredeID, Anrede) VALUES (4, 'Dr.');
+INSERT INTO Anrede (AnredeID, Anrede) VALUES (5, 'Prof.');
+
+
+-- Ergänzungen für Tabelle: Funktion (vorher 2)
+
+INSERT INTO Funktion (FID, Funktionsbezeichnung) VALUES (3, 'Leitung');
+INSERT INTO Funktion (FID, Funktionsbezeichnung) VALUES (4, 'Technik');
+INSERT INTO Funktion (FID, Funktionsbezeichnung) VALUES (5, 'Reinigung');
+
+-- Ergänzungen für Tabelle: Mitarbeiter (vorher 4)
+
+INSERT INTO Mitarbeiter (MANR, Vorname, Nachname, Gehalt) VALUES (5, 'Max', 'Mustermann', 7500);
+INSERT INTO Mitarbeiter (MANR, Vorname, Nachname, Gehalt) VALUES (6, 'Monika', 'Müller', 3200);
+INSERT INTO Mitarbeiter (MANR, Vorname, Nachname, Gehalt) VALUES (7, 'Thomas', 'Turbor', 8500);
+
+
+-- Ergänzungen für Tabelle: Veranstaltungsort (vorher 2)
+
+INSERT INTO Veranstaltungsort (VOName, LeiterNr) VALUES ('Gartenbaukino', 5);
+INSERT INTO Veranstaltungsort (VOName, LeiterNr) VALUES ('Burgtheater', 6);
+INSERT INTO Veranstaltungsort (VOName, LeiterNr) VALUES ('Opernhaus', 3);
+
+
+-- Ergänzungen für Tabelle: Anstellung (vorher 3)
+
+-- Mitarbeiter 5 arbeitet an allen 5 Orten (Gehalt <= 8000 für Q15)
+INSERT INTO Anstellung (VOName, MANr, FID) VALUES ('Metro Kino', 5, 3);
+INSERT INTO Anstellung (VOName, MANr, FID) VALUES ('Stadttheater', 5, 3);
+INSERT INTO Anstellung (VOName, MANr, FID) VALUES ('Gartenbaukino', 5, 3);
+INSERT INTO Anstellung (VOName, MANr, FID) VALUES ('Burgtheater', 5, 3);
+INSERT INTO Anstellung (VOName, MANr, FID) VALUES ('Opernhaus', 5, 3);
+
+-- Mitarbeiter 6 arbeitet an 2 Orten
+INSERT INTO Anstellung (VOName, MANr, FID) VALUES ('Gartenbaukino', 6, 1);
+INSERT INTO Anstellung (VOName, MANr, FID) VALUES ('Burgtheater', 6, 2);
+
+-- Mitarbeiter 7 arbeitet an allen 5 Orten (Gehalt > 8000, wird bei Q15 gefiltert)
+INSERT INTO Anstellung (VOName, MANr, FID) VALUES ('Metro Kino', 7, 3);
+INSERT INTO Anstellung (VOName, MANr, FID) VALUES ('Stadttheater', 7, 3);
+INSERT INTO Anstellung (VOName, MANr, FID) VALUES ('Gartenbaukino', 7, 3);
+INSERT INTO Anstellung (VOName, MANr, FID) VALUES ('Burgtheater', 7, 3);
+INSERT INTO Anstellung (VOName, MANr, FID) VALUES ('Opernhaus', 7, 3);
+
+
+-- Ergänzungen für Tabelle: Saal (vorher 3)
+
+INSERT INTO Saal (VOName, SNr, SName) VALUES ('Gartenbaukino', 1, 'KinoSaal');
+INSERT INTO Saal (VOName, SNr, SName) VALUES ('Burgtheater', 1, 'Bühne');
+INSERT INTO Saal (VOName, SNr, SName) VALUES ('Opernhaus', 1, 'Prunksaal');
+INSERT INTO Saal (VOName, SNr, SName) VALUES ('Stadttheater', 1, 'Theatersaal');
+
+
+-- Ergänzungen für Tabelle: Sitzplatz (vorher 0)
+
+INSERT INTO Sitzplatz (PNr, SNr, VOName) VALUES (1, 1, 'Metro Kino');
+INSERT INTO Sitzplatz (PNr, SNr, VOName) VALUES (2, 1, 'Metro Kino');
+INSERT INTO Sitzplatz (PNr, SNr, VOName) VALUES (3, 2, 'Metro Kino');
+INSERT INTO Sitzplatz (PNr, SNr, VOName) VALUES (4, 1, 'Gartenbaukino');
+INSERT INTO Sitzplatz (PNr, SNr, VOName) VALUES (5, 1, 'Burgtheater');
+INSERT INTO Sitzplatz (PNr, SNr, VOName) VALUES (6, 1, 'Opernhaus');
+
+--  
+-- Ergänzungen für Tabelle: Veranstaltung (vorher 4)
+--  
+INSERT INTO Veranstaltung (VID, VName, Beschreibung, Dauer) VALUES (5, 'Psycho', 'A Hitchcock classic', 109);
+INSERT INTO Veranstaltung (VID, VName, Beschreibung, Dauer) VALUES (6, 'Rigoletto', 'Opera show', 135);
+
+--  
+-- Ergänzungen für Tabelle: Kunde (vorher 1)
+--  
+INSERT INTO Kunde (KNr, Nachname) VALUES (2, 'Müller');
+INSERT INTO Kunde (KNr, Nachname) VALUES (3, 'Meier');
+INSERT INTO Kunde (KNr, Nachname) VALUES (4, 'Gruber');
+INSERT INTO Kunde (KNr, Nachname) VALUES (5, 'Schmid');
+INSERT INTO Kunde (KNr, Nachname) VALUES (6, 'Berger');
+
+--  
+-- Ergänzungen für Tabelle: Premiumkunde (vorher 1)
+--  
+-- Aktualisierung des bestehenden Premiumkunden mit korrekter AnredeID
+UPDATE Premiumkunde SET AnredeID = 1, Telefon = '0664123456', Adresse = 'Mustergasse 1' WHERE KNr = 1;
+
+-- Neue Premiumkunden (passend für Q2, Q4, Q11, Q12)
+INSERT INTO Premiumkunde (KNr, Vorname, Geburtsdatum, Telefon, Adresse, AnredeID)
+VALUES (2, 'Max', TO_DATE('15.05.1995', 'DD.MM.YYYY'), '0660111222', 'Wiener Straße 5', 2);
+
+INSERT INTO Premiumkunde (KNr, Vorname, Geburtsdatum, Telefon, Adresse, AnredeID)
+VALUES (3, 'Maria', TO_DATE('20.08.1982', 'DD.MM.YYYY'), '0676333444', 'Hauptplatz 2', 1);
+
+INSERT INTO Premiumkunde (KNr, Vorname, Geburtsdatum, Telefon, Adresse, AnredeID)
+VALUES (4, 'Melanie', TO_DATE('05.11.1990', 'DD.MM.YYYY'), '0650555666', 'Kirchengasse 3', 1);
+
+INSERT INTO Premiumkunde (KNr, Vorname, Geburtsdatum, Telefon, Adresse, AnredeID)
+VALUES (5, 'Stefan', TO_DATE('01.01.1970', 'DD.MM.YYYY'), '0699777888', 'Bahnhofstraße 12', 2);
+
+--  
+-- Ergänzungen für Tabelle: Account (vorher 1)
+--  
+-- Aktualisierung des bestehenden Accounts
+UPDATE Account SET KNr = 1, Passwort = 'Melanie123' WHERE EMail = 'melanie.mayer@gmx.at';
+
+INSERT INTO Account (EMail, Passwort, KNr) VALUES ('max.mueller@gmx.at', 'maxiM17', 2);
+INSERT INTO Account (EMail, Passwort, KNr) VALUES ('maria.meier@gmx.at', 'securepass3', 3);
+INSERT INTO Account (EMail, Passwort, KNr) VALUES ('melanie.gruber@gmx.at', 'meliG31', 4);
+INSERT INTO Account (EMail, Passwort, KNr) VALUES ('stefan.schmid@gmx.at', 'securepass5', 5);
+
+--  
+-- Ergänzungen für Tabelle: Bestellung (vorher 1)
+--  
+INSERT INTO Bestellung (BNr, EMail, Zeitpunkt, Anmerkungen) VALUES (2, 'max.mueller@gmx.at', SYSDATE, 'Bitte schnell liefern');
+INSERT INTO Bestellung (BNr, EMail, Zeitpunkt, Anmerkungen) VALUES (3, 'maria.meier@gmx.at', SYSDATE, NULL);
+INSERT INTO Bestellung (BNr, EMail, Zeitpunkt, Anmerkungen) VALUES (4, 'melanie.gruber@gmx.at', SYSDATE, NULL);
+INSERT INTO Bestellung (BNr, EMail, Zeitpunkt, Anmerkungen) VALUES (5, 'stefan.schmid@gmx.at', SYSDATE, 'Zustellung am Nachmittag');
+
+--  
+-- Ergänzungen für Tabelle: MerchandiseArtikel (vorher 1)
+--  
+-- VID 2 hat MyMark und HisMark (für Q16 gefiltert)
+INSERT INTO MerchandiseArtikel (MName, Hersteller, Preis, Beschreibung, VID)
+VALUES ('v-poster_mymark', 'MyMark', 15.00, 'Vertigo Poster', 2);
+INSERT INTO MerchandiseArtikel (MName, Hersteller, Preis, Beschreibung, VID)
+VALUES ('v-poster_hismark', 'HisMark', 12.50, 'Vertigo Retro Poster', 2);
+
+-- VID 3 hat nur HisMark
+INSERT INTO MerchandiseArtikel (MName, Hersteller, Preis, Beschreibung, VID)
+VALUES ('tm-cap_hismark', 'HisMark', 18.00, 'Cap with film logo', 3);
+
+-- VID 4 hat 3 Artikel (für Q14)
+INSERT INTO MerchandiseArtikel (MName, Hersteller, Preis, Beschreibung, VID)
+VALUES ('kk-cd1_classic', 'ClassicMusic', 9.99, 'Mozart CD', 4);
+INSERT INTO MerchandiseArtikel (MName, Hersteller, Preis, Beschreibung, VID)
+VALUES ('kk-cd2_classic', 'ClassicMusic', 14.99, 'Beethoven CD', 4);
+INSERT INTO MerchandiseArtikel (MName, Hersteller, Preis, Beschreibung, VID)
+VALUES ('kk-book_classic', 'BookPress', 22.00, 'Biography Book', 4);
+
+--  
+-- Ergänzungen für Tabelle: verkauft_in (vorher 0)
+--  
+INSERT INTO verkauft_in (MName, Hersteller, VOName, Lagerstand) VALUES ('tb-tee_mymark', 'MyMark', 'Metro Kino', 100);
+INSERT INTO verkauft_in (MName, Hersteller, VOName, Lagerstand) VALUES ('v-poster_mymark', 'MyMark', 'Metro Kino', 50);
+INSERT INTO verkauft_in (MName, Hersteller, VOName, Lagerstand) VALUES ('v-poster_hismark', 'HisMark', 'Metro Kino', 30);
+INSERT INTO verkauft_in (MName, Hersteller, VOName, Lagerstand) VALUES ('tm-cap_hismark', 'HisMark', 'Stadttheater', 20);
+INSERT INTO verkauft_in (MName, Hersteller, VOName, Lagerstand) VALUES ('kk-cd1_classic', 'ClassicMusic', 'Gartenbaukino', 10);
+
+--  
+-- Ergänzungen für Tabelle: enthaelt (vorher 1)
+--  
+INSERT INTO enthaelt (BNr, MName, Hersteller, Stuekzahl) VALUES (2, 'v-poster_mymark', 'MyMark', 2);
+INSERT INTO enthaelt (BNr, MName, Hersteller, Stuekzahl) VALUES (3, 'v-poster_hismark', 'HisMark', 1);
+INSERT INTO enthaelt (BNr, MName, Hersteller, Stuekzahl) VALUES (4, 'tm-cap_hismark', 'HisMark', 1);
+INSERT INTO enthaelt (BNr, MName, Hersteller, Stuekzahl) VALUES (5, 'kk-cd1_classic', 'ClassicMusic', 3);
+
+--  
+-- Ergänzungen für Tabelle: Auffuehrung (vorher 0)
+--  
+-- Aufführung 1
+INSERT INTO Auffuehrung (Beginn, VID, SNr, VOName, Plakat)
+VALUES (TO_TIMESTAMP('2026-06-11 18:00:00', 'YYYY-MM-DD HH24:MI:SS'), 1, 1, 'Metro Kino', 'poster1.jpg');
+
+-- Aufführung 2
+INSERT INTO Auffuehrung (Beginn, VID, SNr, VOName, Plakat)
+VALUES (TO_TIMESTAMP('2026-06-12 20:00:00', 'YYYY-MM-DD HH24:MI:SS'), 2, 2, 'Metro Kino', 'poster2.jpg');
+
+-- Aufführung 3 (Dauer < 120, kein Merch vorhanden -> für Q13)
+INSERT INTO Auffuehrung (Beginn, VID, SNr, VOName, Plakat)
+VALUES (TO_TIMESTAMP('2026-06-13 21:00:00', 'YYYY-MM-DD HH24:MI:SS'), 5, 1, 'Gartenbaukino', 'poster5.jpg');
+
+-- Aufführung 4
+INSERT INTO Auffuehrung (Beginn, VID, SNr, VOName, Plakat)
+VALUES (TO_TIMESTAMP('2026-06-14 19:00:00', 'YYYY-MM-DD HH24:MI:SS'), 4, 1, 'Opernhaus', 'poster4.jpg');
+
+-- Aufführung 5
+INSERT INTO Auffuehrung (Beginn, VID, SNr, VOName, Plakat)
+VALUES (TO_TIMESTAMP('2026-06-15 17:00:00', 'YYYY-MM-DD HH24:MI:SS'), 3, 1, 'Stadttheater', 'poster3.jpg');
+
+--  
+-- Ergänzungen für Tabelle: Ticket (vorher 0)
+--  
+INSERT INTO Ticket (TNr, Beginn, VID, SNr, VOName, BNr, PNr)
+VALUES (101, TO_TIMESTAMP('2026-06-11 18:00:00', 'YYYY-MM-DD HH24:MI:SS'), 1, 1, 'Metro Kino', 1, 1);
+
+INSERT INTO Ticket (TNr, Beginn, VID, SNr, VOName, BNr, PNr)
+VALUES (102, TO_TIMESTAMP('2026-06-11 18:00:00', 'YYYY-MM-DD HH24:MI:SS'), 1, 1, 'Metro Kino', 2, 2);
+
+INSERT INTO Ticket (TNr, Beginn, VID, SNr, VOName, BNr, PNr)
+VALUES (103, TO_TIMESTAMP('2026-06-12 20:00:00', 'YYYY-MM-DD HH24:MI:SS'), 2, 2, 'Metro Kino', 3, 3);
+
+INSERT INTO Ticket (TNr, Beginn, VID, SNr, VOName, BNr, PNr)
+VALUES (104, TO_TIMESTAMP('2026-06-13 21:00:00', 'YYYY-MM-DD HH24:MI:SS'), 5, 1, 'Gartenbaukino', 4, 4);
+
+INSERT INTO Ticket (TNr, Beginn, VID, SNr, VOName, BNr, PNr)
+VALUES (105, TO_TIMESTAMP('2026-06-14 19:00:00', 'YYYY-MM-DD HH24:MI:SS'), 4, 1, 'Opernhaus', 5, 6);
+
+--  
+-- Ergänzungen für Tabelle: reserviert (vorher 0)
+--  
+-- Melanie Mayer (1989) reserviert Ticket 101 für Aufführung 1
+INSERT INTO reserviert (TNr, KNr, Zeitpunkt)
+VALUES (101, 1, TO_TIMESTAMP('2026-06-01 10:00:00', 'YYYY-MM-DD HH24:MI:SS'));
+
+-- Max Müller (1995, jünger) reserviert Ticket 102 für Aufführung 1
+INSERT INTO reserviert (TNr, KNr, Zeitpunkt)
+VALUES (102, 2, TO_TIMESTAMP('2026-06-02 11:00:00', 'YYYY-MM-DD HH24:MI:SS'));
+
+-- Maria Meier (1982) reserviert Ticket 103 für Aufführung 2
+INSERT INTO reserviert (TNr, KNr, Zeitpunkt)
+VALUES (103, 3, TO_TIMESTAMP('2026-06-03 12:00:00', 'YYYY-MM-DD HH24:MI:SS'));
+
+-- Melanie Gruber (1990) reserviert Ticket 104 für Aufführung 3
+INSERT INTO reserviert (TNr, KNr, Zeitpunkt)
+VALUES (104, 4, TO_TIMESTAMP('2026-06-04 13:00:00', 'YYYY-MM-DD HH24:MI:SS'));
+
+-- Stefan Schmid (1970) reserviert Ticket 105 für Aufführung 4
+INSERT INTO reserviert (TNr, KNr, Zeitpunkt)
+VALUES (105, 5, TO_TIMESTAMP('2026-06-05 14:00:00', 'YYYY-MM-DD HH24:MI:SS'));
+
+
+#

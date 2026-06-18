@@ -1,0 +1,82 @@
+
+INSERT INTO Funktion (FID, Funktionsbezeichnung)
+    VALUES (1, 'Hilfskraft');
+INSERT INTO Funktion (FID, Funktionsbezeichnung)
+    VALUES (2, 'Kassa');
+
+INSERT INTO Mitarbeiter (MANR, Vorname, Nachname, Gehalt)
+    VALUES (1, 'Markus', 'Mayer', NULL); -- 1 ist Hilfskraft
+INSERT INTO Mitarbeiter (MANR, Vorname, Nachname, Gehalt)
+    VALUES (2, 'Guenther', 'Herman', NULL);
+INSERT INTO Mitarbeiter (MANR, Vorname, Nachname, Gehalt)
+    VALUES (3, 'Herbert', 'Bauer', 660);
+INSERT INTO Mitarbeiter (MANR, Vorname, Nachname, Gehalt)
+    VALUES (4, 'Melanie', 'Mauer', NULL);
+
+
+INSERT INTO Veranstaltungsort (VOName, LeiterNr)
+    VALUES ('Metro Kino', 2); -- das von Guenther Herman geleitet wird
+INSERT INTO Veranstaltungsort (VOName, LeiterNr)
+    VALUES ('Stadttheater', NULL);
+
+
+
+INSERT INTO Anstellung (VOName, MANr, FID)
+    VALUES ('Metro Kino', 1, 1); -- Markus Mayer arbeitet bei Metro Kino
+INSERT INTO Anstellung (VOName, MANr, FID)
+    VALUES ('Metro Kino', 3, 2);
+INSERT INTO Anstellung (VOName, MANr, FID)
+    VALUES ('Stadttheater', 3, 2);
+
+
+
+INSERT INTO Saal (VOName, SNr, SName)
+    VALUES ('Metro Kino', 1, 'Hauptsaal');
+INSERT INTO Saal (VOName, SNr, SName)
+    VALUES ('Metro Kino', 2, 'Nebensaal1');
+INSERT INTO Saal (VOName, SNr, SName)
+    VALUES ('Metro Kino', 3, 'Nebensaal2');
+
+
+
+
+
+--------------------------
+
+
+
+
+INSERT INTO Veranstaltung
+VALUES (1, 'The Birds', 'The birds is something abt birds', 119);
+
+INSERT INTO Veranstaltung
+VALUES (2, 'Vertigo', 'The Vertigo is something abt the vertigo', 103);
+
+INSERT INTO Veranstaltung
+VALUES (3, 'The Man Who Knew Too Much', 'wouldnt you like to know', 129);
+
+INSERT INTO Veranstaltung
+VALUES (4, 'Klassik-Konzert', 'a classical concert, mozart inclusive', 200);
+
+INSERT INTO Kunde
+VALUES (1, 'Mayer');
+
+INSERT INTO Premiumkunde (KNR, VORNAME, NACHNAME, GEBURTSDATUM)
+VALUES (1, 'Melanie', 'Mayer', TO_DATE('12.03.1989', 'DD.MM.YYYY'));
+
+INSERT INTO Account (EMAIL)
+VALUES ('melanie.mayer@gmx.at'); --nicht in der angabe
+
+INSERT INTO Bestellung (BNR, EMAIL, ZEITPUNKT)
+VALUES(1, 'melanie.mayer@gmx.at', SYSDATE);
+
+INSERT INTO MerchandiseArtikel
+VALUES ('tb-tee_mymark','MyMark', 25, 'the bird is the word shirt', 1);
+
+INSERT INTO enthaelt
+VALUES (1, 'tb-tee_mymark', 'MyMark', 1);
+
+
+
+
+--------------------------------------

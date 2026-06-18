@@ -1,0 +1,308 @@
+-- ============================================================
+-- 1. Veranstaltung
+-- ============================================================
+
+CREATE TABLE Veranstaltung (
+    VID NUMBER(9),
+    VName VARCHAR(50) NOT NULL,
+    Beschreibung VARCHAR(300),
+
+    --corrected: Dauer sollte keine TIMESTAMP-Spalte sein
+    Dauer NUMBER(5) NOT NULL,
+
+    CONSTRAINT Veranstaltung_pk PRIMARY KEY (VID),
+    CONSTRAINT Veranstaltung_mintime_check CHECK (Dauer > 0)
+);
+
+-- ============================================================
+-- 2. Funktion
+-- ============================================================
+
+CREATE TABLE Funktion(
+    FID NUMBER(3), --FunktionsID
+    Funktionsbezeichnung VARCHAR(50) NOT NULL UNIQUE,
+
+    CONSTRAINT Funktion_pk PRIMARY KEY (FID)
+);
+
+-- ============================================================
+-- 3. Anrede
+-- ============================================================
+
+CREATE TABLE Anrede(
+    AnredeID NUMBER(2),
+    Anrede VARCHAR(100) NOT NULL UNIQUE,
+
+    CONSTRAINT Anrede_pk PRIMARY KEY (AnredeID),
+    CONSTRAINT Anrede_has_snippet_check CHECK (Anrede LIKE 'Sehr geehrter Herr%' 
+                                                OR Anrede LIKE 'Sehr geehrte Frau%'
+                                                OR Anrede LIKE 'Guten Tag%'
+                                                OR Anrede LIKE 'Hallo%'
+                                                OR Anrede LIKE 'Servus%')
+);
+
+-- ============================================================
+-- 4. Kunde
+-- ============================================================
+
+CREATE TABLE Kunde (
+    KNr NUMBER(15),
+    Nachname VARCHAR(30) NOT NULL,
+
+    CONSTRAINT Kunde_pk PRIMARY KEY (KNr)
+);
+
+-- ============================================================
+-- 5. Mitarbeiter
+-- ============================================================
+
+CREATE TABLE Mitarbeiter( -- at least six per VO
+    MANr NUMBER(9),
+    Vorname VARCHAR(30) NOT NULL,
+    Nachname VARCHAR(30),
+    Gehalt NUMBER(9) NOT NULL,
+
+    CONSTRAINT Mitarbeiter_pk PRIMARY KEY (MANr)
+);
+
+-- ============================================================
+-- 6. Premiumkunde
+-- ============================================================
+
+CREATE TABLE Premiumkunde(
+    KNr NUMBER(15),
+    Vorname VARCHAR(30) NOT NULL,
+  --Nachname VARCHAR(30),
+    Geburtsdatum DATE NOT NULL,
+    Telefon VARCHAR(20),
+    Adresse VARCHAR(100),
+    AnredeID NUMBER(2),
+
+    CONSTRAINT Premiumkunde_pk PRIMARY KEY (KNr),
+
+    --corrected: falsche Spaltennamen Anrede_ID -> AnredeID
+    CONSTRAINT Premiumkunde_Anrede_AnredeID_fk
+        FOREIGN KEY (AnredeID)
+        REFERENCES Anrede(AnredeID)
+);
+
+-- ============================================================
+-- 7. Veranstaltungsort
+-- ============================================================
+
+CREATE TABLE Veranstaltungsort (
+    VOName VARCHAR(50),
+    LeiterNr NUMBER(9), --Leiter
+
+    CONSTRAINT Veranstaltungsort_pk PRIMARY KEY (VOName),
+
+    CONSTRAINT Veranstaltungsort_Mitarbeiter_MANr_fk
+        FOREIGN KEY (LeiterNr)
+        REFERENCES Mitarbeiter(MANr)
+);
+
+-- ============================================================
+-- 8. Saal
+-- ============================================================
+
+--corrected: zusammengesetzter Primärschlüssel
+
+CREATE TABLE Saal (
+    SNr NUMBER(3),
+    VOName VARCHAR(50),
+    SName VARCHAR(50), --gehen davon aus das nicht jeder Saal Namen haben muss
+
+    CONSTRAINT Saal_pk PRIMARY KEY (SNr, VOName),
+
+    CONSTRAINT Saal_Veranstaltungsort_VOName_fk
+        FOREIGN KEY (VOName)
+        REFERENCES Veranstaltungsort(VOName)
+);
+
+-- ============================================================
+-- 9. Sitzplatz
+-- ============================================================
+
+CREATE TABLE Sitzplatz(
+    PNr NUMBER(4), --PlatzNummer
+    SNr NUMBER(3), --SaalNummer
+    VOName VARCHAR(50),
+
+    CONSTRAINT Sitzplatz_pk PRIMARY KEY (PNr),
+
+    --corrected: eindeutiger Constraintname
+        CONSTRAINT Sitzplatz_Saal_fk
+        FOREIGN KEY (SNr, VOName)
+        REFERENCES Saal(SNr, VOName)
+);
+
+-- ============================================================
+-- 10. Account
+-- ============================================================
+
+CREATE TABLE Account(
+    EMail VARCHAR(30),
+    Passwort VARCHAR(50), --would have been NOT NULL, but needed as nullable bc. of SQL Statement Nr. 4
+    KNr NUMBER(15), --KundenNummer
+
+    CONSTRAINT Account_pk PRIMARY KEY (EMail),
+    CONSTRAINT Account_Kunde_KNr_fk
+        FOREIGN KEY (KNr)
+        REFERENCES Kunde(KNr)
+);
+
+-- ============================================================
+-- 11. Bestellung
+-- ============================================================
+
+CREATE TABLE Bestellung(
+    BNr NUMBER(15), --Bestellnummer
+    EMail VARCHAR(30),
+    Zeitpunkt TIMESTAMP NOT NULL,
+    Anmerkungen VARCHAR(500),
+
+    CONSTRAINT Bestellung_pk PRIMARY KEY (BNr),
+
+    CONSTRAINT Bestellung_Account_EMail_fk
+        FOREIGN KEY (EMail)
+        REFERENCES Account(EMail)
+);
+
+-- ============================================================
+-- 12. MerchandiseArtikel
+-- ============================================================
+
+CREATE TABLE MerchandiseArtikel (
+    MName VARCHAR(50),
+    Hersteller VARCHAR(50),
+    Preis NUMBER(5,2) NOT NULL,
+    Beschreibung VARCHAR(500),
+    VID NUMBER(9),
+
+    CONSTRAINT MerchandiseArtikel_pk PRIMARY KEY (MName, Hersteller),
+
+    CONSTRAINT MerchandiseArtikel_Veranstaltung_VID_fk
+        FOREIGN KEY (VID)
+        REFERENCES Veranstaltung(VID)
+);
+
+-- ============================================================
+-- 13. Auffuehrung
+-- ============================================================
+
+CREATE TABLE Auffuehrung (
+    Beginn TIMESTAMP NOT NULL,
+    VID NUMBER(9),
+    SNr NUMBER(3),
+    VOName VARCHAR(50),
+    Plakat VARCHAR(300),
+
+    CONSTRAINT Auffuehrung_pk PRIMARY KEY (Beginn, VID, SNr, VOName),
+
+    CONSTRAINT Auffuehrung_Veranstaltung_fk
+        FOREIGN KEY (VID)
+        REFERENCES Veranstaltung(VID),
+
+    CONSTRAINT Auffuehrung_Saal_fk
+        FOREIGN KEY (SNr, VOName)
+        REFERENCES Saal(SNr, VOName)
+);
+
+-- ============================================================
+-- 14. verkauft_in
+-- ============================================================
+
+CREATE TABLE verkauft_in (
+    MName VARCHAR(50),
+    Hersteller VARCHAR(50),
+    VOName VARCHAR(50),
+    Lagerstand NUMBER(10) NOT NULL,
+
+    CONSTRAINT verkauft_in_pk PRIMARY KEY (MName, Hersteller, VOName),
+    
+    CONSTRAINT verkauft_in_MerchandiseArtikel_fk
+        FOREIGN KEY (MName, Hersteller)
+        REFERENCES MerchandiseArtikel(MName, Hersteller),
+
+    CONSTRAINT verkauft_in_Veranstaltungsort_VOName_fk
+        FOREIGN KEY (VOName)
+        REFERENCES Veranstaltungsort(VOName)
+);
+
+-- ============================================================
+-- 15. Ticket
+-- ============================================================
+
+CREATE TABLE Ticket (
+    TNr NUMBER(15), --TicketNr
+    Beginn TIMESTAMP NOT NULL,
+    VID NUMBER(9),
+    SNr NUMBER(3),
+    VOName VARCHAR(50),
+    BNr NUMBER(15),
+    PNr NUMBER(4),
+
+    CONSTRAINT Ticket_pk PRIMARY KEY (TNr),
+
+    --corrected: zusammengesetzter Fremdschlüssel auf Auffuehrung
+    CONSTRAINT Ticket_Auffuehrung_fk
+        FOREIGN KEY (Beginn, VID, SNr, VOName)
+        REFERENCES Auffuehrung(Beginn, VID, SNr, VOName),
+
+    CONSTRAINT Ticket_Bestellung_BNr_fk
+        FOREIGN KEY (BNr)
+        REFERENCES Bestellung(BNr),
+
+    CONSTRAINT Ticket_Sitzplatz_PNr_fk
+        FOREIGN KEY (PNr)
+        REFERENCES Sitzplatz(PNr)
+);
+
+-- ============================================================
+-- 16. reserviert
+-- ============================================================
+
+CREATE TABLE reserviert (
+    TNr NUMBER(15),
+    KNr NUMBER(15),
+    Zeitpunkt TIMESTAMP NOT NULL,
+
+    CONSTRAINT reserviert_pk PRIMARY KEY (TNr, KNr),
+
+    --corrected: Ticker -> Ticket
+    CONSTRAINT reserviert_Ticket_TNr_fk
+        FOREIGN KEY (TNr)
+        REFERENCES Ticket(TNr),
+
+    --corrected: eindeutiger Constraintname
+    CONSTRAINT reserviert_Kunde_KNr_fk
+        FOREIGN KEY (KNr)
+        REFERENCES Kunde(KNr)
+);
+
+-- ============================================================
+-- 17. enthaelt
+-- ============================================================
+CREATE TABLE enthaelt(
+    BNr NUMBER(15),
+    MName VARCHAR(50),
+    Hersteller VARCHAR(50),
+    Stuekzahl NUMBER(4) NOT NULL,
+    
+    CONSTRAINT enthaelt_pk PRIMARY KEY (BNr, MName, Hersteller),
+    CONSTRAINT Bestellung_BNr_fk FOREIGN KEY (BNr) REFERENCES Bestellung(BNr),
+    CONSTRAINT MerchandiseArtikel_enthaelt_fk FOREIGN KEY (MName, Hersteller) REFERENCES MerchandiseArtikel(MName, Hersteller)
+);
+-- ============================================================
+-- 18. Anstellung
+-- ============================================================
+
+CREATE TABLE Anstellung(
+    VOName VARCHAR(50),
+    MANr NUMBER(9),
+    FID NUMBER(3),
+    CONSTRAINT anstellung_pk PRIMARY KEY (VOName, MANr, FID),
+    CONSTRAINT Veranstaltungsort_anstellung_fk FOREIGN KEY (VOName) REFERENCES Veranstaltungsort(VOName),
+    CONSTRAINT Mitarbeiter_anstellung_fk FOREIGN KEY (MANr) REFERENCES Mitarbeiter(MANr),
+    CONSTRAINT Funktion_anstellung_fk FOREIGN KEY (FID) REFERENCES Funktion(FID)
+);

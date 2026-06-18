@@ -1,0 +1,48 @@
+5. Eventmanagement – SQL-Abfragen
+(21 Punkte)
+1.Geben Sie Veranstaltungs-ID, den Namen und Beschreibung aller Veranstaltungen aus, die
+zwischen 60 und 120 Minuten dauern (inklusive). (0,5 Pkt.)
+2.Geben Sie Vor-, Nachname und E-Mail-Adresse von Premium-Kund*innen aus, deren Vor-
+und Nachnamen jeweils mit einem ‚M‘ beginnt. (0,5 Pkt.)
+3.Geben Sie den Veranstaltungsnamen und die Namen aller (dazugehörigen)
+Merchandiseartikel aus. Fügen Sie dem Artikelnamen den Preis in Klammern an (xy €).
+Sortieren Sie das Ergebnis zuerst nach Veranstaltung und innerhalb der Veranstaltung den
+Preis absteigend. Geben Sie auch Veranstaltungen ohne Merchandiseartikel aus (mit 0 €). (1,5
+Pkt.)
+4.Geben Sie die Kundennummer, das Geburtsdatum und die E-Mail-Adresse aller
+Premiumkund*innen aus, die nach dem 1.1.1985 geboren wurden und noch kein Passwort
+gesetzt haben (Eintrag ‚NULL‘). Verwenden Sie dazu die Funktion TO_DATE und folgendes
+Datumsformat: DD-MM-YYYY. (0,5 Pkt.)
+5.Geben Sie die Bezeichnung jener Säle aus, die zumindest einen Platz mit einer Reservierung
+enthalten. Vermeiden Sie doppelte Einträge. (1 Pkt.)
+6.Geben Sie die Mitarbeiternummer, den Vornamen und den Nachnamen jener
+Mitarbeiter*innen aus, die an mehr als einem Veranstaltungsort arbeiten, zusammen mit der
+Anzahl an Veranstaltungsorten an denen gearbeitet wird. Sortieren Sie nach Nachname.
+(1 Pkt.)
+7.Geben Sie den Namen von jedem Veranstaltungsort aus, in dem mehr als zwei
+Mitarbeiter*innen arbeiten, die Anzahl der Mitarbeiter*innen aus. Verwenden Sie dazu eine
+GROUP BY-Anweisung. (1 Pkt.).
+8.Geben Sie die Mitarbeiternummer, den Vornamen und den
+Mitarbeiter*innen aus, die die meisten Arbeitsstellen haben. (1,5 Pkt.)
+9.Geben Sie die Mitarbeiternummer, den Vornamen und den Nachnamen ALLER
+Mitarbeiter*innen zusammen mit dem Namen des Veranstaltungsortes aus, in welchem sie
+arbeiten. Für Mitarbeiter*innen, die in keinem Veranstaltungsort arbeiten, soll '0' ausgegeben
+werden. (2 Pkt.)
+Nachnamen
+jener
+10. Geben Sie das Geburtsdatum des*r jüngsten Premiumkund*innen aus (Format: Do, 11. Jun
+2026). (1 Pkt.)
+11. Geben Sie Vornamen, Geburtsdatum und Anrede aller Premiumkund*innen aus, die jünger
+als der Durchschnitt sind. Hinweis: AVG(SYSDATE – gebdat) (2 Pkt.)
+12. Geben Sie den Vornamen, den Nachnamen, sowie die Reservierungen (Ticketnummer,
+Zeitpunkt im Format Donnerstag, 11. Juni 2026) der jeweils jüngsten Premiumkund*innen
+pro Aufführung aus. (2 Pkt.)
+13. Gesucht sind jene Aufführungen (Name, Veranstaltungs-Dauer, Anfangszeit), die kürzer als
+120 Minuten sind und für welche kein Merchandiseartikel wirbt. (2 Pkt.)
+14. Für welche Veranstaltungen werden die wenigsten Merchandiseartikel angeboten (verwenden
+Sie nur Veranstaltungen mit Merchandiseartikel). Geben Sie die Bezeichnung und die Anzahl
+der Artikel aus. Tipp: Verwenden Sie ein WITH-Statement. (1,5 Pkt.)
+15. Gesucht sind jene Mitarbeiter*innen (MANR, Vorname, Nachname), die in allen
+Veranstaltungsorten arbeiten, aber nicht mehr als 8000 Euro verdienen. (1,5 Pkt.)
+16. Gesucht sind jene Veranstaltungen (VID, Name), für die Merchandiseartikel vom Hersteller
+'MyMark', aber keine vom Hersteller 'HisMark' werben. (1,5 Pkt.)

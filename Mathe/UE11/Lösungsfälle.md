@@ -12,3 +12,29 @@ ein inhom. lgs Ax = b hat:
 		- weil: Es sei k Element kern(A) und x_0 eine Konkrete Lösung. Dann ist
 		- f(x_0) = b und f(k) = 0
 		- Aufgrund der Linearität gilt f(x_0 + k) = f(x_0) + f(k), also f(x_0) + 0 (weil k Element des Kerns ist)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
