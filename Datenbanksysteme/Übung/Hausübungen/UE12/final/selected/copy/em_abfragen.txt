@@ -20,7 +20,7 @@ ORDER BY VName ASC, Preis DESC;
 
 -- 4
 
-SELECT KNr, Geburtsdatum, EMail
+SELECT KNr, Geburtsdatum, EMail, Passwort
 FROM Kunde
     JOIN Premiumkunde USING (KNr)
     JOIN Account USING (KNr)
@@ -78,7 +78,7 @@ SELECT DISTINCT mit.MANR, mit.VORNAME, mit.NACHNAME, COALESCE(ans.VONAME, '0')
 
 
 --10. 
-SELECT TO_CHAR(GEBURTSDATUM, 'Dy, DD. Mon YYYY', 'NLS_DATE_LANGUAGE=German') AS Geburtsdatum 
+SELECT TO_CHAR(GEBURTSDATUM, 'Dy, DD. MON YYYY', 'NLS_DATE_LANGUAGE=German') 
 FROM Premiumkunde
 WHERE GEBURTSDATUM = (SELECT MAX(GEBURTSDATUM)
                         FROM Premiumkunde);
@@ -88,13 +88,13 @@ WHERE GEBURTSDATUM = (SELECT MAX(GEBURTSDATUM)
 SELECT VORNAME, GEBURTSDATUM, ANREDE, (SYSDATE-GEBURTSDATUM) AS tage
   FROM premiumkunde JOIN anrede USING (ANREDEID)
   WHERE SYSDATE - GEBURTSDATUM < (SELECT AVG(SYSDATE - GEBURTSDATUM)
-                                    FROM Premiumkunde);
+                                    FROM premiumkunde);
 
 
 
 
 --12.
-SELECT VORNAME, NACHNAME, TNR, TO_CHAR(ZEITPUNKT, 'DAY, DD. Month YYYY', 'NLS_DATE_LANGUAGE=German') AS Reservierungen
+SELECT VORNAME, NACHNAME, TNR, TO_CHAR(ZEITPUNKT, 'DAY, DD. Month .YYYY', 'NLS_DATE_LANGUAGE=German')
   FROM Premiumkunde
         JOIN KUNDE USING (KNR)
         JOIN reserviert USING (KNr)
@@ -117,7 +117,8 @@ SELECT VID, VNAME, DAUER, BEGINN
                                       WHERE VID IS NOT NULL);
 
 --14.
-SELECT VNAME AS "Bezeichnung", ANZAHL
+SELECT VNAME AS "Bezeichnung",
+       ANZAHL
     FROM Veranstaltung JOIN (SELECT VID, COUNT(MNAME) AS ANZAHL
   FROM Veranstaltung JOIN merchandiseartikel USING(VID)
   GROUP BY VID
@@ -146,7 +147,5 @@ SELECT DISTINCT VID, VNAME AS NAME
 FROM Veranstaltung JOIN Merchandiseartikel USING (VID)
 WHERE Hersteller = 'MyMark' AND VID NOT IN (SELECT VID 
                                               FROM Merchandiseartikel
-                                              WHERE Hersteller = 'HisMark'
-                                              AND VID IS NOT NULL);
-
+                                              WHERE Hersteller = 'HisMark');
 

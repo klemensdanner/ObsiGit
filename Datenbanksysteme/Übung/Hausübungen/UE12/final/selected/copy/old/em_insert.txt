@@ -44,6 +44,7 @@ INSERT INTO Saal (VOName, SNr, SName)
 
 
 
+
 INSERT INTO Veranstaltung
 VALUES (1, 'The Birds', 'The birds is something abt birds', 119);
 
@@ -129,11 +130,7 @@ INSERT INTO Anstellung (VOName, MANr, FID)
 INSERT INTO Anstellung (VOName, MANr, FID)
     VALUES ('Open Air Arena', 6, 5);
 INSERT INTO Anstellung (VOName, MANr, FID)
-    VALUES ('Concert Hall', 3, 1);
-INSERT INTO Anstellung (VOName, MANr, FID)
-    VALUES ('Opera House', 3, 1);
-INSERT INTO Anstellung (VOName, MANr, FID)
-    VALUES ('Open Air Arena', 3, 1);
+    VALUES ('Concert Hall', 3, 2);
 INSERT INTO Anstellung (VOName, MANr, FID)
     VALUES ('Metro Kino', 5, 3);
 INSERT INTO Anstellung (VOName, MANr, FID)
@@ -155,7 +152,7 @@ INSERT INTO Saal (VOName, SNr, SName)
 INSERT INTO Sitzplatz (PNr, SNr, VOName)
     VALUES (1, 1, 'Metro Kino');
 INSERT INTO Sitzplatz (PNr, SNr, VOName)
-    VALUES (2, 1, 'Metro Kino');
+    VALUES (2, 2, 'Metro Kino');
 INSERT INTO Sitzplatz (PNr, SNr, VOName)
     VALUES (3, 1, 'Stadttheater');
 INSERT INTO Sitzplatz (PNr, SNr, VOName)
@@ -223,9 +220,9 @@ INSERT INTO Bestellung (BNr, EMail, Zeitpunkt)
 
 -- MerchandiseArtikel
 INSERT INTO MerchandiseArtikel (MName, Hersteller, Preis, Beschreibung, VID)
-    VALUES ('little-poster', 'MyMark', 15.50, 'little game boy poster', 7);
+    VALUES ('vertigo-poster', 'MyMark', 15.50, 'Vertigo movie poster', 2);
 INSERT INTO MerchandiseArtikel (MName, Hersteller, Preis, Beschreibung, VID)
-    VALUES ('psycho-cup', 'HisMark', 10.00, 'Psycho branded cup', 5);
+    VALUES ('vertigo-cup', 'HisMark', 10.00, 'Vertigo branded cup', 2);
 INSERT INTO MerchandiseArtikel (MName, Hersteller, Preis, Beschreibung, VID)
     VALUES ('psycho-curtain', 'MyMark', 45.00, 'Psycho shower scene curtain', 5);
 INSERT INTO MerchandiseArtikel (MName, Hersteller, Preis, Beschreibung, VID)
@@ -235,26 +232,23 @@ INSERT INTO MerchandiseArtikel (MName, Hersteller, Preis, Beschreibung, VID)
     VALUES ('little-game-boy', 'HisMark', 50.00, 'little dog to play around with', 7);
 
 
-
 -- verkauft_in
 INSERT INTO verkauft_in (MName, Hersteller, VOName, Lagerstand)
     VALUES ('tb-tee_mymark', 'MyMark', 'Metro Kino', 100);
 INSERT INTO verkauft_in (MName, Hersteller, VOName, Lagerstand)
-    VALUES ('little-poster', 'MyMark', 'Metro Kino', 50);
+    VALUES ('vertigo-poster', 'MyMark', 'Metro Kino', 50);
 INSERT INTO verkauft_in (MName, Hersteller, VOName, Lagerstand)
-    VALUES ('psycho-cup', 'HisMark', 'Metro Kino', 30);
+    VALUES ('vertigo-cup', 'HisMark', 'Metro Kino', 30);
 INSERT INTO verkauft_in (MName, Hersteller, VOName, Lagerstand)
     VALUES ('psycho-curtain', 'MyMark', 'Stadttheater', 20);
 INSERT INTO verkauft_in (MName, Hersteller, VOName, Lagerstand)
     VALUES ('rear-window-binoc', 'HisMark', 'Opera House', 5);
 
-
-
 -- enthaelt
 INSERT INTO enthaelt (BNr, MName, Hersteller, Stuekzahl)
-    VALUES (2, 'little-poster', 'MyMark', 2);
+    VALUES (2, 'vertigo-poster', 'MyMark', 2);
 INSERT INTO enthaelt (BNr, MName, Hersteller, Stuekzahl)
-    VALUES (3, 'psycho-cup', 'HisMark', 1);
+    VALUES (3, 'vertigo-cup', 'HisMark', 1);
 INSERT INTO enthaelt (BNr, MName, Hersteller, Stuekzahl)
     VALUES (4, 'psycho-curtain', 'MyMark', 1);
 INSERT INTO enthaelt (BNr, MName, Hersteller, Stuekzahl)

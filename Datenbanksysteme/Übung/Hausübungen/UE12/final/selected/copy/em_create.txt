@@ -61,7 +61,7 @@ CREATE TABLE Mitarbeiter( -- at least six per VO
     Vorname VARCHAR(30) NOT NULL,
     Nachname VARCHAR(30),
     Gehalt NUMBER(9) NOT NULL,
-    VorgesetztenID NUMBER(9),
+    VorgesetztenID NUMBER(9)
 
     CONSTRAINT Mitarbeiter_pk PRIMARY KEY (MANr),
     CONSTRAINT VorgesetztenID_fk FOREIGN KEY (VorgesetztenID)
@@ -83,8 +83,6 @@ CREATE TABLE Premiumkunde(
 
     CONSTRAINT Premiumkunde_pk PRIMARY KEY (KNr),
 
-    CONSTRAINT Premiumkunde_KNr_fk FOREIGN KEY (KNr)
-        REFERENCES Kunde(KNr),
     --corrected: falsche Spaltennamen Anrede_ID -> AnredeID
     CONSTRAINT Premiumkunde_Anrede_AnredeID_fk
         FOREIGN KEY (AnredeID)
@@ -315,4 +313,3 @@ CREATE TABLE Anstellung(
     CONSTRAINT Mitarbeiter_anstellung_fk FOREIGN KEY (MANr) REFERENCES Mitarbeiter(MANr),
     CONSTRAINT Funktion_anstellung_fk FOREIGN KEY (FID) REFERENCES Funktion(FID)
 );
-

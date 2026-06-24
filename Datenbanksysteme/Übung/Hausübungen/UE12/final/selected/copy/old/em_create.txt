@@ -61,11 +61,8 @@ CREATE TABLE Mitarbeiter( -- at least six per VO
     Vorname VARCHAR(30) NOT NULL,
     Nachname VARCHAR(30),
     Gehalt NUMBER(9) NOT NULL,
-    VorgesetztenID NUMBER(9),
 
-    CONSTRAINT Mitarbeiter_pk PRIMARY KEY (MANr),
-    CONSTRAINT VorgesetztenID_fk FOREIGN KEY (VorgesetztenID)
-                REFERENCES Mitarbeiter(MANr)
+    CONSTRAINT Mitarbeiter_pk PRIMARY KEY (MANr)
 );
 
 -- ============================================================
@@ -83,8 +80,6 @@ CREATE TABLE Premiumkunde(
 
     CONSTRAINT Premiumkunde_pk PRIMARY KEY (KNr),
 
-    CONSTRAINT Premiumkunde_KNr_fk FOREIGN KEY (KNr)
-        REFERENCES Kunde(KNr),
     --corrected: falsche Spaltennamen Anrede_ID -> AnredeID
     CONSTRAINT Premiumkunde_Anrede_AnredeID_fk
         FOREIGN KEY (AnredeID)
@@ -133,10 +128,10 @@ CREATE TABLE Sitzplatz(
     SNr NUMBER(3), --SaalNummer
     VOName VARCHAR(50),
 
-    CONSTRAINT Sitzplatz_pk PRIMARY KEY (PNr, SNr, VOName),
+    CONSTRAINT Sitzplatz_pk PRIMARY KEY (PNr),
 
     --corrected: eindeutiger Constraintname
-    CONSTRAINT Sitzplatz_Saal_fk
+        CONSTRAINT Sitzplatz_Saal_fk
         FOREIGN KEY (SNr, VOName)
         REFERENCES Saal(SNr, VOName)
 );
@@ -258,13 +253,9 @@ CREATE TABLE Ticket (
         FOREIGN KEY (BNr)
         REFERENCES Bestellung(BNr),
 
-    --CONSTRAINT Ticket_Sitzplatz_PNr_fk
-    --    FOREIGN KEY (PNr)
-    --    REFERENCES Sitzplatz(PNr)
-
-    CONSTRAINT Ticket_Sitzplatz_fk
-        FOREIGN KEY (PNr, SNr, VOName)
-        REFERENCES Sitzplatz(PNr, SNr, VOName)
+    CONSTRAINT Ticket_Sitzplatz_PNr_fk
+        FOREIGN KEY (PNr)
+        REFERENCES Sitzplatz(PNr)
 );
 
 -- ============================================================
@@ -315,4 +306,3 @@ CREATE TABLE Anstellung(
     CONSTRAINT Mitarbeiter_anstellung_fk FOREIGN KEY (MANr) REFERENCES Mitarbeiter(MANr),
     CONSTRAINT Funktion_anstellung_fk FOREIGN KEY (FID) REFERENCES Funktion(FID)
 );
-
