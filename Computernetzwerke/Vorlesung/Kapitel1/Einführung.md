@@ -12,7 +12,7 @@ Use Cases von Computernetzwerken
 	- Fehlerrate (z.B. bei digitaler Kommunikation: BER; Bit Error Rate)
 	- Bandbreite (wie viel Information kann pro Zeiteinheit übertragen werden)
 	- Ausbreitungsgeschwindigkeit und Distanz (wie lange dauert die Übertragung von Informationen) - Unterscheidung zur Bandbreite!
-		- Geschwindigkeiten sind relativ gesetzt - elektromagn. Wellen  - Lichtgeschwindigkeit, Kupferkabel ist speed auch relativ konstant - bei schlechten Kabel steigt eher die bit error rate
+			- Geschwindigkeiten sind relativ gesetzt - elektromagn. Wellen  - Lichtgeschwindigkeit, Kupferkabel ist speed auch relativ konstant - bei schlechten Kabel steigt eher die bit error rate
 ## Übertragungsrichtung
 - Simplex: Kommunikation nur in eine Richtung (Radio)
 - Halfduplex: Kommunikation abwechselnd in beide Richtungen möglich (z.B. Walkie Talkie)
@@ -55,7 +55,8 @@ Analgoie: normales Sprechen:
 ### 1.2. Kommunikation
 - Signalebene: Fehler bei Übertragung selber; Bitfehler
 	- schelcht wenn bei einem Bitfehler eine andere gültige Nachricht rauskommt, weil man dann den Fehler nicht erkennt
-- Nachrichtenebene; Fehler bei Signalcodierung (z.B. kyrillisch C klingt wie das S in unserer Schrift)
+- Nachrichtenebene; Fehler bei Signalcodierung (z.B. kyrillisch C klingt wie das S in unserer Schrift), oder auch anderer Zeichensatz beim Entfänger
+- Informationsebene: z.B. Zahl wird anders interpretiert von der Software, mehr high level als Nachrichtenebene
 und Weiteres in den Folien
 
 #### Protokolle
@@ -77,3 +78,6 @@ Anforderungen an ein Computernetz
 - Performanz: Latenzen so kurz und konstant wie möglich
 - Sicherheit: Datenübertragung soll nicht abgehört oder manipuliert werden
 
+
+Flow control gegen Überlastung des Empfängers
+Congestion Control = Staukontrolle, gegen Überlastung des Netzes
