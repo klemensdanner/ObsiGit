@@ -1,0 +1,1 @@
+DA, 06.05.26: Foliensatz zu MiniJava ist aktualisiert - Typos entfernt!
