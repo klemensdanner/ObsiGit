@@ -143,6 +143,28 @@ WHERE cco.country = 'United States' AND st_country.country = 'Canada';
 
 
 
+/* 3. Geben Sie Vor- und Nachnamen sowie den Gesamtumsatz 
+(Summe aller Zahlungen) jener Kund*innen aus, 
+deren Gesamtumsatz über dem durchschnittlichen Gesamtumsatz 
+pro Kund*in liegt. Sortieren Sie absteigend nach dem Umsatz.
+(285 Zeilen, 2 Punkte)
+
+amount in payment
+
+Gruppieren nach customer_id
+im having Aggregatsfunktionen vergleichen, SUM() > durschnittl. Gesamtumsatz
+*/
+
+SELECT first_name, last_name, SUM(amount)
+FROM customer
+     JOIN payment USING (customer_id)
+GROUP BY customer_id, first_name, last_name
+HAVING SUM(amount) > (
+        -- durchschnittlicher Gesamtumsatz pro Kunde
+        SELECT AVG(SUM(amount))
+        FROM customer
+             JOIN payment USING (customer_id)
+        GROUP BY customer_id);
 
 
 
@@ -168,13 +190,6 @@ WHERE cco.country = 'United States' AND st_country.country = 'Canada';
 
 
 
-
-
-
-/* 3. Geben Sie Vor- und Nachnamen sowie den Gesamtumsatz (Summe aller Zahlungen) jener
-Kund*innen aus, deren Gesamtumsatz über dem durchschnittlichen Gesamtumsatz pro Kund*in
-liegt. Sortieren Sie absteigend nach dem Umsatz.
-(285 Zeilen, 2 Punkte) */
 
 
 
