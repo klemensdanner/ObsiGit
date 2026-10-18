@@ -80,3 +80,136 @@ Bedarf in der Oracle-Dokumentation. (1,5 Punkte) */
 SELECT rental_id, COALESCE(TO_CHAR(return_date, 'FMDy, ddth Month YYYY', 'NLS_DATE_LANGUAGE = english'), 'not returned yet') AS return_date
 FROM rental
 ORDER BY return_date DESC;
+
+
+
+
+
+-----------------------------------------------------------------
+
+-- 2. Gruppierungen und Unterabfragen
+
+
+/* 1. Geben Sie Vor- und Nachnamen aller 
+Schauspieler*innen aus, die in keinem Film der 
+Kategorie „Horror“ mitgespielt haben. 
+Verwenden Sie KEINEN Mengenoperator.
+(44 Zeilen, 1,5 Punkte) */
+
+/*
+- actor --> film_actor --> film_category
+
+m1 -- alle Schauspieler min in 1 Horrorfilm
+m2 -- alle Schauspieler, deren actor_id
+nicht in m1 ist
+*/
+
+-- m1: 
+
+
+SELECT first_name, last_name
+FROM actor
+WHERE actor_id NOT IN
+        (SELECT actor_id
+        FROM actor
+        JOIN film_actor USING (actor_id)
+        JOIN film_category USING (film_id)
+        JOIN category USING (category_id)
+        WHERE category.name = 'Horror');
+
+
+
+/* 2. Geben Sie die Vor- und Nachnamen aller 
+Kund*innen aus, die eine Adresse in den
+„United States“ aufweisen, deren zugewiesene 
+Hauptfiliale (customer.store_id) sich aber in
+„Canada“ befindet.
+(17 Zeilen, 1,5 Punkte) */
+
+
+SELECT *
+FROM customer c
+     -- Kundenpfad
+     JOIN address ca ON c.address_id = ca.address_id
+     JOIN city cci ON ca.city_id = cci.city_id
+     JOIN country cco ON cci.country_id = cco.country_id
+     -- store Pfad
+     JOIN store cs ON c.store_id = cs.store_id
+     JOIN address st_addr ON cs.address_id = st_addr.address_id
+     JOIN city st_city ON st_addr.city_id = st_city.city_id
+     JOIN country st_country ON st_city.country_id = st_country.country_id
+WHERE cco.country = 'United States' AND st_country.country = 'Canada';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 3. Geben Sie Vor- und Nachnamen sowie den Gesamtumsatz (Summe aller Zahlungen) jener
+Kund*innen aus, deren Gesamtumsatz über dem durchschnittlichen Gesamtumsatz pro Kund*in
+liegt. Sortieren Sie absteigend nach dem Umsatz.
+(285 Zeilen, 2 Punkte) */
+
+
+
+
+
+/* 4. Ermitteln Sie alle Filmtitel, die kürzer oder gleich lange dauern als der Film mit der ID 50.
+Geben Sie von diesen Titeln allerdings nur jene mit den größten Ersetzungskosten aus.
+Sortieren Sie nach Filmtitel.
+(53 Zeilen, 2 Punkte) */
+
+
+
+
+
+
+
+
+
+/* 5. Ermitteln Sie für jede Sprache den längsten Film mit einer Dauer von höchstens 120 Minuten.
+Verwenden Sie dafür die Spalte language_id. Berücksichtigen Sie nur Filme, bei denen eine
+Originalsprache (original_language_id) hinterlegt ist. Haben mehrere Filme dieselbe
+maximale Dauer, sollen alle ausgegeben werden. Geben Sie den Namen der Sprache sowie die
+Titel und Länge der Filme aus, sortieren Sie nach Sprache.
+(11 Zeilen, 2,5 Punkte) */
+
+
+
+
+
+
+
+
+
+
+
+/* 6. Geben Sie die neun zuletzt verliehenen Filme und das Verleihdatum im Format ‘YYYY-MM-
+DD‘ aus. Welche Möglichkeiten haben Sie, um die „neun letzten“ Filme zu ermitteln?
+(1,5 Punkte) */
