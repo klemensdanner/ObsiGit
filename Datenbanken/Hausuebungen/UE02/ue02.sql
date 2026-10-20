@@ -168,33 +168,6 @@ HAVING SUM(amount) > (
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* 4. Ermitteln Sie alle Filmtitel, die kürzer oder gleich lange dauern als der Film mit der ID 50.
 Geben Sie von diesen Titeln allerdings nur jene mit den größten Ersetzungskosten aus.
 Sortieren Sie nach Filmtitel.
@@ -228,3 +201,9 @@ Titel und Länge der Filme aus, sortieren Sie nach Sprache.
 /* 6. Geben Sie die neun zuletzt verliehenen Filme und das Verleihdatum im Format ‘YYYY-MM-
 DD‘ aus. Welche Möglichkeiten haben Sie, um die „neun letzten“ Filme zu ermitteln?
 (1,5 Punkte) */
+
+
+
+
+
+
