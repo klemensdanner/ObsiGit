@@ -175,6 +175,22 @@ Sortieren Sie nach Filmtitel.
 
 
 
+/* 
+
+Plan: 
+
+
+*/
+
+SELECT title
+FROM film
+WHERE length <= (SELECT length FROM film WHERE film_id = 50)
+        AND replacement_cost = (
+                SELECT MAX(replacement_cost)
+                FROM film
+                WHERE length <= (SELECT length FROM film WHERE film_id = 50)
+        )
+ORDER BY title;
 
 
 
@@ -186,13 +202,27 @@ Verwenden Sie dafür die Spalte language_id. Berücksichtigen Sie nur Filme, bei
 Originalsprache (original_language_id) hinterlegt ist. Haben mehrere Filme dieselbe
 maximale Dauer, sollen alle ausgegeben werden. Geben Sie den Namen der Sprache sowie die
 Titel und Länge der Filme aus, sortieren Sie nach Sprache.
-(11 Zeilen, 2,5 Punkte) */
+(11 Zeilen, 2,5 Punkte) 
 
+Plan:
 
+Alle Filme nehmen, im Where filtern:
+- nur die, die genau die Maxmallänge ihrer eigenen Sprache haben (korrelierte Unterabfrage)
+oder weniger als 120 min
+*/
 
-
-
-
+SELECT l.name, f.title, f.length
+FROM film f
+     JOIN language l ON f.language_id = l.language_id
+WHERE f.original_language_id IS NOT NULL
+     AND f.length <= 120
+     AND f.length = (
+        SELECT MAX(f1.length)
+        FROM film f1
+        WHERE f1.language_id = f.language_id
+              AND f1.length <= 120
+              AND f1.original_language_id IS NOT NULL
+     );
 
 
 
