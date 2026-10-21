@@ -232,6 +232,52 @@ WHERE f.original_language_id IS NOT NULL
 DD‘ aus. Welche Möglichkeiten haben Sie, um die „neun letzten“ Filme zu ermitteln?
 (1,5 Punkte) */
 
+SELECT title, TO_CHAR(rental_date, 'YYYY-MM-DD')
+FROM film
+        JOIN inventory USING (film_id)
+        JOIN rental USING (inventory_id)
+ORDER BY rental_date DESC
+FETCH FIRST 9 ROWS ONLY;
+
+/*
+Welche Möglichkeiten haben Sie, um die „neun letzten“ Filme zu ermitteln?
+- eine ROW_NUMBER() abfragen und nur ausgeben wenn diese <= 9 ist, 
+dabei bei gleichen Werten wird zufällig weitergezählt
+- RANK() oder DENSE_RANK(), würde gleiche Werte auch gleiche Reihung geben
+*/
+
+
+
+
+
+-- 3. Insert, Update und Delete
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
