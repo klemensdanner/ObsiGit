@@ -253,33 +253,93 @@ dabei bei gleichen Werten wird zufällig weitergezählt
 -- 3. Insert, Update und Delete
 
 
+/* 1. Erstellen Sie eine neue Tabelle „new_film“, diese soll den gleichen Aufbau wie die Tabelle
+„film“ haben, jedoch nur die neueren Filme enthalten. Als neuere Filme gelten jene, die nicht
+älter als 25 Jahre sind (setzen Sie dazu das aktuelle Datum in Bezug mit dem Erscheinungsjahr).
+(1 Punkt) */
 
 
 
+CREATE TABLE new_film AS
+SELECT *
+FROM film
+WHERE EXTRACT(YEAR FROM CURRENT_DATE) - release_year <= 25;
+
+
+/* 2. Fügen Sie den Film „Love Machine 3“ mit ID = 1001 in Englisch (language_id = 1) 
+mit 5 Tagen Verleihdauer (zum Preis von 1,79) mit Ersetzungskosten
+ von 21,50 in die Tabelle ein.
+(1 Punkt) */
+
+INSERT INTO new_film (title, film_id, language_id, rental_duration, 
+                        rental_rate, replacement_cost, last_update)
+     VALUES ('Love Machine 3', 1001, 1, 5, 1.79, 21.50, SYSDATE);
 
 
 
+/* 3. Erhöhen Sie den Leihpreis der Filme in der Tabelle „new_film“ um 15%, wenn der Leihpreis
+kleiner als 2 ist. (0,5 Punkte) */
+
+UPDATE new_film
+SET rental_rate = rental_rate * 1.15
+WHERE rental_rate < 2;
 
 
 
+/* 4. Erstellen Sie eine View, die alle Filme der Tabelle „new_film“ enthält, deren Leihpreis
+maximal 2 beträgt, vergeben Sie die Check-Option. Die View soll nur den Filmtitel, die
+Beschreibung, den Leihpreis und die Länge enthalten. (1 Punkt) */
+
+CREATE VIEW cheap_new_film AS
+SELECT title, description, rental_rate, length
+FROM new_film
+WHERE rental_rate <= 2
+WITH CHECK OPTION;
+
+
+/* 5. Welche Auswirkungen haben COMMIT und ROLLBACK an dieser Stelle (nachdem Sie die
+View erstellt haben). (0,5 Punkte) */
+/* 
+Die CREATE VIEW Anweisung hat implizit einen COMMIT abgesetzt, weil selbst nach einem weiteren ROLLBACK werden jetzt beim Statement aus Aufgabe 3.3 nur mehr "171 rows updated.", anstatt der vorherigen "196 rows updated.". Die Änderung von Aufgabe 3.3 wurde also entgültig in die Datenbank übernommen.
+ROLLBACK setzt also nur bis zum letzten "COMMIT" zurück - in diesem Fall also nur bis zum CREATE VIEW statement. */
 
 
 
+/* 6. Können Sie die Datensätze Ihrer neuen View verändern? Wenn ja, führen Sie die Erhöhung der
+Filme (15%) ein weiteres Mal durch, diesmal auf Ihre View. Wenn nein, warum nicht?
+(0,5 Punkte) */
+
+/* UPDATE cheap_new_film
+SET rental_rate = rental_rate * 1.15;
+
+
+Das darf nicht funktionieren, weil durch die Operation Datensätze aus der VIEW herausfallen würden 
+- das wird aber durch die CHECK OPTION von der VIEW verhindert.
+
+ */
 
 
 
+/* 7. Löschen Sie alle Einträge aus der Tabelle „new_film“, deren Leihpreis über 1.79 liegt.
+(0,5 Punkte) */
+
+DELETE FROM new_film
+WHERE rental_rate > 1.79;
 
 
 
+/* 8. Können Sie den Leihpreis der Filme in der View nun erhöhen? Erklären Sie dieses Verhalten.
+(0,5 Punkte) */
+
+UPDATE cheap_new_film
+SET rental_rate = rental_rate * 1.15;
+-- Erklärung im pdf
 
 
 
+/* 9. Löschen Sie die Tabelle „new_film“ und Ihre erstellte View wieder. (2 Statements, 0,5 Punkte) */
 
-
-
-
-
-
-
+DROP VIEW cheap_new_film;
+DROP TABLE new_film;
 
 
