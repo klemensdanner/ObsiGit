@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>WDP Blog</title>
+    <link rel="stylesheet" href="css/styles.css">
+
+</head>
+
+
+<body>
+    <header class="highlight">
+        We can start out with a header of our website. It can contain some intro to the site or a logo or a navigation.
+        Neither header nor footer are mandatory, but can help give meaning to content for tools and robots.
+        Also, because we are using UTF-8, we can do the following: &#128512;
+        <h1> Welcome to the WDP blog!</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li class="nav_element"><a href="index.html">Home</a></li>
+            <li class="nav_element"><a href="create_entry.html">Create a new blog entry</a></li>
+            <li class="nav_element"><a href="about.html">About</a></li>
+            <li class="nav_element"><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <h2 id="firstHeading">Intro: HTML Elements and basisc</h2>
+    <p>HTML is the standard markup language for creating Web pages. We are writing this in p because its a paragraph</p>
+    <p>p automatically does a line break and has an increased line spacing</p>
+    <hr>
+
+    <h2>HTML Elements</h2>
+    We can also just write text here and mention an few html elements.
+    Even though we did a line break here, there is none in the output. Execept if we used the br tag. <br> See? line
+    break!
+    <ul>
+        <li>Headings</li>
+        <li>Paragraphs</li>
+        <li>Links</li>
+        <li>Images</li>
+        <li>Lists</li>
+    </ul>
+    Before and after lists we also have some spacing. See for example also with an ordered list:
+    <ol>
+        <li>Headings</li>
+        <li>Paragraphs</li>
+        <li>Links</li>
+        <li>Images</li>
+        <li>Lists</li>
+    </ol>
+    We can use <strong>bold</strong> or <em>italic</em> text, we can also use <u>underline</u> text.
+    And then there is also <small>small</small> text and <b>big</b> text. We can also use <del>deleted</del> text or
+    <s>strike-through</s> for not correct anymore text.
+    Note that most of these elements are not used anymore, because they are not semantic. Or they have been given a
+    semantic meaning after the fact.
+    There are only some possibilities for styling text, because, you know, there is css and HTML should in general not
+    be used for styling.
+    We also have a <q>quote</q> element, which is used for short inline quotes. For longer quotes we can use the
+    blockquote element.
+    <blockquote>
+        <p>For long quotes, use the blockquote element. This is a blockquote. It can contain multiple paragraphs and
+            citations.</p>
+    </blockquote>
+    <hr>
+
+    <h2>Showing Code</h2>
+    And, then of course, important for us, we have the code element:
+    <code> <br>
+        #include &lt;stdio.h&gt; <br>
+        int main() {<br>
+            printf("Hello, World!");<br>
+            return 0;<br>
+        }<br>
+    </code>
+    You can see that we can't use all characters and need to format the code.
+    code is used for inline code snippets, for larger code blocks we can use the pre element:
+    <pre>
+        <code> 
+            #include &lt;stdio.h&gt; 
+            int main() {
+                printf("Hello, World!");
+                return 0;
+            }
+        </code>
+    </pre>
+    Note that pre can also be used without code to keep formatting.
+    <pre>
+        Leave
+                this
+                        formatting      
+                                            alone   !!!!
+
+    </pre>
+    <hr>
+
+    <h2>Other stuff</h2>
+    <p>There are also some other elements, like spans</p>
+    <span>This is a span</span>
+    Or <div>divs</div> for grouping elements.
+    <div>
+        <p>Some text in the first div</p>
+        <p>Some text in the first div Better, see?</p>
+    </div>
+    Spans and divs are going to be more interesting when we start using css.
+
+    And another heading:
+    <h3>Another heading</h3>
+    <h4>Another heading</h4>
+    <h5>Another heading</h5>
+    <h6>Another heading</h6>
+
+    We also have sections that should normally be used for grouping headings and paragraphs. Perfect for our little
+    blog.
+    <section>
+        <h2>Blog entry number 2</h2>
+        <p>Some text in the first section Better, see? To further improve, lets add horizontal rulers to show where new
+            blog entries start</p>        
+        <hr>
+    </section>
+
+    <section>
+        <h2>Attributes of html elements and links</h2>
+        <p>
+            Links are the most important element that needs attributes to work properly.
+            You can either link websites <a href="https://www.fh-ooe.at">like this</a> or link to other pages on your
+            website <a href="index.html">like this</a>.
+            You can also use it for email like in the footer below: <a
+                href="mailto:andreas.scheibenpflug@fh-hagenberg.at">Andreas Scheibenpflug</a>
+        </p>
+        <p>
+            We can also give another element an id attribute and then use the link to jump to that element.            
+            <a href="#firstHeading">Jump to first blog post entry</a>
+        </p>
+        <hr>
+    </section>
+
+    <section>
+        <h2>Images</h2>
+        <p>
+            Images are also important for a blog. You can use the img element to include images. Here's the logo of your favorite university:
+            <img src="https://fh-ooe.at/dist/images/bitmap/logo-de.png" alt="FH OÖ Logo">
+        </p>
+        <p>
+            Pretty big, uh? You can also use the width and height attributes to scale it down.
+            <img src="https://fh-ooe.at/dist/images/bitmap/logo-de.png" alt="FH OÖ Logo" width="100" height="100">
+        </p>
+        <p>
+            Looks still bad, maybe:
+            <img src="https://fh-ooe.at/dist/images/bitmap/logo-de.png" alt="FH OÖ Logo" width="200">
+            Better to keep the aspect ratio alive.
+        </p>
+        <div>
+            We can also use the figure element to group the image with a caption:
+            <figure>
+                <img src="https://fh-ooe.at/dist/images/bitmap/logo-de.png" alt="FH OÖ Logo" width="100">
+                <figcaption>Logo of the FH OÖ</figcaption>
+            </figure>
+        </div>
+        <p>
+            When an image does not exist, the value of the alt attribute is displayed:
+            <img src="not_found.jpg" alt="FH OÖ Logo">
+        </p>        
+        <hr>
+    </section>
+
+    <section>
+        <h2>Tables</h2>
+        <div>
+            Tables are also important for a blog. You can use the table element to include tables. Here's an example:
+            <table>
+                <tr>
+                    <th>Firstname</th>
+                    <th>Lastname</th>
+                    <th>Age</th>
+                </tr>
+                <tr>
+                    <td>Jill</td>
+                    <td>Smith</td>
+                    <td>50</td>
+                </tr>
+                <tr>
+                    <td>Eve</td>
+                    <td>Jackson</td>
+                    <td>94</td>
+                </tr>
+            </table>
+            You can also use the caption element, a header, footer and body elements to structure the table as well as some
+            attributes:
+            <!-- border ist in HTML5 deprecated -->
+            <table border="1">
+                <caption>Persons</caption>
+                <thead>
+                    <tr>
+                        <th>Firstname</th>
+                        <th>Lastname</th>
+                        <th>Age</th>
+                        <th>City</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Jill</td>
+                        <td>Smith</td>
+                        <td>50</td>
+                        <td rowspan="2">Vienna</td>
+                    </tr>
+                    <tr>
+                        <td>Eve</td>
+                        <td>Jackson</td>
+                        <td>94</td>                        
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="2">Sum</td>
+                        <td colspan="2">144</td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+        <hr>
+    </section>
+
+    <section>
+        <h2>Summary/Interactive Elements</h2>
+        <div>
+            This is an example for an interactive element. It can be used to hide and show content.
+            <details>
+                <summary>Click me to see more</summary>
+                <p>Some more text</p>
+            </details>
+        </div>
+        <hr>
+    </section>
+
+    <section>
+        <h2>Multimedia</h2>
+        <p>
+            You can include mathml, svg, audio, and video elements.<br>
+            Here is an example for a small formula in mathml:
+            <math xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow>
+                    <mi>a</mi>
+                    <mo>+</mo>
+                    <mi>b</mi>
+                    <mo>=</mo>
+                    <mi>c</mi>
+                </mrow>
+            </math>
+            <br>And an example for a simple svg drawing a smiley:<br>
+            <svg height="100" width="100">
+                <circle cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="yellow" />
+                <circle cx="30" cy="30" r="5" stroke="black" stroke-width="3" fill="black" />
+                <circle cx="70" cy="30" r="5" stroke="black" stroke-width="3" fill="black" />
+                <path d="M 30 70 Q 50 100 70 70" stroke="black" stroke-width="3" fill="transparent" />
+            </svg>
+        </p>
+        <p>
+            Here is an example video:<br>
+            <video src="http://download.blender.org/peach/trailer/trailer_iphone.m4v" controls></video>
+        </p>
+        <div>
+            You can specify various attributes to e.g. <strong>autoplay</strong> the video <strong>muted</strong> and <strong>loop</strong> it. You should also specify fallback content that is displayed if your browser does not support HTML5 videos. You can provide multiple source formats for compatibility.
+            <!-- <video controls loop autoplay muted poster="https://peach.blender.org/wp-content/uploads/watchtrailer.gif">
+                <source src="http://download.blender.org/peach/trailer/trailer_iphone.m4v" type="video/mp4">
+                <source src="http://download.blender.org/peach/trailer/trailer_480p.mov" type="video/quicktime">
+                <p>
+                    You can use this fallback to provide a <a href="http://download.blender.org/peach/trailer/trailer_iphone.m4v">link</a> to the video instead.
+                </p>
+            </video> -->
+        </div>
+        <p>
+            Finally, here's an audio example:<br>
+            <audio src="http://download.blender.org/peach/trailer/trailer_400p.ogg" controls></audio>
+        </p>
+        <hr>
+    </section>
+
+    <section>
+        <h2>Formulare</h2>
+        <div>
+            Register for updates on the WDP blog:
+            <!--  Alternativen:  -->
+            <!-- <form method="post" action="senden.html">   -->
+            <!-- <form method="post">   -->
+            <!-- <form action="senden.html">   -->            
+            <form method="get">
+                <fieldset>
+                    <legend>Personal information:</legend>
+                    <label for="fname">First name:</label>
+                    <input type="text" id="fname" name="fname" required>
+                    <label for="lname">Last name:</label>
+                    <input type="text" id="lname" name="lname" disabled value="Jones">
+                    <label for="age">Age:</label>
+                    <input type="number" id="age" name="age" min="16" max="99" required>
+                </fieldset>
+                <fieldset>
+                    <legend>Contact information:</legend>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </fieldset>
+                <fieldset>
+                    <legend>Additional information:</legend>
+                    <label for="comment">Comment:</label>
+                    <textarea id="comment" name="comment" rows="4" cols="50"></textarea><br>
+                    <label for="color">Favorite color:</label>
+                    <select id="color">
+                        <option value="Red">Red</option>
+                        <option value="Blue">Blue</option>
+                        <option value="Green">Green</option>
+                    </select>
+                </fieldset>
+                <fieldset>
+                    <legend>Subscribe to newsletter:</legend>
+                    <input type="checkbox" id="subscribe" name="subscribe" value="yes">
+                    <label for="subscribe">Subscribe</label><br>
+                    <input type="radio" id="weekly" name="frequency" value="weekly">
+                    <label for="weekly">Weekly</label>
+                    <input type="radio" id="monthly" name="frequency" value="monthly">
+                    <label for="monthly">Monthly</label>
+                </fieldset>
+                <button type="submit">Submit</button>
+                <button type="reset">Reset</button>
+            </form>
+        </div>
+        <hr>
+    </section>
+
+    <section>
+        <h2>iframes</h2>
+        This is another example for an interactive element. <br>
+        <!--<iframe src="https://www.fh-ooe.at" width="600" height="400"></iframe>-->
+        <iframe src="about.html" width="500"></iframe>
+        <hr>
+    </section>
+
+    <section>
+        <h2>embeds and objects</h2>
+        While iframe elements are used to include external web pages, the embed and object elements are used to include other external content, such as PDF documents.<br>
+        Let's try an embed here:<br>
+        <embed src="https://mozilla.github.io/pdf.js/web/compressed.tracemonkey-pldi-09.pdf" type="application/pdf" width="800" height="500">
+        <hr>
+    </section>
+
+    <footer>
+        <div>
+            And we can end with a footer. It can contain some contact information or a navigation.
+            <address>
+                Copyright 1994-2024 The WDP Blog
+                Contact: <a href="mailto:wdp-blog@fh-hagenberg.at">WDP-Blog</a>
+            </address>
+        </div>
+    </footer>
+</body>
+
+</html>

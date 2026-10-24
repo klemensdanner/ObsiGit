@@ -1,0 +1,41 @@
+header {
+            background-color: lightblue;
+            padding: 20px;
+            text-align: center;
+            border: 1px solid rgb(255, 70, 70);
+            border-radius: 20px;
+        }
+
+
+p {
+    color: rgb(17, 42, 0);
+}
+
+#firstHeading {
+    font-size: 30px;
+}
+
+.nav_element {
+    color: burlywood;
+    background-color: aqua;
+}
+
+h2 {
+    font-family: google-sans;
+}
+
+.highlight {
+    background-color: #ffffb2;
+    font-weight: bold;
+    
+}
+
+
+@font-face {
+  font-family: 'google-sans', regular;
+  src: url('fonts/Google_Sans/GoogleSans-VariableFont_GRAD,opsz,wght.ttf') format('ttf');
+/*   font-weight: normal;
+  font-style: normal;
+  font-display: swap; /* Verhindert unsichtbaren Text während des Ladens */ 
+}
+

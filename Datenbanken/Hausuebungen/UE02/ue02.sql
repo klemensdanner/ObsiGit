@@ -84,8 +84,9 @@ ORDER BY return_date DESC;
 
 
 
+--------------------------------------------------------------------------------------------
 
------------------------------------------------------------------
+
 
 -- 2. Gruppierungen und Unterabfragen
 
@@ -127,7 +128,7 @@ Hauptfiliale (customer.store_id) sich aber in
 (17 Zeilen, 1,5 Punkte) */
 
 
-SELECT *
+SELECT c.first_name, c.last_name
 FROM customer c
      -- Kundenpfad
      JOIN address ca ON c.address_id = ca.address_id
@@ -139,6 +140,7 @@ FROM customer c
      JOIN city st_city ON st_addr.city_id = st_city.city_id
      JOIN country st_country ON st_city.country_id = st_country.country_id
 WHERE cco.country = 'United States' AND st_country.country = 'Canada';
+
 
 
 
@@ -232,7 +234,7 @@ WHERE f.original_language_id IS NOT NULL
 DD‘ aus. Welche Möglichkeiten haben Sie, um die „neun letzten“ Filme zu ermitteln?
 (1,5 Punkte) */
 
-SELECT title, TO_CHAR(rental_date, 'YYYY-MM-DD')
+SELECT title, TO_CHAR(rental_date, 'YYYY-MM-DD') AS rental_date
 FROM film
         JOIN inventory USING (film_id)
         JOIN rental USING (inventory_id)
@@ -246,6 +248,9 @@ dabei bei gleichen Werten wird zufällig weitergezählt
 - RANK() oder DENSE_RANK(), würde gleiche Werte auch gleiche Reihung geben
 */
 
+
+
+--------------------------------------------------------------------------------------------
 
 
 

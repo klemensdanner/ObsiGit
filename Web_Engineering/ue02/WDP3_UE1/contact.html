@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>WDP Blog</title>
+</head>
+
+<body>
+    <header>
+        <h1>Contact Information</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="create_entry.html">Create a new blog entry</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <h2>Contact the WDP blog</h2>
+    <p>If you have any questions or suggestions, please contact us:</p>
+    <address>
+        <strong>WDP Blog</strong><br>
+        1234 Web Development Street<br>
+        4232 Hagenberg<br>
+        <abbr title="Phone">P:</abbr> +123 456 789<br>
+        <a href="mailto:wdp-blog@fh-hagenberg.at"> Mail to us</a>
+    </address>
+    <p>Or use the following form to send us a message:</p>
+    <form action="contact.html" method="get">
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name"><br>
+
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email"><br>
+
+        <label for="message">Message:</label><br>
+        <textarea id="message" name="message" rows="10" cols="50"></textarea><br>
+
+        <label for="inquiry">Type of inquiry:</label><br>
+        <select id="inquiry" name="inquiry">
+            <option value="question">Question</option>
+            <option value="suggestion">Suggestion</option>
+            <option value="complaint">Complaint</option>
+        </select> <br>
+
+        <label for="favcolor">Favorite color</label>
+        <input type="color" id="favcolor" name="favcolor"><br>
+
+        <label for="birthday">Birthday:</label>
+        <input type="date" id="birthday" name="birthday"><br>
+
+        <label for="favnumber">Favorite number</label>
+        <input type="number" id="favnumber" name="favnumber"><br>
+
+        <br>
+        <input type="submit" value="Send">
+    </form>
+
+</body>
+
+</html>
