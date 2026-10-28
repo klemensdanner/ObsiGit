@@ -1,0 +1,1 @@
+/usr/bin/cc -Wl,--dependency-file=CMakeFiles/string.dir/link.d CMakeFiles/string.dir/src/main.c.o -o string  -lasan -lubsan

@@ -1,0 +1,5 @@
+/home/klemens/Desktop/FHVault_Git/ObsiGit/C++/Uebung/Uebung2/build/CMakeFiles/string.dir
+/home/klemens/Desktop/FHVault_Git/ObsiGit/C++/Uebung/Uebung2/build/CMakeFiles/str.dir
+/home/klemens/Desktop/FHVault_Git/ObsiGit/C++/Uebung/Uebung2/build/CMakeFiles/test.dir
+/home/klemens/Desktop/FHVault_Git/ObsiGit/C++/Uebung/Uebung2/build/CMakeFiles/edit_cache.dir
+/home/klemens/Desktop/FHVault_Git/ObsiGit/C++/Uebung/Uebung2/build/CMakeFiles/rebuild_cache.dir
