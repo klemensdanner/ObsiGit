@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .c1 {
+            /*margin: 25px;*/
+            border: 5px solid black;
+            padding: 10px;
+            width: 400px;
+            height: 200px;
+            background-color: aquamarine;
+        }
+
+        .red {
+            background-color: red;
+        }
+
+        .green {
+            background-color: green;
+        }
+
+        .border-box {  /* borderbox nimmt die Breite und Höhe komplett an - incl. aller margins und paddings etc.. contentbox exclusive */
+            box-sizing: border-box;
+        }
+
+        .block {
+            /* display: none; /* platz ist freigegeben
+            display: hidden; platz ist noch blockiert, nur Sichtbarkeit wird verhindert */
+            display: block; /* macht aus einem inline element ein blockelement */
+        }
+
+        .inline {
+            display: inline;
+        }
+
+        .inline-block {
+            display: inline-block;
+        }
+
+
+        .relative {
+            position: relative;
+            top: 50px;
+            left: 50px;
+        }
+
+        .absolute {
+            position: absolute;
+            top: 50px;
+            left: 50px
+        }
+
+
+        #container {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+
+    </style>
+
+</head>
+
+<body>
+<!--     <div class="content-box red">content box</div>
+    <div class="border-box green">border box</div> -->
+
+
+<!--     <p class="inline">erster Absatz</p>
+    <p class="inline">zweiter Absatz</p> -->
+<!--     <div style="margin-left: 100px; margin-top:100px; position: relative;">
+        <span class="inline-block c1 green">span inline 1</span>
+        <span class="inline-block c1 red absolute">span inline 2</span>
+    </div> -->
+
+
+    <div id="container">
+        <div class="c1">div 1</div>
+        <div class="c1">div 2</div>
+        <div class="c1">div 3</div>
+        <div class="c1">div 4</div>
+        <div class="c1">div 5</div>
+        <div class="c1">div 6</div>
+    </div>
+
+<!-- https://flexboxfroggy.com/ -->
+
+
+
+
+
+
+
+</body>
+</html>

@@ -11,6 +11,22 @@ p {
     color: rgb(17, 42, 0);
 }
 
+
+a:nth-child(even) {
+    color: green;
+}
+
+nav>ul>li {
+    background-color: lightgray;
+}
+
+nav>ul>li:nth-child(2n) {
+    background-color: rgb(229, 74, 74);
+}
+
+
+
+
 #firstHeading {
     font-size: 30px;
 }

@@ -1,0 +1,1 @@
+iterator oder decorator schreiben
