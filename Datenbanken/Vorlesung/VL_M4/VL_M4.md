@@ -79,3 +79,8 @@ NOAUDIT INSERT, UPDATE, DELETE ON Professor;
 ```
 
 nicht zu viel mitloggen - Operationen können verlangsamt werden und große Protokolldateien sind schwerer analysierbar
+
+
+
+lofi prototype
+aktualisierte doku
