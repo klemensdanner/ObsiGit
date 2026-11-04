@@ -26,7 +26,7 @@ WITH tmp_table2 AS (
             language_id AS 'L',
             original_language_id AS 'OL'
         )
-    )
+    )   
 )
 
 SELECT
@@ -84,9 +84,6 @@ WITH tmp_table1 AS (
     INNER JOIN category USING (category_id)
     GROUP BY CUBE(store_id, name)
 )
-
-
-
 
 SELECT *
 FROM tmp_table1
@@ -147,3 +144,76 @@ GROUP BY customer_id, first_name, last_name
 HAVING MAX(diff_rental_date) > 180;
 
 
+
+
+
+-- 3. Aufgabe - LISTAGG
+--a)
+
+
+WITH films_lastest_release AS 
+(SELECT name, category_id, title, length, release_year,
+        MAX(release_year) OVER (PARTITION BY category_id)
+            AS latest_release_year
+FROM film
+    JOIN film_category USING (film_id)
+    JOIN category USING (category_id)
+)
+
+SELECT name,
+        LISTAGG(title ||
+            ' (' || length ||
+            ')', ', ')
+        WITHIN GROUP (ORDER BY length DESC) AS filme
+FROM films_lastest_release
+WHERE release_year = latest_release_year
+GROUP BY category_id, name;
+
+
+--b)
+
+SELECT length, title AS film,
+        CASE WHEN COUNT(actor_id) = 0 THEN 'no actors'
+        ELSE LISTAGG(SUBSTR(first_name, 1, 1)
+            || '. '
+            || last_name, ', ') -- sortierung der namen fertigstellen
+            WITHIN GROUP (ORDER BY last_name, first_name)
+            END AS actors
+FROM film
+    LEFT JOIN film_actor USING (film_id)
+    LEFT JOIN actor USING (actor_id)
+WHERE release_year = 1991
+GROUP BY film_id, title, length
+ORDER BY length DESC;
+
+--c)
+
+-- 3c)
+
+WITH tmp_table AS (
+    SELECT customer_id, first_name, last_name,
+        inventory_id, rental_date,
+        DENSE_RANK() OVER (
+            PARTITION BY customer_id
+            ORDER BY rental_date DESC
+        ) AS visit_nr
+    FROM customer
+        JOIN rental USING (customer_id)
+    WHERE customer.store_id = 3
+), recent_categories AS (
+    SELECT DISTINCT customer_id, first_name, last_name,
+        name AS category_name
+    FROM tmp_table
+        JOIN inventory USING (inventory_id)
+        JOIN film_category USING (film_id)
+        JOIN category USING (category_id)
+    WHERE visit_nr <= 3
+)
+
+SELECT last_name || ' ' || first_name AS customer,
+        LISTAGG(category_name, ', ')
+            WITHIN GROUP (ORDER BY category_name)
+            AS recent_interests
+FROM recent_categories
+GROUP BY customer_id, first_name, last_name
+ORDER BY last_name, first_name;
