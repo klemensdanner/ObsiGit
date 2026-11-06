@@ -1,0 +1,18 @@
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.start {
+    background-color: darkolivegreen;
+    font-size: 3em;
+    color: white;
+    max-width: 100%;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
