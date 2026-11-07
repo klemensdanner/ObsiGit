@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 380" width="100%" role="img" aria-label="Kategorien von Anweisungen in C">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="currentColor" />
+    </marker>
+  </defs>
+
+  <style>
+    .root-box { rx: 8; stroke: currentColor; stroke-width: 2; fill: currentColor; fill-opacity: 0.15; }
+    .cat-box { rx: 6; stroke: currentColor; stroke-width: 1.5; fill: currentColor; fill-opacity: 0.07; }
+    .line { stroke: currentColor; stroke-width: 1.5; fill: none; }
+    .txt-root { font-family: system-ui, sans-serif; font-size: 15px; font-weight: bold; fill: currentColor; text-anchor: middle; dominant-baseline: central; }
+    .txt-cat { font-family: system-ui, sans-serif; font-size: 13px; font-weight: 600; fill: currentColor; dominant-baseline: central; }
+    .txt-sub { font-family: ui-monospace, monospace; font-size: 11px; fill: currentColor; opacity: 0.8; dominant-baseline: central; }
+  </style>
+
+  <!-- Wurzel -->
+  <rect x="20" y="165" width="130" height="50" class="root-box" />
+  <text x="85" y="190" class="txt-root">Anweisung</text>
+
+  <!-- Verzweigungslinien -->
+  <path d="M 150 190 L 190 190" class="line" />
+  <path d="M 190 190 L 190 40 L 220 40" class="line" marker-end="url(#arr)" />
+  <path d="M 190 190 L 190 100 L 220 100" class="line" marker-end="url(#arr)" />
+  <path d="M 190 190 L 190 160 L 220 160" class="line" marker-end="url(#arr)" />
+  <path d="M 190 190 L 190 220 L 220 220" class="line" marker-end="url(#arr)" />
+  <path d="M 190 190 L 190 280 L 220 280" class="line" marker-end="url(#arr)" />
+  <path d="M 190 190 L 190 340 L 220 340" class="line" marker-end="url(#arr)" />
+
+  <!-- 1. Ausdrucks-Anweisung -->
+  <rect x="220" y="15" width="510" height="48" class="cat-box" />
+  <text x="235" y="32" class="txt-cat">1. Ausdrucks-Anweisung (Expression Statement)</text>
+  <text x="235" y="49" class="txt-sub">x = 5;   |   printf("Hi");   |   i++;   |   ; (leere Anweisung)</text>
+
+  <!-- 2. Block-Anweisung -->
+  <rect x="220" y="75" width="510" height="48" class="cat-box" />
+  <text x="235" y="92" class="txt-cat">2. Verbund-Anweisung / Block (Compound Statement)</text>
+  <text x="235" y="109" class="txt-sub">{ int a = 1; b += a; }   (fasst mehrere Anweisungen zusammen)</text>
+
+  <!-- 3. Selektions-Anweisung -->
+  <rect x="220" y="135" width="510" height="48" class="cat-box" />
+  <text x="235" y="152" class="txt-cat">3. Auswahl-Anweisung (Selection Statement)</text>
+  <text x="235" y="169" class="txt-sub">if (...) ... else ...   |   switch (...) { ... }</text>
+
+  <!-- 4. Iterations-Anweisung -->
+  <rect x="220" y="195" width="510" height="48" class="cat-box" />
+  <text x="235" y="212" class="txt-cat">4. Schleifen-Anweisung (Iteration Statement)</text>
+  <text x="235" y="229" class="txt-sub">while (...) ...   |   do ... while (...);   |   for (...) ...</text>
+
+  <!-- 5. Sprung-Anweisung -->
+  <rect x="220" y="255" width="510" height="48" class="cat-box" />
+  <text x="235" y="272" class="txt-cat">5. Sprung-Anweisung (Jump Statement)</text>
+  <text x="235" y="289" class="txt-sub">return x;   |   break;   |   continue;   |   goto label;</text>
+
+  <!-- 6. Gelabelte Anweisung -->
+  <rect x="220" y="315" width="510" height="48" class="cat-box" />
+  <text x="235" y="332" class="txt-cat">6. Markierte Anweisung (Labeled Statement)</text>
+  <text x="235" y="349" class="txt-sub">case 1: ...   |   default: ...   |   meine_sprungmarke: ...</text>
+</svg>

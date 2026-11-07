@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 220" width="100%" role="img" aria-label="Syntaxdiagramm einer if-Verzweigung in C">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="currentColor" />
+    </marker>
+  </defs>
+
+  <style>
+    .track { stroke: currentColor; stroke-width: 2; fill: none; }
+    .terminal { rx: 16; stroke: currentColor; stroke-width: 2; fill: currentColor; fill-opacity: 0.08; }
+    .non-terminal { rx: 4; stroke: currentColor; stroke-width: 2; fill: currentColor; fill-opacity: 0.04; }
+    .lbl-term { font-family: ui-monospace, monospace; font-size: 14px; font-weight: bold; fill: currentColor; text-anchor: middle; dominant-baseline: central; }
+    .lbl-nonterm { font-family: system-ui, sans-serif; font-size: 13px; font-style: italic; fill: currentColor; text-anchor: middle; dominant-baseline: central; }
+  </style>
+
+  <!-- Startpunkt -->
+  <circle cx="20" cy="70" r="5" fill="currentColor" />
+  <line x1="20" y1="70" x2="45" y2="70" class="track" marker-end="url(#arrow)" />
+
+  <!-- 1. if (Terminal) -->
+  <rect x="45" y="48" width="50" height="44" class="terminal" />
+  <text x="70" y="70" class="lbl-term">if</text>
+  <line x1="95" y1="70" x2="120" y2="70" class="track" marker-end="url(#arrow)" />
+
+  <!-- 2. ( (Terminal) -->
+  <rect x="120" y="48" width="40" height="44" class="terminal" />
+  <text x="140" y="70" class="lbl-term">(</text>
+  <line x1="160" y1="70" x2="185" y2="70" class="track" marker-end="url(#arrow)" />
+
+  <!-- 3. Ausdruck / Bedingung (Nicht-Terminal) -->
+  <rect x="185" y="48" width="115" height="44" class="non-terminal" />
+  <text x="242" y="70" class="lbl-nonterm">Ausdruck</text>
+  <line x1="300" y1="70" x2="325" y2="70" class="track" marker-end="url(#arrow)" />
+
+  <!-- 4. ) (Terminal) -->
+  <rect x="325" y="48" width="40" height="44" class="terminal" />
+  <text x="345" y="70" class="lbl-term">)</text>
+  <line x1="365" y1="70" x2="390" y2="70" class="track" marker-end="url(#arrow)" />
+
+  <!-- 5. Anweisung 1 (Nicht-Terminal) -->
+  <rect x="390" y="48" width="125" height="44" class="non-terminal" />
+  <text x="452" y="70" class="lbl-nonterm">Anweisung</text>
+
+  <!-- Verzweigungspunkt nach Anweisung 1 -->
+  <line x1="515" y1="70" x2="550" y2="70" class="track" />
+
+  <!-- Oberer Pfad: Ohne else direkt zum Ausgang -->
+  <line x1="550" y1="70" x2="770" y2="70" class="track" marker-end="url(#arrow)" />
+
+  <!-- Unterer Pfad: else-Zweig -->
+  <path d="M 550 70 Q 565 70 565 95 L 565 145 Q 565 165 585 165 L 595 165" class="track" marker-end="url(#arrow)" />
+
+  <!-- else (Terminal) -->
+  <rect x="595" y="143" width="60" height="44" class="terminal" />
+  <text x="625" y="165" class="lbl-term">else</text>
+  <line x1="655" y1="165" x2="675" y2="165" class="track" marker-end="url(#arrow)" />
+
+  <!-- Anweisung 2 (Nicht-Terminal) -->
+  <rect x="675" y="143" width="120" height="44" class="non-terminal" />
+  <text x="735" y="165" class="lbl-nonterm">Anweisung</text>
+
+  <!-- Zusammenführung zum Ausgang -->
+  <path d="M 795 165 Q 815 165 815 145 L 815 95 Q 815 70 790 70 L 780 70" class="track" />
+  
+  <!-- Endpunkt -->
+  <line x1="770" y1="70" x2="800" y2="70" class="track" />
+  <circle cx="805" cy="70" r="5" fill="currentColor" />
+</svg>
