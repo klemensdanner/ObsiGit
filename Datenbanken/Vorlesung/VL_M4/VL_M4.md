@@ -38,7 +38,7 @@ Benutzer benötigt Systemrechte (vom Datenbank-Admin) und Objektrechte (Rechte o
 	- Zentrales System verwaltet Zugriffsrechte - Militärbereich z.B. 
 - Role Based Access Control – RBAC
 	- Benutzer erhalten Zugriffsrechte über Rollenmitgliedschaften
-siehe [[ObsiGit/Datenbanken/Vorlesung/VL_M4/M5 Datensicherheit.pdf#page=10&selection=10,0,10,17&color=yellow|M5 Datensicherheit, p.10]]
+siehe [[ObsiGit/Datenbanken/Vorlesung/VL_M5/M5 Datensicherheit.pdf#page=10&selection=10,0,10,17&color=yellow|M5 Datensicherheit, p.10]]
 
 Der DBA (DatenbankAdmin) kann Rechte granten, mit:
 ```
@@ -54,7 +54,7 @@ GRANT CREATE SESSION, CREATE TABLE, CREATE VIEW TO altmann;
 Objektrechte werden vom Ersteller oder Admin vergeben, z.B. ALTER, DELETE, INDEX, INSERT, usw.
 
 WITH GRAND OPTION ermöglicht die Weitergabe von Rechten
-siehe: [[ObsiGit/Datenbanken/Vorlesung/VL_M4/M5 Datensicherheit.pdf#page=18&selection=12,0,16,7&color=yellow|M5 Datensicherheit, p.18]]
+siehe: [[ObsiGit/Datenbanken/Vorlesung/VL_M5/M5 Datensicherheit.pdf#page=18&selection=12,0,16,7&color=yellow|M5 Datensicherheit, p.18]]
 
 Benutzer können Sichten freigeben und brauchen dabei keinen Zugriff auf die Basistabellen
 
@@ -62,7 +62,7 @@ Benutzer können Sichten freigeben und brauchen dabei keinen Zugriff auf die Bas
 Objektrechte können entzogen werden.
 Was aber mit weitergegebenen Rechten?
 entweder der Entzugsantrag wird abgelehnt (RESTRICT) oder allen Benutzern denen Rechte weitergegeben wurden, werden ebenfalls eingeschränkt (CASCADE)
-siehe: [[ObsiGit/Datenbanken/Vorlesung/VL_M4/M5 Datensicherheit.pdf#page=23&selection=12,0,16,6&color=yellow|M5 Datensicherheit, p.23]]
+siehe: [[ObsiGit/Datenbanken/Vorlesung/VL_M5/M5 Datensicherheit.pdf#page=23&selection=12,0,16,6&color=yellow|M5 Datensicherheit, p.23]]
 
 
 ### Rollenbasierte Authorisierung (RBAC)
