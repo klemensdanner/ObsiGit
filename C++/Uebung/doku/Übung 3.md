@@ -1,7 +1,7 @@
 
 static: nur innerhalb von file
 namespace definieren mti
-```
+```c++
 namespace swc3 {
     static int counter = 43;
     static int x = 40;
@@ -37,7 +37,7 @@ man kann default werte in funktionsdecl angeben
 print(int a = 5);
 jetzt kann print() mit parameter oder ohne aufgerufen werden - ohne würde es 5 übernehmen
 Interessant bei:
-```
+```c++
 print(int a = 5);
 print(int a, int b);
 ``` 
@@ -47,14 +47,14 @@ wenn man jetzt print(3) aufruft, welches der beiden wird aufgerufen? -- fehler!
 ### structs
 
 // geht in C nicht mit Funktionen - man kann aber einen funktionspointer ins struct legen - braucht aber speicher und in c++ nicht
-```
+```c++
 struct point {
     int x, y;
     void draw;
 }
 ``` 
 definiere die funktion mit
-```
+```c++
 void point::draw {
     printf("balbalbal\n");
 }
@@ -128,34 +128,30 @@ inc_cpp(i) // int übergeben, aber übernimmt die referenz
 ``` 
 
 ### strings
+```c++
 std::string s1 {"Klemens"};
 auto s2 = std::string {"Danner"};
 std::println();
-s1 = s2
+s1 = s2;
 
-strings werden kopiert, d.h. z.b. `s1 = s2` kopiert tatsächlich den Inhalt, es wird ein neues string objekt angelegt
+// strings werden kopiert, d.h. z.b. `s1 = s2` kopiert tatsächlich den Inhalt, es wird ein neues string objekt angelegt
 
-s1.clear(); cleard den ersten string, den zweiten nicht
+s1.clear(); // cleard den ersten string, den zweiten nicht
 s1.push_back('c'); // fügt c hinten an
+```
 
 es gibt eine insert, an einer bestimmten stelle
 -- string
 in c++ ist der string NICHT immutable
 
-
-
-
 ### pragma
-#pragma once macht: 
-
-
+\#pragma once macht: anschauen
 ### structs und klassen
 struct: variablen sind by default public
 class: var sind by default private
 
 #### Klassen
 ```c++
-
 namespace swc3 {
     // Person::Person(const ----- anschauen was hier steht in seinem code
 }
@@ -181,7 +177,6 @@ private:
 static void test_person() {
     Person p1 {"p1"};
     Person p2; // default constructer is used
-
 }
 ``` 
 
@@ -198,7 +193,7 @@ im destructor gibt man allokierten speicher frei z.B.
 ### Rational Beispiel
 mit der friend funktion erlaubt man einer anderen klasse zugriff auf seine eigenen private variablen
 
-// drei varianten anschauen bei operator overloading
+// drei varianten anschauen bei operator overloading - anschauen
 private heißt: in gleicher Klasse zugreifen (nicht nur im selben objekt!)
 
 `return *this`: this ist ein Pointer auf das aktuelle Objekt, hier wird es mit dem * dereferenziert.
@@ -222,15 +217,3 @@ public:
     }
 };
 ```
-
-
-
-```c++
-
-``` 
-
-
-```c++
-
-``` 
-
