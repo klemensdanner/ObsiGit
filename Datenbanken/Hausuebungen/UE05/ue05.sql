@@ -1,7 +1,3 @@
-
-
-
-
 -- 1 Data Dictionary
 
 /* 
@@ -15,9 +11,6 @@ Benutzer soll Tabellenname eingeben (& Operator)
 -- Suchen nach Usertabellen
 
 --a)
-
-
-
 SELECT *
 FROM dictionary
 WHERE table_name LIKE 'USER_T%';
@@ -41,6 +34,7 @@ WHERE table_name = UPPER('&entered_table_name');
 
 
 
+
 -- b)
 
 SELECT * FROM USER_TAB_COLUMNS WHERE table_name = 'EMPLOYEES';
@@ -52,6 +46,7 @@ SELECT index_name,
         LISTAGG(column_name, ', ')
         WITHIN GROUP (ORDER BY column_position) AS columns
 FROM USER_IND_COLUMNS
+WHERE index_name LIKE '%FILM%'
 GROUP BY index_name;
 
 
@@ -85,14 +80,98 @@ ORDER BY object_type;
 SELECT CASE WHEN object_type = 'TABLE' THEN
             'DROP TABLE' || ' ' || object_name || ' CASCADE CONSTRAINTS' || ';'
         ELSE
-            'DROP ' || object_type || ' ' || object_name || ';' END AS drop_statement
+            'DROP ' || object_type || ' ' || object_name || ';'
+        END AS drop_statement
 FROM user_objects
 WHERE object_type IN (
     'SEQUENCE',
     'TABLE',
-    'VIEW'
+    'VIEW',
+    'MATERIALIZED VIEW'
 );
 
 
 
 -- 2
+
+--a alter der Schauspieler zum aktuellen Tag,
+-- virtuelle Sicht dazu erstellen und abfragen
+
+CREATE OR REPLACE VIEW actor_age AS
+SELECT actor_id, first_name, last_name,
+        TRUNC(MONTHS_BETWEEN(SYSDATE, birth_date) / 12) AS age
+FROM actor
+ORDER BY actor_id;
+
+SELECT *
+FROM actor_age;
+
+--b daraus materialisierte sicht erstellen
+
+CREATE MATERIALIZED VIEW actor_age_daily
+        REFRESH COMPLETE
+        START WITH TRUNC(SYSDATE + 1) + 1/24
+        NEXT TRUNC(SYSDATE + 1) + 1/24
+AS
+SELECT *
+FROM actor_age;
+
+-- abfragen, für die doku
+SELECT * FROM actor_age_daily;
+
+
+--c nur in der Nacht von Sonntag auf montag 3.00 uhr
+CREATE MATERIALIZED VIEW actor_age_weekly
+        REFRESH COMPLETE
+        START WITH TRUNC((SYSDATE + 7), 'IW') + 3/24
+        NEXT TRUNC((SYSDATE + 7), 'IW') + 3/24
+AS
+SELECT *
+FROM actor_age;
+
+SELECT * FROM actor_age_weekly; 
+
+
+-- d
+-- kann ich nicht abwarten - mach das grad am Dienstag Abend :)
+-- ich kanns aber im data dictionary prüfen
+
+-- also: suchen im dictionary:
+SELECT * FROM dictionary;
+
+-- nach dem Stichwort refresh
+SELECT *
+FROM dictionary
+WHERE table_name LIKE '%refresh%'
+        OR comments LIKE '%refresh%';
+
+
+SELECT *
+FROM USER_MVIEW_REFRESH_TIMES;
+
+SELECT rname, next_date
+FROM USER_REFRESH;
+
+--e)
+
+DROP MATERIALIZED VIEW actor_age_weekly;
+DROP MATERIALIZED VIEW actor_age_daily;
+DROP VIEW actor_age;
+
+
+
+--------------------------
+-- Aufgabe 3
+
+
+-- a)
+-- alle employees die genau 2 levels unter 102 sind
+-- level 1 ist 102
+-- zwei darunter ist level 3
+SELECT employee_id, last_name, manager_id, LEVEL
+FROM employees
+WHERE LEVEL = 3
+START WITH employee_id = 102
+CONNECT BY PRIOR employee_id = manager_id
+               AND LEVEL <= 3; -- Rekursion begrenzen
+-- heißt: geh weiter wo die manager_id 102 ist (beim ersten Schritt)
