@@ -175,3 +175,48 @@ START WITH employee_id = 102
 CONNECT BY PRIOR employee_id = manager_id
                AND LEVEL <= 3; -- Rekursion begrenzen
 -- heißt: geh weiter wo die manager_id 102 ist (beim ersten Schritt)
+
+
+
+-- b)
+
+SELECT employee_id, last_name
+FROM employees
+WHERE last_name = 'King';
+-- King -- 100
+
+SELECT employee_id, last_name, manager_id, department_id
+FROM employees
+WHERE department_id != PRIOR department_id
+START WITH employee_id = 100
+CONNECT BY NOCYCLE PRIOR employee_id = manager_id;
+
+
+-- c)
+-- manager_id mit jeweils seinem untergebenen
+--     dessen einstellungsdatum vorm manager ist
+
+WITH tmp_table AS (
+        SELECT  CONNECT_BY_ROOT employee_id AS root_manager_id,
+                        -- jede id wird rek. durchlaufen
+                        -- erste id ist also manager aller anderen
+                CONNECT_BY_ROOT last_name AS root_manager_name,
+                employee_id, last_name,
+                manager_id, hire_date
+        FROM employees
+        WHERE hire_date < CONNECT_BY_ROOT hire_date
+        -- hire_date von Untergebenem war vorher
+        CONNECT BY NOCYCLE PRIOR employee_id = manager_id
+)
+
+SELECT root_manager_id, root_manager_name,
+        COUNT(*) AS untergebene
+FROM tmp_table
+GROUP BY root_manager_id, root_manager_name;
+
+
+
+
+
+
+
