@@ -9,12 +9,7 @@ int main() {
 
     char* char_ptr_arr = "ptr_array";
 
-    /* char* char_dyn_arr = malloc(8*sizeof(char));
-    char_dyn_arr = "Halloab";
-    
-    char_dyn_arr[7] = '\0';
-    printf("strlen(char_dyn_arr): %ld", strlen(char_dyn_arr)); */
- 
+
 
     printf("char_arr: %s\n", char_arr);
     printf("char_ptr_arr: %s\n\n", char_ptr_arr);
@@ -25,3 +20,21 @@ int main() {
     printf("char_arr: %s\n", char_arr);
     printf("char_ptr_arr: %s\n", char_ptr_arr);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+    /* char* char_dyn_arr = malloc(8*sizeof(char));
+    char_dyn_arr = "Halloab";
+    
+    char_dyn_arr[7] = '\0';
+    printf("strlen(char_dyn_arr): %ld", strlen(char_dyn_arr)); */
+ 
