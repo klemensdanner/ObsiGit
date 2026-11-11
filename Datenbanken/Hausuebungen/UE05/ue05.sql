@@ -218,5 +218,18 @@ GROUP BY root_manager_id, root_manager_name;
 
 
 
+---------------------------------------------
+-- Aufgabe 4
 
+-- a) Alle actor_id, welche im selben film waren
+-- und nur Jahr 1990
+-- view erstellen
 
+SELECT film.film_id, id1.actor_id, id2.actor_id
+FROM film_actor id1
+        JOIN film_actor id2
+          ON id1.film_id = id2.film_id
+        JOIN film
+          ON id1.film_id = film.film_id 
+WHERE release_year = 1990
+        AND id1.actor_id <> id2.actor_id;
