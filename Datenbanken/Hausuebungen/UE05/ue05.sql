@@ -225,7 +225,10 @@ GROUP BY root_manager_id, root_manager_name;
 -- und nur Jahr 1990
 -- view erstellen
 
-SELECT film.film_id, id1.actor_id, id2.actor_id
+CREATE OR REPLACE VIEW partners AS
+SELECT film.film_id AS film_id,
+        id1.actor_id AS actor_id1,
+        id2.actor_id AS actor_id2
 FROM film_actor id1
         JOIN film_actor id2
           ON id1.film_id = id2.film_id
@@ -233,3 +236,44 @@ FROM film_actor id1
           ON id1.film_id = film.film_id 
 WHERE release_year = 1990
         AND id1.actor_id <> id2.actor_id;
+
+SELECT *
+FROM partners;
+
+
+
+
+-- b)
+-- actor_ids der beiden:
+-- Judy Dean: 35
+SELECT actor_id, last_name, first_name
+FROM actor
+WHERE last_name = 'DEAN' AND first_name = 'JUDY';
+
+-- Russell Close: 183
+SELECT actor_id, last_name, first_name
+FROM actor
+WHERE last_name = 'CLOSE' AND first_name = 'RUSSELL';
+
+-- von den beiden die view durchlaufen,
+-- nur bis level 3
+SELECT *
+FROM partners 
+START WITH actor_id1 IN (183, 35)
+CONNECT BY NOCYCLE PRIOR actor_id2 = actor_id1
+        AND LEVEL <= 3
+        AND PRIOR film_id <> film_id;
+
+
+WITH partners_reached AS (
+SELECT DISTINCT actor_id2
+FROM partners 
+START WITH actor_id1 IN (183, 35)
+CONNECT BY NOCYCLE PRIOR actor_id2 = actor_id1
+        AND LEVEL <= 3
+        AND PRIOR film_id <> film_id       
+)
+SELECT pre.actor_id2, act.first_name, act.last_name
+FROM partners_reached pre
+        JOIN actor act ON pre.actor_id2 = act.actor_id;
+
