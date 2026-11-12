@@ -213,15 +213,3 @@ GROUP BY department_name;
 UPDATE employees e
 SET salary = 9000
 WHERE e.employee_id = 103;
-
-COMMIT;
-
--- warten
-
-SELECT s.*, SYSDATE
-FROM dempart_sal_sum s
-WHERE d_name = 'IT';
--- wieder 19200
-
--- Materialisierte View dempart_sal_sum   B I T T E   wieder l�schen
-DROP MATERIALIZED VIEW dempart_sal_sum;

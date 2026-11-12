@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mein Blog</title>
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+<header class="header">
+    <h1>Mein WebDev Blog</h1>
+    <p>Gedanken, Tutorials und Inspiration rund ums Web</p>
+</header>
+
+<nav aria-label="Hauptnavigation">
+    <!-- Burger-Button für kleine Bildschirme -->
+    <button class="menu-toggle" id="menu-toggle" type="button"
+            aria-label="Menü" aria-expanded="false" aria-controls="nav-menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </button>
+    <ul id="nav-menu">
+        <li><a href="#">Start</a></li>
+        <li><a href="#">Artikel</a></li>
+        <li><a href="#">Über mich</a></li>
+        <li><a href="#">Kontakt</a></li>
+    </ul>
+</nav>
+
+<main>
+    <article class="blog-card">
+        <img src="images/javascript.jpg" alt="Blog Bild 1" width="300" height="200" loading="lazy" />
+        <div class="content">
+            <h2>JavaScript Grundlagen einfach erklärt</h2>
+            <p>
+                In diesem Beitrag zeige ich dir, wie du die wichtigsten Konzepte von JavaScript verstehst —
+                von Variablen und Funktionen bis zur dynamischen Typisierung.
+            </p>
+            <a href="#" class="btn">Weiterlesen</a>
+        </div>
+    </article>
+
+    <article class="blog-card">
+        <img src="images/flexbox.jpg" alt="Blog Bild 2" width="300" height="200" loading="lazy" />
+        <div class="content">
+            <h2>CSS Flexbox in 10 Minuten</h2>
+            <p>
+                Mit Flexbox kannst du Layouts erstellen, die sich automatisch anpassen.
+                Hier erfährst du, wie du ganz einfach startest.
+            </p>
+            <a href="#" class="btn">Weiterlesen</a>
+        </div>
+    </article>
+
+    <article class="blog-card">
+        <img src="images/tailwind.jpg" alt="Blog Bild 3" width="300" height="200" loading="lazy" />
+        <div class="content">
+            <h2>Moderne Webframeworks im Vergleich</h2>
+            <p>
+                Angular, React oder Vue – welches Framework passt zu deinem nächsten Projekt?
+                Ein kompakter Überblick.
+            </p>
+            <a href="#" class="btn">Weiterlesen</a>
+        </div>
+    </article>
+</main>
+
+<footer>
+    <p>&copy; 2025 Mein Blog – Alle Rechte vorbehalten.</p>
+    <ul>
+        <li><a href="#">Impressum</a></li>
+        <li><a href="#">Datenschutz</a></li>
+        <li><a href="#">Kontakt</a></li>
+    </ul>
+</footer>
+
+<script>
+    // Toggle-Script für das Burger-Menü
+    const toggle = document.querySelector("#menu-toggle");
+    const navLinks = document.querySelector("#nav-menu");
+
+    function setMenu(open) {
+        navLinks.classList.toggle("active", open);
+        toggle.classList.toggle("open", open);
+        toggle.setAttribute("aria-expanded", String(open));
+    }
+
+    toggle.addEventListener("click", () => {
+        setMenu(!navLinks.classList.contains("active"));
+    });
+
+    // Mit Escape schließen und Fokus zurück auf den Button
+    document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && navLinks.classList.contains("active")) {
+            setMenu(false);
+            toggle.focus();
+        }
+    });
+</script>
+</body>
+</html>

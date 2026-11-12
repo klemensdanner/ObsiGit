@@ -257,13 +257,6 @@ WHERE last_name = 'CLOSE' AND first_name = 'RUSSELL';
 
 -- von den beiden die view durchlaufen,
 -- nur bis level 3
-SELECT *
-FROM partners 
-START WITH actor_id1 IN (183, 35)
-CONNECT BY NOCYCLE PRIOR actor_id2 = actor_id1
-        AND LEVEL <= 3
-        AND PRIOR film_id <> film_id;
-
 
 WITH partners_reached AS (
 SELECT DISTINCT actor_id2
