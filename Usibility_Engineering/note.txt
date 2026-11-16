@@ -1,0 +1,24 @@
+Ansicht JobSearch: anzeigefehler
+Ansicht Search Results: Symbolbilder fehlen
+Ansicht ForCrew: Symbolbilder fehlen
+Ansicht "How will you use ReCrew?": Der Text ist nicht zentriert in dem Kreis, d.h. das S und C für Student und Company muss zentriert werden. Bitte achte im gesamten Projekt auf solche Fehler.
+
+wenn man im Studenten eingeloggt ist, wird man als Company eingeloggt, wenn man klickt auf:
+- Find talent
+- My listings
+- Create Posting
+
+wenn man im company eingeloggt ist, wird man als student eingeloggt, wenn man klickt auf:
+- Student Projects: man kommt zur Seite "Completed student projects". Erstelle stattdessen eine eigene Seite für "Student projects" für Unternehmen
+
+- auch von einem Projekt bei "Job or project detail" bei Klick auf "View company" kommt man in einen Company account
+
+
+
+Der Name mit dem man eingeloggt ist rechts oben soll klickbar sein und zum Profil führen (company oder student profile).
+
+Das Navigation menu ist unnötig (es verlinkt nur die Seiten, die eh über die Sidebar schon erreichbar sind) und kann entfernt werden.
+
+
+Bitte prüfe nocheinmal alles akriebisch auf solche Bedien- und Designfehler.
+Bitte passe die Gelbe Farbe des logos an die lilane Primary color an, achte darauf dass das Logo farblich und stilistisch gut zum Rest passt (du darfst es auch verändern)
