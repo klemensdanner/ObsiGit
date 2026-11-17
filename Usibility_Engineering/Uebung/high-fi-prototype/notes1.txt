@@ -1,0 +1,13 @@
+Deine Aufgabe:
+Bitte erstelle Screenshots von einer Auswahl von Seiten und füge sie in das bereitgestellte Word-Dokument in Kapitel 7 -     HIGH-FIDELITY PROTOTYP, zwischen dem Text und der Tabelle ein.
+Übernehme die Formatierung der Screenshots von Kapitel 5 Low Fidelity Prototyp.
+Füge immer den Screenshot zentriert ein, setze die Abbildungsnummerierungen fort, damit die Abbildungen ins Abbildungsverzeichnis übernommen werden können. Füge jeweils eine kurze Bildunterschrift hinzu, um welche Seite es sich ungefähr handelt (nur wenige Wörter).
+Achte darauf, dass jeweils 3 Screenshots auf einer Seite sind.
+
+Welche Seiten sollst du auswählen:
+- Bei den Sichten die es zwei mal gibt (einmal für Student und einmal für Company) kommen nur die vom Studenten rein. Erwähne in der Bildunterschrift, dass es eine ähnliche Seite für Company gibt.
+- Seiten mit Haupfunktionen von Company kommen auch rein.
+- Ein Bestätigungsschirm wie "Thank you for your review" muss rein, weil das die Verbesserung von der heuristischen Evaluation ist.
+
+Aktualisiere das Inhaltsverzeichnis und das Abbildungsverzeichnis. Stelle sicher, dass das Layout passt.
+

@@ -21,4 +21,7 @@ Das Navigation menu ist unnötig (es verlinkt nur die Seiten, die eh über die S
 
 
 Bitte prüfe nocheinmal alles akriebisch auf solche Bedien- und Designfehler.
-Bitte passe die Gelbe Farbe des logos an die lilane Primary color an, achte darauf dass das Logo farblich und stilistisch gut zum Rest passt (du darfst es auch verändern)
+Bitte passe die gelbe Farbe des Logos an die violette Primary color an, achte darauf, dass das Logo farblich und stilistisch gut zum Rest passt (du darfst es auch verändern)
+
+
+Prüfe mehrmals, ob alles sinnvoll und den Forderungen entsprechend umgesetzt ist.
