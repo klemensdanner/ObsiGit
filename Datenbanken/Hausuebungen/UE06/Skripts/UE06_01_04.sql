@@ -1,5 +1,5 @@
--- DROP TABLE evaluation_rental;
--- DROP SEQUENCE evaluation_rental_seq;
+--DROP TABLE evaluation_rental;
+--DROP SEQUENCE evaluation_rental_seq;
 
 -- Erstellen der Tabelle evaluation_rental (als Kopie von rental)
 CREATE TABLE evaluation_rental AS
