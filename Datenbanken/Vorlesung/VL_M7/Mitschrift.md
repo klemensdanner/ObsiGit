@@ -31,3 +31,5 @@ in Trigger keine commits, safepoint, rollback
 
 in einen Trigger soll nichts reingegeben werden, was unwiederruflich ist, es kann ja sein, dass es ein rollback gibt. (wenn im Trigger eine mail verschickt wird, ist die weg, kann man nicht rückgängig machen)
 
+
+Trigger gehört immer zum statement

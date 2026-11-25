@@ -133,3 +133,60 @@ let arr2 = arr.map(function(val) {
 console.log(arr2);
 
 // let keyValMap[] = // anschauen
+
+
+let obj = {
+        key1: "value1",
+        "key 2": "value2"
+};
+let z = {...obj}; // kopiert das Objekt; das ... splittet es auf in die einzelnen Elemente und legt durch die {} wieder ein Objekt an
+
+// functions
+function add(x, y) {
+        return x + y;
+}
+
+function add(x, y, z, ...args) {
+        function add2(x, y) { // innere Funktion, innerhalb des scopes
+                return x + y;
+        }
+        console.log("Fct2");
+        console.log(arguments); // alle Werte
+        console.log(args);
+        return x + y + z;
+}
+
+let func = function add2(a, b) {
+        return a + b;
+}
+
+
+console.log(add(1, 2));
+console.log(add("1", "2")); // das gibt den string "12"
+console.log(add(1)); //  NaN, intern ist das y undefined
+console.log(add(1, 2, 3));
+
+
+// zahlen zwischen 0 und 9 engeben, 
+
+// schleife, wenn -1 dann aufhören
+// wenn außerhalb bereich, aufforderung in den wertebereich
+// sonst mitzählen wie oft (im array)
+
+function ctValues() {
+        let ct = new Array(10).fill(0);
+        while (true) {
+                let value = Number(prompt("Enter your first value"));
+                if (value == -1) {
+                        console.log(ct);
+                        return;
+                }
+                if ((value < 0) || (value > 9)) {
+                        console.log("Enter a value between 0 and 9");
+                }
+                ct[value]++;
+        }
+
+}
+
+ctValues();
