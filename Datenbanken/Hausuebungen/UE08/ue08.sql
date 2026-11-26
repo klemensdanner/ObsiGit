@@ -111,7 +111,92 @@ ALTER TABLE new_emps ADD (
 
 CREATE SEQUENCE test_sequence;
 
+
+CREATE TABLE new_emps1 AS
+	SELECT employee_id, last_name, salary, department_id
+	FROM employees;
+
+
 SELECT TO_CHAR(time, 'DD.MM.YYYY HH24:MI:SS') AS time,
         session_id, db_user, os_user, ip, host_name, object
-FROM schema_logging;
+FROM schema_logging
+ORDER BY time ASC;
 
+
+-- Aufgabe 2
+SELECT *
+FROM evaluation_rental;
+
+CREATE OR REPLACE PROCEDURE check_amount
+    (p_film_id IN film.film_id%TYPE,
+     p_paid_amount IN NUMBER,
+     p_rented_days IN NUMBER)
+IS
+    m_target_amount NUMBER;
+    m_discount NUMBER;
+
+BEGIN
+    -- calculate target amount
+    SELECT rental_rate * p_rented_days
+        INTO m_target_amount
+    FROM film
+    WHERE film_id = p_film_id;
+
+    IF (p_paid_amount < 0.8 * m_target_amount) THEN
+        m_discount := ROUND(((1 - (p_paid_amount / m_target_amount)) * 100), 2);
+        RAISE_APPLICATION_ERROR(-20003, 
+        'Invalid amount for film ' ||
+        p_film_id ||
+        ', the given discount of ' ||
+        m_discount ||
+        '% is too high.');
+    END IF;
+END;
+/
+
+-- usage:
+-- check_amount(film_id, paid_amount, rented_days);
+
+
+BEGIN
+    check_amount(200, 5, 3);
+END;
+/
+
+
+-- 2.2)
+
+CREATE OR REPLACE TRIGGER check_amount_trg
+BEFORE INSERT OR UPDATE OF rental_id, amount, payment_date 
+    ON payment
+FOR EACH ROW
+DECLARE
+    m_film_id film.film_id%TYPE;
+    m_rental_duration NUMBER;
+
+BEGIN
+    -- film_id und verleihdauer aus rental und inventory
+    SELECT film_id,
+            CEIL(return_date - rental_date) AS rental_duration -- jeder angebrochene Tag zählt
+    INTO m_film_id, m_rental_duration
+    FROM rental
+        JOIN inventory USING (inventory_id)
+    WHERE rental_id = :NEW.rental_id; -- zu der neuen rental_id die richtigen werte finden
+    
+    IF :NEW.payment_date > SYSDATE THEN
+        :NEW.payment_date := SYSDATE;
+    END IF;
+    check_amount(m_film_id, :NEW.amount, m_rental_duration);
+END;
+/
+
+
+-- 2.3 Testen:
+UPDATE payment
+SET amount = 10
+WHERE payment_id = 6500;
+
+UPDATE payment
+SET amount = 10
+WHERE payment_id = 3000;
+-- funktioniert
