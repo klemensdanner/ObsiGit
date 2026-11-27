@@ -192,6 +192,12 @@ END;
 
 
 -- 2.3 Testen:
+
+SELECT payment_id, amount,
+       TO_CHAR(payment_date, 'DD.MM.YYYY HH24:MI:SS') AS payment_date
+FROM payment
+WHERE payment_id IN (6500, 3000, 1200);
+
 UPDATE payment
 SET amount = 10
 WHERE payment_id = 6500;
@@ -200,3 +206,18 @@ UPDATE payment
 SET amount = 10
 WHERE payment_id = 3000;
 -- funktioniert
+
+
+UPDATE payment
+SET payment_date = SYSDATE + 1
+WHERE payment_id = 1200;
+
+SELECT payment_id, amount,
+       TO_CHAR(payment_date, 'DD.MM.YYYY HH24:MI:SS') AS payment_date
+FROM payment
+WHERE payment_id IN (6500, 3000, 1200);
+
+SELECT TO_CHAR(SYSDATE, 'DD.MM.YYYY HH24:MI:SS')
+FROM DUAL;
+
+ROLLBACK;
