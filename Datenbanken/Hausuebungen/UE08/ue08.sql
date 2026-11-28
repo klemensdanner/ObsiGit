@@ -122,6 +122,13 @@ SELECT TO_CHAR(time, 'DD.MM.YYYY HH24:MI:SS') AS time,
 FROM schema_logging
 ORDER BY time ASC;
 
+-- 1.5)
+SELECT TO_CHAR(time, 'DD.MM.YYYY HH24:MI:SS') AS time,
+        session_id, db_user, os_user, ip, host_name, object
+FROM schema_logging
+ORDER BY time ASC;
+
+
 
 -- Aufgabe 2
 SELECT *
@@ -221,3 +228,206 @@ SELECT TO_CHAR(SYSDATE, 'DD.MM.YYYY HH24:MI:SS')
 FROM DUAL;
 
 ROLLBACK;
+
+
+
+
+
+----------------------------------------
+-- Aufgabe 3
+
+-- gegebener code wird ausgeführt
+CREATE TABLE new_rental AS
+SELECT *
+FROM rental;
+ALTER TABLE new_rental ADD CONSTRAINT new_rental_pk PRIMARY KEY  (rental_id);
+
+CREATE TABLE new_customer (customer_id, store_id NULL, first_name, last_name, email, address_id NULL, active, create_date, last_update) AS
+SELECT *
+FROM customer;
+
+ALTER TABLE new_customer ADD CONSTRAINT new_customer_pk PRIMARY KEY  (customer_id);
+
+
+-- 3.1 Sicht erstellen
+CREATE OR REPLACE VIEW premium_customer AS
+SELECT customer_id, first_name, last_name,
+        COUNT(inventory_id) AS numFilms
+FROM new_customer
+    JOIN new_rental USING (customer_id)
+GROUP BY customer_id, first_name, last_name
+HAVING COUNT(inventory_id) > 30;
+
+SELECT *
+FROM premium_customer
+ORDER BY numfilms ASC;
+
+-- 3.2
+SELECT MAX(customer_id)
+FROM new_customer;
+-- 599; neue werte ab 600 einfügen
+
+CREATE SEQUENCE gen_customer_id
+    START WITH 600
+    INCREMENT BY 1;
+
+CREATE OR REPLACE TRIGGER modify_premium_customer
+  INSTEAD OF INSERT OR UPDATE OR DELETE ON premium_customer
+  FOR EACH ROW
+DECLARE
+    m_new_customer_id new_customer.customer_id%TYPE;
+    m_count NUMBER;
+BEGIN
+     
+    IF INSERTING THEN
+        -- zuweisen:
+        m_new_customer_id := :NEW.customer_id;
+        IF m_new_customer_id IS NULL THEN
+            -- in schleife zuweisen
+            LOOP
+                -- neuen value zuweisen
+                m_new_customer_id := gen_customer_id.nextVal;
+
+                -- abfragen wie oft es die schon gibt
+                SELECT COUNT(*)
+                    INTO m_count
+                FROM new_customer
+                WHERE customer_id = m_new_customer_id;
+
+                -- exit wenn sis nicht gibt - dann darf sie verwendet werden
+                EXIT WHEN m_count = 0;
+            END LOOP;
+        END IF;
+
+        INSERT INTO new_customer (customer_id, first_name, last_name
+        , create_date, last_update)
+        VALUES (m_new_customer_id, :NEW.first_name, :NEW.last_name, SYSDATE, SYSDATE);
+    ELSIF UPDATING('numFilms') THEN
+        RAISE_APPLICATION_ERROR(-20006, 'Cannot modify numFilms');
+    ELSIF UPDATING('customer_id') THEN
+        RAISE_APPLICATION_ERROR(-20007, 'Cannot modify primary key customer_id');
+    ELSIF UPDATING THEN
+        UPDATE new_customer
+        SET first_name = :NEW.first_name,
+            last_name = :NEW.last_name,
+            last_update = SYSDATE
+        WHERE customer_id = :OLD.customer_id;
+    ELSIF DELETING THEN
+        DELETE FROM new_rental
+        WHERE customer_id = :OLD.customer_id;
+
+        DELETE FROM new_customer
+        WHERE customer_id = :OLD.customer_id;
+    END IF;
+END;
+/
+
+
+
+-- 3.3) Testen (vorgegebener code)
+-------
+
+-- 3.3.T1)
+-- vor dem Insert: es gibt keine 'Poppins'
+SELECT *
+FROM new_customer
+WHERE last_name = 'Poppins';
+-- kein Ergebnis
+
+SELECT *
+FROM premium_customer
+WHERE last_name = 'Poppins';
+-- kein Ergebnis
+
+INSERT INTO premium_customer (customer_id, first_name, last_name) 
+       VALUES (3000, 'Mary', 'Poppins');
+INSERT INTO premium_customer (first_name, last_name) 
+       VALUES ('Mary', 'Poppins');
+
+-- es gibt keine Möglichkeit, über die View in new_rental einzufügen
+-- Daher eine Abfrage auf new_customer
+-- nach dem statement:
+SELECT *
+FROM new_customer
+WHERE last_name = 'Poppins';
+-- es gibt zwei Poppins, eine mit customer_id 3000 und eine mit einer neu generierten customer_id
+
+-- Abfragen auf die Sicht:
+SELECT *
+FROM premium_customer
+WHERE last_name = 'Poppins';
+-- kein Ergebnis, weil neue Kunden keine Premiumkunden sind (noch keine Filme ausgeliehen)
+
+
+
+-- 3.3.T2
+
+SELECT *
+FROM premium_customer
+WHERE last_name = 'Poppins';
+
+-- 3.3.T3
+-- Abfrage vor dem Löschen
+SELECT *
+FROM premium_customer
+WHERE customer_id = 51;
+
+SELECT *
+FROM new_customer
+WHERE customer_id = 51;
+
+SELECT *
+FROM new_rental
+WHERE customer_id = 51;
+
+
+DELETE FROM premium_customer
+WHERE customer_id = 51;
+
+-- 3.3.T4
+UPDATE premium_customer
+   SET numFilms = 40
+ WHERE customer_id = 470;
+ 
+
+-- 3.3.T5
+UPDATE premium_customer
+   SET customer_id = 40
+ WHERE customer_id = 470; 
+
+
+-- 3.3.T6
+SELECT *
+FROM new_customer
+WHERE customer_id = 470;
+
+SELECT *
+FROM premium_customer
+WHERE customer_id = 470;
+
+UPDATE premium_customer
+   SET first_name = 'John',
+       last_name = 'Smith'
+ WHERE customer_id = 470;  
+------------- End vorgegebener code
+
+
+ROLLBACK;
+
+
+-- Aufräumen:
+DROP VIEW premium_customer;
+DROP SEQUENCE gen_customer_id;
+DROP TABLE new_rental;
+DROP TABLE new_customer;
+
+
+
+
+-- Aufgabe 1.5 nach der Bearbeitung des Rests.
+SELECT TO_CHAR(time, 'DD.MM.YYYY HH24:MI:SS') AS time,
+        session_id, db_user, os_user, ip, host_name, object
+FROM schema_logging
+ORDER BY time ASC;
+-- nochmal ausgeführt
+

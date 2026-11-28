@@ -45,6 +45,11 @@
 > 
 > zur Compilezeit ist der Typ hier für jeden Typ bekannt, d.h. dass eine variable Anzahl von Parametern trotzdem typsicher ist
 
+> [!PDF|yellow] [[12-C++-Templates.pdf#page=23&selection=38,13,38,36&color=yellow|12-C++-Templates, p.22]]
+> >  get_first(T container)
+> 
+> man weiß nicht umbedingt, ob das gutgeht, aber man siehts wenn mans aufruft
+
 
 
 
